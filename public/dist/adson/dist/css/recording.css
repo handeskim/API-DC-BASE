@@ -1,0 +1,36 @@
+#refPlay{
+	float: left;
+    width: 100%;
+    margin-top: 5px;
+}
+#pasue:active {
+    float: right;
+    text-align: center;
+    margin-right: 5px;
+    margin-top: 3px;
+    background: none;
+    border: none;
+    color: #673AB7;
+    font-size: 29px;
+}
+}
+#pasue:hover {
+    float: right;
+    text-align: center;
+    margin-right: 5px;
+    margin-top: 3px;
+    background: none;
+    border: none;
+    color: #673AB7;
+    font-size: 29px;
+}
+#pasue {
+    float: right;
+    text-align: center;
+    margin-right: 5px;
+    margin-top: 3px;
+    background: none;
+    border: none;
+    color: #673AB7;
+    font-size: 23px;
+}

@@ -1,0 +1,285 @@
+.navbar-header{
+	/* background: #fdb52e; */
+	background: rgba(0,0,0,0.8);
+    color: #fff;
+}
+.footer_main{
+	background: #d6d6d6;
+    color: #fff;
+	clear: both;
+    width: 100%;
+    float: left;
+    margin: 0px;
+	    height: 100%;
+}
+.footer_container_uid_member{
+	width:100%;
+	float:left;
+}
+.footer_container_uid_member li{
+	float:left;
+	margin-top: 10px;
+}
+.footer_container_uid_member li a{
+	 color: #333;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 12px;
+    margin: 10px;
+}
+
+.footer_container_uid_member li + li {
+	margin-left: 0%;
+}
+.mail_controller_cms{
+	/* background: #fdb52e; */
+	background: #000;
+    color: #fff;
+}
+#main_cli_cms_header{
+	/* background: #fdb52e; */
+	background: rgba(0,0,0,0.8);
+    color: #fff;
+}
+
+.navbar-brand{
+	background: #fff;
+}
+
+.navbar-brand img{
+	height: 100%;
+}
+
+.nav li a {
+	color:#fff;
+}
+
+.nav li a:hover{
+	background: #fdb52e;
+}
+
+.nav .active{
+	background: #fdb52e; 
+}
+
+.nav li.dropdown-toggle{
+	background: #fdb52e; 
+	
+}
+.nav li ul.dropdown-menu {
+	background: #fdb52e;
+}
+.nav li.open{
+	background: #fdb52e; 
+	
+}
+.nav .open a, .nav .open a:focus, .nav .open a:hover {
+	background: #fdb52e;
+}
+ol, ul {
+    list-style: none;
+}
+ul.breadcrumbs {
+    float: left;
+}
+ul.breadcrumbs li {
+    float: left;
+    line-height: 28px;
+}
+
+ul.breadcrumbs li + li {
+    padding-left: 20px;
+    margin-left: 15px;
+    background: url(../images/icons/bc-arrow.png) 0 50% no-repeat;
+}
+
+#row-breadcrumbs {
+    background: #f4f4f4;
+    padding: 10px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.persona-splash {
+    width: 100%;
+    position: relative;
+    height: 230px;
+    padding-top: 46px;
+    overflow: hidden;
+    color: #fff;
+}
+
+@media (min-width: 995px) {
+	.no-photo.persona-splash {
+		height: 230px;
+	}
+	
+}
+.no-photo .persona-bg {
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		border: none;
+		background: transparent url(../../images/ugroup_id_desktop_2x.jpg) no-repeat;
+		background-position: right 0 top -300px;
+		    background-size: 100%;
+	}
+.persona-bg{
+	    opacity: 0.7;
+}
+.persona-bg {
+    background: transparent url(../../images/ugroup_id_desktop_2x.jpg) no-repeat top left;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    overflow: hidden;
+}
+@media (max-width: 505px) {
+	.no-photo .persona-bg {
+		background-position: right 0 top -300px;
+		background-size: auto;
+	}
+	.signout {
+		margin: 0px !important;
+		text-align: right;
+		width: 100%;
+		margin-bottom: 20px !important;
+	}
+
+}
+@media (max-width: 995px) {
+	.no-photo .persona-bg {
+		background-size: auto !important;
+	}
+	.no-photo.persona-splash {
+		height: 100%;
+		
+	}
+	.signout {
+		margin: 0px !important;
+		text-align: right;
+		width: 100%;
+		margin-bottom: 20px !important;
+	}
+}
+
+.signout {
+    margin: 25%;
+    text-align: right;
+    width: 100%;
+}
+.pull-right {
+    float: right !important;
+}
+.button-flat.button-overlay {
+    background: rgba(0,0,0,0.15);
+    color: #fff;
+    font-weight: 400;
+}
+
+.profile_username{
+	font-size: 21px;
+    line-height: 1.38105;
+    font-weight: 400;
+    letter-spacing: .011em;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+.persona-splash .no-photo{
+	opacity: 0.8;
+}
+.navbar-toggle .icon-bar{
+	background: #764e25;
+}
+
+h1.title_main{
+	padding: 10px;
+	font-size: 20px;
+	text-transform: none;
+	text-align: center;
+	font-weight: 600;
+	font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+	word-wrap: break-word;
+	text-transform: inherit;
+	color: #ffffff;
+}
+.title_profile_edit{
+	font-size: 32px;
+    word-wrap: break-word;
+    line-height: 1.25;
+    text-align: left;
+    font-weight: 400;
+    letter-spacing: .004em;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    text-transform: capitalize;
+    color: #666;
+    margin-top: 0;
+    pointer-events: none;
+}
+.main_contact{
+	margin: 0px;
+    border-top: 1px solid #fdb52e;
+    padding-top: 37px;
+    background: #fff;
+	margin-bottom: 30px;
+    padding-bottom: 30px;
+	min-height:550px;
+}
+.pin-tip {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float: left;
+	white-space: nowrap;
+	font-size: 18px;
+	padding-bottom: 26px;
+	font-weight: 700;
+}
+
+.pin-tip span:hover {
+   color: #fdb52e;
+    cursor: pointer;
+}
+
+.pin-tip span {
+   color: #c3c0bd;
+    cursor: pointer;
+}
+
+.persona_title_main{
+	background: #fdb52e;
+}
+
+#auGroupIDLabel{
+	color: #666;
+    margin: 0;
+    padding-bottom: 2px;
+    font-weight: 600;
+}
+#Privacy {
+	border-top: 1px solid #c9c9c9;
+    padding-top: 25px;
+    margin-top: 25px;
+}
+.profile_full_name{
+	    text-transform: uppercase;
+}
+
+#birthdayView{
+	color: rgb(102, 102, 102);
+    margin: 0px;
+    font-size: 18px;
+    text-align: left;
+}
+#a_back_home, #btn_edit_back{
+	background-color: #dad8d8;
+}
+#form_layout_contact{
+	background: #fdb52e;
+    padding: 27px;
+    border-radius: 7px;
+    color: #fff;
+}

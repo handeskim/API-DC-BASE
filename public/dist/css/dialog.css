@@ -1,0 +1,224 @@
+#booklet{
+	margin:0px;
+	padding:0px;
+}
+
+#booklet #pageheader {
+    background: #fdb52e;
+    color: #fff;
+}
+#booklet #pageheader {
+    background: #fdb52e;
+    color: #fff;
+}
+
+#booklet #pageheader #homelink {
+    background: url(/favicon.ico) no-repeat 10px 50%;
+    color: #fff;
+    margin: 0;
+    padding: 8px 10px 8px 49px;
+}
+#booklet #content {
+    float: none;
+    margin-bottom: 46px;
+    padding: 15px 30px 20px 30px;
+    width: auto;
+}
+
+#booklet #content {
+    border: 0 solid white;
+    float: none;
+    width: auto;
+}
+#content {
+    margin: 0;
+    outline: none;
+    padding: 0;
+    width: auto;
+}
+form {
+    margin: 0;
+    padding: 0;
+}
+.form_row {
+    padding: 0 0 8px 0;
+    text-align: left;
+}
+.clearfix {
+    zoom: 1;
+}
+ #booklet #loginform {
+    margin-top: 20px;
+    padding-top: 0;
+}
+label {
+    color: #666;
+    cursor: default;
+    font-weight: bold;
+    vertical-align: middle;
+}
+ #loginform {
+    clear: left;
+    margin: auto;
+    padding: 15px 0;
+    text-align: left;
+    width: 380px;
+}
+.form_row .login_form_label {
+    display: block;
+    float: left;
+    padding: 3px 0;
+       width: 100%;
+}
+.form_row {
+    padding: 0 0 8px 0;
+    text-align: left;
+}
+#email {
+    direction: ltr;
+}
+.form_row .inputtext, .inputpassword {
+    width: 175px;
+}
+ #loginform p.reset_password {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.form_row {
+    padding: 0 0 8px 0;
+    text-align: left;
+    float: left;
+    width: 100%;
+}
+.form_row .inputtext, .inputpassword {
+    width: 100%;
+    height: 35px;
+}
+ #loginform p {
+    line-height: 16px;
+    margin: 10px 0;
+    text-align: left;
+}
+.reset_password, .not_me_link {
+    padding-left: 100px;
+}
+
+#btn_register{
+    padding: 5px;
+    margin-top: 10px;
+    width: 100%;
+    background-color: #754d24;
+    border-color: #754d24;
+}
+#btn_login{
+	width: 100px;
+    height: 25px;
+    font-size: 14px;
+    padding: 1px;
+    text-align: center;
+    background: #fdb52e;
+    border-radius: 0px;
+    border: 1px solid #fdb52e;
+    cursor: pointer;
+}
+#btn_login:hover{
+	width: 100px;
+    height: 25px;
+    font-size: 14px;
+    padding: 1px;
+    text-align: center;
+    background: #754d24;
+    border-radius: 0px;
+    border: 1px solid #754d24;
+    color: #fff;
+    cursor: pointer;
+}
+#buttons {
+      padding: 0px;
+    text-align: left;
+    float: left;
+    width: 100%;
+}
+html ._55r1 {
+    background: #ffffff;
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    height: 22px;
+    line-height: 16px;
+    padding: 0 8px;
+    vertical-align: middle;
+}
+._50f7 {
+    font-weight: bold;
+}
+._4jy0 {
+    border: 1px solid;
+    border-radius: 2px;
+    box-sizing: content-box;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+    justify-content: center;
+    padding: 0 8px;
+    position: relative;
+    text-align: center;
+    text-shadow: none;
+    vertical-align: middle;
+}
+._42ft {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+}
+a {
+    color: #fdb52e;
+    cursor: pointer;
+    text-decoration: none;
+}
+._4jy3, ._4jy3._42fr:active, ._4jy3._42fr._42fs {
+    line-height: 22px;
+}
+._4jy2 {
+    background-color: #fdb52e;
+    border-color: #fdb52e;
+}
+._4jy1, ._4jy2 {
+    color: #fff;
+}
+._4jy0 {
+    transition: 200ms cubic-bezier(.08,.52,.52,1) background-color, 200ms cubic-bezier(.08,.52,.52,1) box-shadow, 200ms cubic-bezier(.08,.52,.52,1) transform;
+}
+._4jy0:before {
+    content: '';
+    display: inline-block;
+    height: 20px;
+    vertical-align: middle;
+}
+._4jy2:active, ._4jy2._42fs {
+    background-color: #2b9217;
+    border-color: #2b9217;
+}
+._4jy2:hover {
+    background-color: #36a420;
+    border-color: #36a420;
+}
+._4jy0:active {
+    transition: none;
+}
+._42ft:hover {
+    text-decoration: none;
+}
+#loginform p {
+    line-height: 16px;
+    /* margin: 10px 0; */
+    text-align: left;
+    float: left;
+    padding: 0px;
+    color: #f9f9f9;
+}
+#loginform p a {
+    color: #754d24;
+}

@@ -1,0 +1,11 @@
+RewriteEngine on
+RewriteBase /
+RewriteCond %{REQUEST_URI} ^/tools/ [NC]
+RewriteRule ^(.*)$ /index.php/errors/page_missing [L]
+
+RewriteCond %{HTTP_HOST} ^tools\.sitename\.com$
+RewriteCond $1 !^tools/
+RewriteRule ^(.*)$ /tools/$1 [L]
+
+RewriteCond $1 !^(index\.php|img|css|js|robots\.txt|tools)
+RewriteRule ^(.*)$ /index.php/$1 [L]
