@@ -29,6 +29,17 @@ ob_start();
  * By default development will show errors but testing and live will hide them.
  */
 session_start();
+
+if(isset($_SESSION['token_site'])){
+	$_SESSION['token_site'] = true;
+}else{
+	$_SESSION['token_site'] = false;
+}
+if(isset($_SESSION['token'])){
+	$_SESSION['token'] = true;
+}else{
+	$_SESSION['token'] = false;
+}
 if (defined('ENVIRONMENT'))
 {
 	switch (ENVIRONMENT)
@@ -36,6 +47,7 @@ if (defined('ENVIRONMENT'))
 		case 'development':
 			// error_reporting(E_ALL);
 			  error_reporting(E_ALL);
+					// error_reporting(0);
             ini_set('display_errors', 1);
 		break;
 	

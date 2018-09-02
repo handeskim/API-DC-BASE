@@ -21,7 +21,7 @@ class Register extends MY_Controller{
 	}
 	
 	public function index(){
-		if(isset($_POST['is_register'])){ if($_POST['is_register'] == 'on'){$this->signup($_POST);}}
+	
 		$this->data['remarketing'] = array('dynx_itemid' =>'','dynx_pagetype' => 'register', 'dynx_totalvalue' => 0 );
 		$this->parser->parse('default/header',$this->data);
 		$this->parser->parse('default/header-top',$this->data);
@@ -34,37 +34,42 @@ class Register extends MY_Controller{
 		$this->parser->parse('default/col/end-main',$this->data);
 		$this->parser->parse('default/footer',$this->data);
 	}
-	public function signup($p){
-		if(!empty($p['email'])){
-		if(!empty($p['username'])){
-		if(!empty($p['password'])){
-		if(!empty($p['password_duplicate'])){
-		if($p['password'] === $p['password_duplicate']){
-		if(!empty($p['auth'])){
-		if(!empty($p['auth_duplicate'])){
-		if($p['auth'] === $p['auth_duplicate']){
-		if(!empty($p['full_name'])){
-		if(!empty($p['phone'])){
-		$recaptcha = $p['g-recaptcha-response'];
-		$response = $this->recaptcha->verifyResponse($recaptcha);
-		if(isset($response['success'])){
-		if($response['success']==true){
-			$this->Prosesser($p);
-		}else{ echo $this->confirm('vui lòng điền recaptcha'); }
-		}else{ echo $this->confirm('vui lòng điền recaptcha '); }
-		}else{ echo $this->confirm('vui lòng điền số điện thoại thiếu'); }
-		}else{ echo $this->confirm('vui lòng điền họ và tên thiếu'); }
-		}else{ echo $this->confirm('Mật khẩu cấp 2 không giống nhau'); }
-		}else{ echo $this->confirm('xác nhận mật khẩu cấp 2 thiếu'); }
-		}else{ echo $this->confirm('điền mật khẩu cấp 2 thiếu' ); }
-		}else{ echo $this->confirm('mật khẩu không giống nhau'); }
-		}else{ echo $this->confirm('xác nhận mật khẩu thiếu'); }
-		}else{ echo $this->confirm('mật khẩu thiếu'); }
-		}else{ echo $this->confirm('tên đăng nhập thiếu'); }
-		}else{ echo $this->confirm('email nhập thiếu'); }
+	
+	public function signup(){
+			if(isset($_POST['is_register'])){ if($_POST['is_register'] == 'on'){
+					$p = $_POST;
+					if(!empty($p['email'])){
+					if(!empty($p['username'])){
+					if(!empty($p['password'])){
+					if(!empty($p['password_duplicate'])){
+					if($p['password'] === $p['password_duplicate']){
+					if(!empty($p['auth'])){
+					if(!empty($p['auth_duplicate'])){
+					if($p['auth'] === $p['auth_duplicate']){
+					if(!empty($p['full_name'])){
+					if(!empty($p['phone'])){
+					$recaptcha = $p['g-recaptcha-response'];
+					$response = $this->recaptcha->verifyResponse($recaptcha);
+					if(isset($response['success'])){
+					if($response['success']==true){
+						$this->Prosesser($p);
+					}else{ echo $this->confirm('vui lòng điền recaptcha'); }
+					}else{ echo $this->confirm('vui lòng điền recaptcha '); }
+					}else{ echo $this->confirm('vui lòng điền số điện thoại thiếu'); }
+					}else{ echo $this->confirm('vui lòng điền họ và tên thiếu'); }
+					}else{ echo $this->confirm('Mật khẩu cấp 2 không giống nhau'); }
+					}else{ echo $this->confirm('xác nhận mật khẩu cấp 2 thiếu'); }
+					}else{ echo $this->confirm('điền mật khẩu cấp 2 thiếu' ); }
+					}else{ echo $this->confirm('mật khẩu không giống nhau'); }
+					}else{ echo $this->confirm('xác nhận mật khẩu thiếu'); }
+					}else{ echo $this->confirm('mật khẩu thiếu'); }
+					}else{ echo $this->confirm('tên đăng nhập thiếu'); }
+					}else{ echo $this->confirm('email nhập thiếu'); }
+			}else{ echo $this->confirm('Lỗi đăng ký'); }
+		}
 	}
 	public function confirm($msg){
-		return '<script> confirm('.$msg.');</script>';
+		return '<script> confirm("'.$msg.'"); window.location.href = "'.base_url('đăng ký.html').'"; </script>';
 	}
 	public function Prosesser($p){
 		$this->param = array(
@@ -94,8 +99,9 @@ class Register extends MY_Controller{
 			$p = json_decode($client_info);
 			$data_user = convert_obj($p[0]);
 			if(!empty($data_user)){
-				$set = $this->session->set_userdata(array('data_user'=>$data_user));
-				$set = $this->session->set_userdata(array('token_session'=>true));
+				$this->session->set_userdata(array('data_user'=>$data_user));
+				$this->session->set_userdata(array('token_session'=>true));
+				redirect(base_url('thong-tin-ca-nhan.html'));
 				if(!empty($set)){
 						redirect(base_url('thong-tin-ca-nhan.html'));
 				}else{ echo $this->confirm('vui lòng đăng nhập bằng tài khoản vừa đăng ký, nếu hệ thống không tự chuyển'); } 

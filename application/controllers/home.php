@@ -6,10 +6,29 @@ class Home extends MY_Controller{
 		$this->load->model('global_model', 'GlobalMD');	
 		$this->msg = null;
 		$this->obj = array();
+		$this->param = array();
 		$this->result = array();
 		$this->data = $this->GlobalMD->site_default();
-		$token_session = $this->session->userdata('access_token');
-		if(isset($token_session)){ }
+		$this->_token = $this->session->userdata('token');
+		if(isset($this->_token)==true){	
+			$this->_token = $this->session->userdata('token');
+		}else{
+			$this->_token = $this->GlobalMD->_token();
+		}
+		$this->data['msg'] = null;
+		$this->api_name = $this->config->item('api_name');
+		$this->secret_key = $this->config->item('secret_key');
+		$this->priv_key = $this->config->item('priv_key');
+		$this->token_session = $this->session->userdata('token_session');
+		if($this->token_session){  
+			if($this->token_session){
+				$this->data['profile'] = $this->session->userdata('data_user');
+				$this->profile = $this->session->userdata('data_user');
+				if(!empty($this->profile)){
+					$this->client_id = ClientID($this->profile);
+				}
+			}
+		}
 		
 	}
 		

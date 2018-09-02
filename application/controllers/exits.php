@@ -23,9 +23,10 @@ class Exits extends MY_Controller{
 	}
 	
 	public function index(){
-		// session_destroy();
-		// $this->session->sess_destroy();
+		session_destroy();
+		$this->session->sess_destroy();
 		$this->session->unset_userdata('data_user');
+		$this->session->unset_userdata('token_session');
 		redirect(base_url());
 	}
 	

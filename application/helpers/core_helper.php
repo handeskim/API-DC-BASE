@@ -5,10 +5,32 @@ if(! function_exists('getObjectId')){
 		return $param->{'$id'};
 	}
 }
+
+if(! function_exists('ClientID')){
+	function ClientID($param) {
+			if(!empty($param["_id"]['$id'])){
+					return $param["_id"]['$id'];
+			}else{
+				return false;
+			}
+	}
+}
 if(! function_exists('convert_obj')){
 	function convert_obj($param) {
 		return json_decode(json_encode($param), true);;
 	}
+}
+if(! function_exists('handesk_encode')){
+  function handesk_encode($str){
+    $encode_str = urlencode(base64_encode(core_encrypt($str)));
+   return $encode_str;
+  }
+}
+if(! function_exists('handesk_decode')){
+  function handesk_decode($str){
+    $decode_str = core_decrypt(base64_decode(urldecode($str)));
+    return $decode_str;
+  }
 }
 /////////////////////////////////////
 if(! function_exists('encrypt_obj')){
@@ -131,7 +153,16 @@ if ( ! function_exists('fpath_ssl')){
 			}
 	}
 }
-
+ if(! function_exists('random_auth')){
+    function random_auth(){
+		$length = 5;
+		$lengthc = 3;
+		$randoms = substr(str_shuffle("012345678@#9ABCDEFGHIJKL$#@MNOPQRSTU@#VWXYZ"), 0, $length);
+		$randomc = substr(str_shuffle("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $lengthc);
+		$username = md5(sha1($randomc.$randoms));
+		return $username;
+    }
+  }
  if(! function_exists('random_name_ssl')){
     function random_name_ssl(){
 		$length = 18;

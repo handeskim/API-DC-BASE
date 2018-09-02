@@ -26,16 +26,17 @@ a:hover {
 	display:block
 }
 #header {
-	position:relative
+	position:fixed
+	/* position:relative */
 }
 .top-nav {
-	background:#4267b2;
+	background: #5fbc0d;
 	margin-bottom: 30px;
 	border-bottom:1px solid #4267b2
 	
 }
 .top-nav.noactive{
-	background:#4267b2;
+	background: #5fbc0d;
 	margin-bottom: 50px;
 	border-bottom:1px solid #4267b2
 	
@@ -337,7 +338,7 @@ nav.page-topnav[role=topnav] {
 	border-radius:3px
 }
 .btn-search {
-	background:#4267b2;
+	background: #5fbc0d;
 	border:medium none;
 	color:#fff;
 	padding:8px;
@@ -448,7 +449,7 @@ nav.page-topnav[role=topnav] {
 	display:inline-block
 }
 .block-title span, .block-title>h1 {
-    background:#4267b2;
+    background: #5fbc0d;
     height: 32px;
     line-height: 19px;
     font-size: 14px;
@@ -617,7 +618,7 @@ nav.page-topnav[role=topnav] {
 	color:rgba(255,255,255,.7)
 }
 .footer-top {
-	background:#4267b2;
+	background: #5fbc0d;
 	color:rgba(255,255,255,.5);
 	padding-top:30px;
 	padding-bottom:10px
@@ -674,7 +675,7 @@ nav.page-topnav[role=topnav] {
 	padding:3px 0
 }
 .footer-bottom {
-	background:#4267b2;
+	background: #5fbc0d;
 	color:rgba(255,255,255,.75)
 }
 .footer-bottom h3 {
@@ -685,7 +686,7 @@ nav.page-topnav[role=topnav] {
 	padding:0
 }
 .subcriber {
-	background:#29487d;
+	background:#03A9F4;
 	padding:10px 0 5px;
 	text-align:center
 }
@@ -4039,7 +4040,7 @@ h2 {
     width: 50px;
     overflow: hidden;
     vertical-align: middle;
-    background: #4267b2;
+    background: #5fbc0d;
     color: #fff;
     text-align: center;
     border-radius: 50%;

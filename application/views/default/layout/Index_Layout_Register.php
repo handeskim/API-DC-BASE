@@ -28,11 +28,11 @@
 					<input type="password" class="form-control" name="password_duplicate" placeholder="Nhập lại mật khẩu" required="">
 				</div>
 				<div class="input-group">
-					<span class="input-group-addon">Mật khẩu cấp 2</span>
+					<span class="input-group-addon">Mật khẩu cấp 2 (Mã bảo mật)</span>
 					<input type="password" class="form-control" name="auth" placeholder="Mật khẩu cấp 2" required="">
 				</div>
 				<div class="input-group">
-					<span class="input-group-addon">Nhập lại mật khẩu cấp 2</span>
+					<span class="input-group-addon">Nhập lại mật khẩu cấp 2 (Mã bảo mật)</span>
 					<input type="password" class="form-control" name="auth_duplicate" placeholder="Nhập lại mật khẩu cấp 2" required="">
 				</div>
 				<div class="input-group">

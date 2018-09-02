@@ -1,2 +1,2 @@
-<div class="col-md-4 col-sm-6 col-xs-12 sub">
+<div class="col-md-4 col-sm-12 col-xs-12 sub">
 	

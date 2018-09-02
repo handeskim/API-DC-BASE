@@ -16,7 +16,7 @@
 							<li class="menu-news"><a href="<?php echo base_url(); ?>tin-tuc.html">Tin tức</a></li>
 							<li class="menu-faq"><a rel="nofollow" href="<?php echo base_url(); ?>tin-moi/faq.html">FAQ</a></li>
 							<?php if(isset($token_session)){ ?>
-							<li class="menu-faq"><a rel="nofollow" href="<?php echo base_url('thong-tin-ca-nhan.html'); ?>tin-moi/faq.html"><i class="fa fa-money"></i> Số Dư: <span class="balancer"><?php if(!empty($balancer)){ echo $balancer;} ?>100.000.000</span></a></li>
+							<li class="menu-faq"><a rel="nofollow" href="<?php echo base_url('thong-tin-ca-nhan.html'); ?>tin-moi/faq.html"><i class="fa fa-money"></i> Số Dư: <span class="balancer"><?php if(!empty($balancer)){ echo $balancer;} ?>0</span> vnđ</a></li>
 							<li id="QuickLogin">
 								<a rel="nofollow" href="<?php echo base_url('thong-tin-ca-nhan.html');?>" title="Tài khoản của tôi"><i class="fa fa-user"></i> Tài khoản của tôi</a>
 							</li>
@@ -31,19 +31,12 @@
 										 Đăng nhập bằng Tài khoản
 										<form class="form" role="login" method="post" action="<?php echo base_url(); ?>dang-nhap.html" id="login-nav">
 											<div class="form-group">
-												<label class="sr-only" for="exampleInputEmail2">Email</label>
-												<input name="email" type="email" class="form-control" id="inputEmail3" placeholder="Email" required="" data-error="Email bạn nhập chưa đúng!">
-												<div class="help-block with-errors">
-												</div>
-												<div class="clearfix">
-												</div>
+												<label class="sr-only" for="exampleInputEmail2">Tên đăng nhập</label>
+												<input name="username" type="text" class="form-control" id="inputEmail3" placeholder="username" required="" data-error="Email bạn nhập chưa đúng!">
 											</div>
 											<div class="form-group">
-												<label class="sr-only" for="exampleInputPassword2">Password</label>
+												<label class="sr-only" for="exampleInputPassword2">Mật khẩu</label>
 												<input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Mật khẩu" data-minlength="6" data-error="Chưa nhập mật khẩu" required="">
-												<span class="help-block with-errors"></span>
-												<div class="clearfix">
-												</div>
 												<div class="help-block text-right">
 													<a id="RecoverPass" class="linkcolor" href="javascript:void(0);">Quên mật khẩu?</a>
 												</div>

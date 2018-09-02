@@ -29,7 +29,7 @@
 <script type="text/javascript" src="<?php echo base_url();?>public/bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>app/apps.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>app/Services/AskGlobal.js"></script>
-
+<script>  var csrf_name = '<?php echo core_csrf_name(); ?>'; var token_csrf = '<?php echo core_token_csrf(); ?>'; </script>
 <script> var url_global = "<?php echo base_url();?>"; </script>  
 <script> setInterval(function () { if(alert('Your session has expired!')){} else    window.location.reload();  }, 7200000); </script>  
 <script> var BASE_URL = '<?php echo base_url();?>'; </script>

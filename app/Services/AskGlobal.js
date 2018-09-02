@@ -10,7 +10,14 @@ function price_convert(p){
 	var pc = parseInt(p).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
 	return pc ;
 }
-
+function transfer_action(e) {
+    if(e === 'minus'){ return "Chuyển"; }
+		else if(e === 'plus'){ return "Nhận"; }
+		else { return "Unknown"; }
+}
+function getSum(total, num) {
+    return total + num;
+}
 function sum_array(e){
 	return e.reduce(function(a, b) { return parseInt(a, 10) + parseInt(b, 10);});
 }
@@ -79,6 +86,16 @@ function TFactory_LoadScroll(el,f,t,x){
 			}
 		}
 	});
+}
+function LFactory_load(elements,url){
+	  $(".LoaddingCharAnalytics").css('display','block');
+		$(elements).empty();
+		$(elements).css('display','none');
+		$(elements).load(url,function(){ 
+			 $(".LoaddingCharAnalytics").css('display','none');
+			 $(elements).css('display','block');
+		});
+		
 }
 function TFactory_Load(elements,f,t){
 	var e = $(elements).val();

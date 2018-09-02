@@ -28,34 +28,31 @@ class Global_model extends CI_Model{
 
 	public function _token(){
 		$sesion_token = $this->session->userdata('token');
-		if($sesion_token==false){	
+		if($sesion_token==true){
+			return $this->session->userdata('token');
+		}else{
 			$param = array('username' => $this->username,'password' =>$this->password,'auth' => $this->auth);
 			$this->obj = $this->query_global('api/connect',$param);
 			$p = (object)json_decode($this->obj);
 			if(!empty($p->token)){
 				$this->session->set_userdata('token',$p->token);
-				$sesion_token = $this->session->userdata('token');
-				return $sesion_token;
+				return $p->token;
 			}
-		}else{
-			return $sesion_token;
 		}
 	}
 	public function site_default(){
 		$token_site = $this->session->userdata('token_site');
-		if($token_site==false){	
+		if($token_site==true){
+			return $this->session->all_userdata();
+		}else{
 			$this->result = $this->query_get('apps/site/info',$this->obj);
 			$r = json_decode($this->result);
 			if(!empty($r[0])){
 				$this->obj = convert_obj($r[0]);
 				$this->session->set_userdata($this->obj);
 				$this->session->set_userdata(array('token_site'=>true));
-				return $this->session->all_userdata();
-			}else{
-				return $this->session->all_userdata();
+				return $this->obj;
 			}
-		}else{
-			return $this->session->all_userdata();
 		}
 	}
 	public function query_get($url,$array){
@@ -67,17 +64,20 @@ class Global_model extends CI_Model{
 		$this->obj = $this->rest->get($url,array($this->api_name => $this->secret_key,'param'=> encrypt_obj(json_encode($param),$this->secret_key,$this->priv_key),));
 		return $this->_result($this->obj);
 	}
-	
+	public function query_obj($url,$param){
+		$this->obj = $this->rest->get($url,array($this->api_name => $this->secret_key,'param'=> encrypt_obj(json_encode($param),$this->secret_key,$this->priv_key),));
+		return $this->obj;
+	}
 	public function _result($r){
 		if(!empty($r)){
 			if(!empty($r->status)){
 				if($r->status==1000){
 					if(!empty($r->result)){
 						return $this->obj = decrypt_obj($r->result,$this->secret_key,$this->priv_key);
-					}
-				}
-			}
-		}
+					}else{ $this->obj= $r; }
+				}else{ $this->obj= $r; }
+			}else{ $this->obj= $r; }
+		}else{ $this->obj= $r; }
 		return $this->obj;
 	}
 	public function response($r){

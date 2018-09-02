@@ -1,6 +1,10 @@
 
 
 @media (max-width: 680px) {
+	.start-main {
+		margin: 0px;
+		margin-top: 50px;
+	}
 	.main-profile {
 		margin: 0px;
 		margin-top: 10px;
@@ -147,6 +151,10 @@
 }
 /* // Medium devices (tablets, 768px and up) */
 @media (max-width: 750px) {
+	.start-main {
+		margin: 0px;
+		margin-top: 50px;
+	}
 	.main-profile {
 		margin: 0px;
 		margin-top: 10px;
@@ -180,6 +188,13 @@
 }
 /* // Medium devices (tablets, 768px and up) */
 @media (max-width: 768px) {
+	.start-main {
+		margin: 0px;
+		margin-top: 50px;
+	}
+	.profile_left_support{
+		display:block;
+	}
 	.main-profile {
 		margin: 0px;
 		margin-top: 10px;
@@ -216,11 +231,18 @@
 
  /* // Large devices (desktops, 992px and up) */
 @media (max-width: 992px) { 
+.start-main {
+		margin: 0px;
+		margin-top: 50px;
+	}
 	.main-profile {
 		margin: 0px;
 		margin-top: 10px;
 		margin-left: 0px;
 		padding: 0px;
+	}
+	.profile_left_support{
+		display:block;
 	}
 	.expand_profile_bar {
 		display:block;
@@ -243,7 +265,9 @@
 	}
 }
 @media (max-width: 1100px) { 
-	
+	.profile_left_support{
+		display:block;
+	}
 	.navbar-default .navbar-nav>li>a {
 		font-size: 11px;
 		color: #fff;
@@ -259,6 +283,9 @@
  }
  
 @media (max-width: 1200px) { 
+	.profile_left_support{
+		display:block;
+	}
 .navbar-default .navbar-nav>li>a {
 		font-size: 11px;
 		color: #fff;
@@ -272,5 +299,6 @@
 		text-transform: uppercase;
 	}
  }
+
 /* // Extra large devices (large desktops, 1200px and up) */
 @media (max-width: 1200px) { ... }

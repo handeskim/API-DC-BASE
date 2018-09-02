@@ -14,7 +14,7 @@ $autoload['libraries'] = array('recaptcha','template','trackback','curl','form_v
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url', 'template','form','core','validate');
+$autoload['helper'] = array('url', 'template','form','core','language','validate');
 
 
 /*
@@ -46,7 +46,7 @@ $autoload['config'] = array();
 |
 */
 
-$autoload['language'] = array();
+$autoload['language'] = array('app');
 
 
 /*
