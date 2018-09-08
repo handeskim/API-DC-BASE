@@ -73,6 +73,13 @@ $(document).ready(function(){
 				load_active_tab();
 				$(".history_balancer").addClass('active');
 				
+		});	
+		$('.withdrawal').click(function(){
+				url = BASE_URL+'profile/withdrawal';
+				LFactory_load('.main-profile',url);
+				load_active_tab();
+				$(".withdrawal").addClass('active');
+				
 		});
 });
 

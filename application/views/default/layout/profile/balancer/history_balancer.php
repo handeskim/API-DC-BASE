@@ -3,15 +3,46 @@
 			GIAO DỊCH SỐ DƯ
 	</div>
 	<div class="main-profile-body col-md-12 col-sm-12 col-xs-12 sub ">
+		
 		<div class="main-profile-body-details col-md-12 col-sm-12 col-xs-12 sub main-body-col"> 
 				<h3 class="title col-md-12 col-sm-12 col-xs-12 sub"><span class="title_head"> 
 				LỊCH SỬ BIẾN ĐỘNG SỐ DƯ</span>  </h3>
+				<div class="col-md-12 col-sm-12 col-xs-12 sub reset" > 
+					<div id="LoadAjax" style="margin: 0 auto;  min-width: 200px; max-width: 400px; display:none;" >
+					<img src="<?php echo base_url();?>public/images/giphy.gif">
+					</div>
+				</div>
+				<div class="main-profile-body-load col-md-12 col-sm-12 col-xs-12 sub "> 
+				</div>
+				<div class="main-profile-body-load-default col-md-12 col-sm-12 col-xs-12 sub "> 
 				<div class="col-md-12 col-sm-12 col-xs-12 sub tab_add_bank" >
+						<div class="col-md-12 col-sm-12 col-xs-12 sub" >
+					<div class="col-md-10 col-sm-10 col-xs-12 sub pull-left">
+						<div class="input-group date col-md-6 col-sm-6 col-xs-12 sub pull-left">
+								<div class="input-group-addon"><i class="fa fa-calendar"> <label> Ngày bắt đầu </label></i></div>
+								<input type="date" name="date_start" class="form-control pull-left" id="date_start" style="">
+						</div>
+						<div class="input-group date col-md-6 col-sm-6 col-xs-12 sub pull-right" >
+							<div class="input-group-addon"><i class="fa fa-calendar"> <label> Ngày kết thúc </label></i></div>
+							<input type="date" name="date_end" class="form-control pull-left" id="date_end">
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-12  pull-right">
+						<div class="input-group" >
+							<button id="search_history_balancer" class="btn btn-primary"> Tra cứu </button>
+						</div>
+					</div>
+					<div class="Loadding" style="margin: 0 auto;  min-width: 200px; max-width: 400px; display:none;" >
+							<img src="<?php echo base_url();?>public/images/giphy.gif">
+					</div>
+				</div>
 					<table  id="TableExtReport" class="table table-bordered table-hover dataTable display" style="width:100%" role="grid">
 					 <thead>
 							<tr>
 								<th> No</th>
 								<th> <?php echo lang('date_create');?> </th>
+								<th> <?php echo lang('type');?> </th>
+								<th> <?php echo lang('transaction');?> </th>
 								<th> <?php echo lang('action_transfer');?> </th>
 								<th> <?php echo lang('glosbe');?> </th>
 								<th> <?php echo lang('balancer');?> </th>
@@ -21,19 +52,43 @@
 								<th>  </th>
 							</tr>
 					 </thead>
+					  <tbody>
+							<tr>
+								<th> No</th>
+								<th> No </th>
+								<th> No</th>
+								<th> No </th>
+								<th> No </th>
+								<th> No </th>
+								<th> No </th>
+								<th> No </th>
+								<th> No </th>
+								<th> No </th>
+								<th> No </th>
+							</tr>
+					 </tbody>
+					 <tfoot>
+							<tr>
+								<th> No</th>
+								<th> <?php echo lang('date_create');?> </th>
+								<th> <?php echo lang('type');?> </th>
+								<th> <?php echo lang('transaction');?> </th>
+								<th> <?php echo lang('action_transfer');?> </th>
+								<th> <?php echo lang('glosbe');?> </th>
+								<th> <?php echo lang('balancer');?> </th>
+								<th> <?php echo lang('beneficiary');?> </th>
+								<th> <?php echo lang('payer_name');?> </th>
+								<th> <?php echo lang('status');?> </th>
+								<th>  </th>
+							</tr>
+					 </tfoot>
 				</table>
+				</div>
 				</div>
 		</div>
 	</div>
 </div>
-<script src="<?php echo base_url(); ?>public/dist/adson/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url();?>public/dist/adson/dataTables.bootstrap.min.js"></script>
-<script src="<?php echo base_url();?>public/dist/adson/dataTables.buttons.min.js"></script>
-<script src="<?php echo base_url();?>public/dist/adson/jszip.min.js"></script>
-<script src="<?php echo base_url();?>public/dist/adson/pdfmake.min.js"></script>
-<script src="<?php echo base_url();?>public/dist/adson/vfs_fonts.js"></script>
-<script src="<?php echo base_url();?>public/dist/adson/buttons.html5.min.js"></script>
-<script src="<?php echo base_url();?>public/dist/adson/jquery.canvasjs.min.js"></script>
-<script src="<?php echo base_url();?>public/dist/adson/buttons.flash.min.js"></script>
-<script src="<?php echo base_url();?>public/dist/adson/buttons.print.min.js"></script>
+<!-- datepicker -->
+
+
 <script src="<?php echo base_url()?>app/Services/Public/history_balancer.js">  </script>

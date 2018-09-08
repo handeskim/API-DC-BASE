@@ -47,11 +47,11 @@ $config['proxy_ips'] = '';
 $config['restore_key'] = 'hk@123';
 
 
-$config['provide_service'] = 'http://api.demo2308.handesk.xyz/';
+$config['provide_service'] = 'http://45.77.12.144/';
 $config['api_name'] = 'API-DOICARD-V1';
 $config['secret_key'] = 'f1e0f5eb388c511e834e09b26b68f7c2';
 $config['username'] = 'Administrator';
-$config['password'] = '112233fF';
-$config['auth'] = '112233fF';
+$config['password'] = '123456';
+$config['auth'] = '123123fF';
 $config['app_id'] = '5b82cf1058e693ca4d8b4573';
 $config['priv_key'] = '+Amgkh89z3IM4lBSQHfmlatNxGE2yftwvRjgEDSfzps8aWsRKM2G0LsMxUTxZtvOiByjcgorCZo7hXK5Y4lpIA==';

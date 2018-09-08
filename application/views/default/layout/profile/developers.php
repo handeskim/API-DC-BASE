@@ -43,7 +43,7 @@
 						</div>
 						<div class="col-md-12 col-sm-12 col-xs-12 sub ">
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<button type="submit" class="btn btn-primary pull-left"> KHÔI PHỤC MẬT KHẨU </button>
+								<button type="submit" class="btn btn-primary pull-left"> Khởi tạo API </button>
 							</div>
 							<div class="col-md-6 col-sm-6 col-xs-12">
 								<button type="button" class="btn btn-default pull-right close_expand_bank"> Đóng</button>

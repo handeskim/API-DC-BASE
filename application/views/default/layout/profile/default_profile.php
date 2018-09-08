@@ -24,32 +24,32 @@
 									<td><b><?php echo lang('email');?></b>
 									<i  data-toggle="tooltip" data-placement="right" title="Dùng để khôi phục tài khoản, mật khẩu, mã bảo mật (Mật khẩu cấp 2)" class="fa fa-info-circle"> </i>
 									</td>
-									<td><?php echo $profile['email']; ?></td>
+									<td><?php  if(isset($profile['email'])){ echo $profile['email']; }; ?></td>
 							</tr>
 							<tr>
 									<td><b><?php echo lang('full_name');?></b></td>
-									<td><?php echo $profile['full_name']; ?></td>
+									<td><?php  if(isset($profile['full_name'])){ echo $profile['full_name']; }; ?></td>
 							</tr>
 							<tr>
 									<td><b><?php echo lang('address');?></b></td>
-									<td><?php echo $profile['address']; ?></td>
+									<td><?php  if(isset($profile['address'])){ echo $profile['address']; }; ?></td>
 							</tr>
 							<tr>
 									<td><b><?php echo lang('city');?></b></td>
-									<td><?php echo $profile['city']; ?></td>
+									<td><?php if(isset($profile['city'])){ echo  $profile['city']; } ?></td>
 							</tr>
 							<tr>
 									<td><b><?php echo lang('country');?></b></td>
-									<td><?php echo $profile['country']; ?></td>
+									<td><?php  if(isset($profile['country'])){ echo $profile['country']; } ?></td>
 							</tr>
 							<tr>
 									<td><b><?php echo lang('phone');?></b></td>
-									<td><?php echo $profile['phone']; ?></td>
+									<td><?php  if(isset($profile['phone'])){ echo $profile['phone']; } ?></td>
 							</tr>
 							
 							<tr>
 									<td><b><?php echo lang('birthday');?></b></td>
-									<td><?php echo $profile['birthday']; ?></td>
+									<td><?php  if(isset($profile['birthday'])){ echo $profile['birthday']; } ?></td>
 							</tr>	
 							<tr>
 									<td><b><?php echo lang('date_create');?></b></td>

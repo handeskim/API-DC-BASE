@@ -16,8 +16,6 @@ class Global_model extends CI_Model{
 		$this->password = $this->config->item('password');
 		$this->auth = $this->config->item('auth');
 		$this->app_id = $this->config->item('app_id');
-		$this->_token = $this->_token();
-		//////////////////////////////////////////////
 		$config =  array('server' => $this->provide_service);
 		$this->rest->initialize($config);
 		$this->_connect =  array($this->api_name =>$this->secret_key);
@@ -31,7 +29,7 @@ class Global_model extends CI_Model{
 		if($sesion_token==true){
 			return $this->session->userdata('token');
 		}else{
-			$param = array('username' => $this->username,'password' =>$this->password,'auth' => $this->auth);
+			$param = array('username' => $this->username,'password' =>$this->password,'auth' => $this->auth,);
 			$this->obj = $this->query_global('api/connect',$param);
 			$p = (object)json_decode($this->obj);
 			if(!empty($p->token)){
@@ -39,6 +37,17 @@ class Global_model extends CI_Model{
 				return $p->token;
 			}
 		}
+	}
+	public  function _load_site_notification_top(){
+		$this->result = $this->pquery_result('apps/site/site_notifacation_top',$this->obj);
+		return $this->result;
+	}
+	public  function _site_load_site_faq(){
+		$this->result = $this->pquery_result('apps/site/site_load_site_faq',$this->obj);
+		return $this->result;
+	}public  function _site_load_site_news_box(){
+		$this->result = $this->pquery_result('apps/site/news_box',$this->obj);
+		return $this->result;
 	}
 	public function site_default(){
 		$token_site = $this->session->userdata('token_site');
@@ -64,6 +73,14 @@ class Global_model extends CI_Model{
 		$this->obj = $this->rest->get($url,array($this->api_name => $this->secret_key,'param'=> encrypt_obj(json_encode($param),$this->secret_key,$this->priv_key),));
 		return $this->_result($this->obj);
 	}
+	public function query_result($url,$param){
+		$this->obj = $this->rest->get($url,array($this->api_name => $this->secret_key,'param'=> encrypt_obj(json_encode($param),$this->secret_key,$this->priv_key),));
+		return $this->obj;
+	}
+	public function pquery_result($url,$param){
+		$this->obj = $this->rest->post($url,array($this->api_name => $this->secret_key,'param'=> encrypt_obj(json_encode($param),$this->secret_key,$this->priv_key),));
+		return $this->obj;
+	}
 	public function query_obj($url,$param){
 		$this->obj = $this->rest->get($url,array($this->api_name => $this->secret_key,'param'=> encrypt_obj(json_encode($param),$this->secret_key,$this->priv_key),));
 		return $this->obj;
@@ -85,7 +102,7 @@ class Global_model extends CI_Model{
 			if(!empty($r->status)){
 				if($r->status==1000){
 					if(!empty($r->result)){
-						return $this->obj = decrypt_obj($r->result,$this->secret_key,$this->priv_key);
+						$this->obj = decrypt_obj($r->result,$this->secret_key,$this->priv_key);
 					}
 				}
 			}

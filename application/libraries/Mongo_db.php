@@ -1541,43 +1541,43 @@ Class Mongo_db{
         * @return object or array
 	*/
 	
-        public function command($collection, $command = array())
+		public function command($collection, $command = array())
         {
-		if (empty($collection))
-		{
-			show_error("No Mongo collection specified to run command", 500);
-		}
-		
-		if (empty($command) || ! is_array($command))
-		{
-			show_error("no command were specified", 500);
-		}
-		
-                try
-                {
-                        $returns = $this->db->{$collection}->command($query);
-			
-                        if ($this->return_as == 'object')
-			{
-				return (object)$returns;
-			}
-			else
-			{
-				return $returns;
-			}
-                }
+					if (empty($collection))
+					{
+						show_error("No Mongo collection specified to run command", 500);
+					}
+					
+					if (empty($command) || ! is_array($command))
+					{
+						show_error("no command were specified", 500);
+					}
+					
+											try
+											{
+															$returns = $this->db->{$collection}->command($query);
+						
+															if ($this->return_as == 'object')
+						{
+							return (object)$returns;
+						}
+						else
+						{
+							return $returns;
+						}
+											}
 
-                catch (MongoCursorException $e)
-		{
-			if(isset($this->debug) == TRUE && $this->debug == TRUE)
-			{
-				show_error("Command failed : {$e->getMessage()}", 500);
-			}
-			else
-			{
-				show_error("Command failed.", 500);
-			}
-		}
+											catch (MongoCursorException $e)
+					{
+						if(isset($this->debug) == TRUE && $this->debug == TRUE)
+						{
+							show_error("Command failed : {$e->getMessage()}", 500);
+						}
+						else
+						{
+							show_error("Command failed.", 500);
+						}
+					}
         }
 
 

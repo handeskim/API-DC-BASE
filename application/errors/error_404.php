@@ -1,3 +1,1 @@
-
-<?php 
-header("location:../../index.php");
+NOT FOUND

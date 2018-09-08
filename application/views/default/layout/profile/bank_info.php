@@ -21,15 +21,18 @@
 								</tr>	
 							</thead>
 							<tbody>
-								<?php foreach($bank_info as $b){ ?>
-								<tr>
-									<td> <?php echo $b['bank_name']; ?></td>
-									<td><?php echo $b['bank_account']; ?></td>
-									<td><?php echo $b['account_holders']; ?></td>
-									<td><?php echo $b['branch_bank']; ?></td>
-									<td><?php echo $b['provinces_bank']; ?></td>
-									<td><button onclick="bank_empty('<?php echo $b['bank_id']; ?>')" class="btn btn-danger"> <i class="fa fa-trash"> </i></button></td>
-								</tr>	
+								<?php if(!empty($bank_info)){?>
+									<?php foreach($bank_info as $b){ 
+									?>
+									<tr>
+										<td><?php if(!empty($b->bank_name)){ echo $b->bank_name; } ?></td>
+										<td><?php if(!empty($b->bank_account)){ echo $b->bank_account; } ?></td>
+										<td><?php if(!empty($b->account_holders)){ echo $b->account_holders; } ?></td>
+										<td><?php if(!empty($b->branch_bank)){ echo $b->branch_bank; } ?></td>
+										<td><?php if(!empty($b->provinces_bank)){ echo $b->provinces_bank; } ?></td>
+										<td><button onclick="bank_empty('<?php if(!empty($b->bank_id)){ echo $b->bank_id; } ?>')" class="btn btn-danger"> <i class="fa fa-trash"> </i></button></td>
+									</tr>	
+									<?php } ?>
 								<?php } ?>
 							</tbody>
 						</table>

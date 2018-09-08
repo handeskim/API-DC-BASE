@@ -26,8 +26,8 @@ a:hover {
 	display:block
 }
 #header {
-	position:fixed
-	/* position:relative */
+	/* position:fixed */
+	position:relative
 }
 .top-nav {
 	background: #5fbc0d;
@@ -1868,7 +1868,7 @@ tbody {
 	color:#ff0
 }
 #header .menu-top li a:hover {
-	color:#38b5df
+	color:#FFEB3B
 }
 .btn:hover {
 	color:#fff;
@@ -1916,18 +1916,22 @@ tbody {
 	float:none
 }
 .hotline-icon {
-	color:#fff;
-	float:left;
-	padding-top: 4px
+color: #ff6e04;
+    float: left;
+    padding-top: 4px
 }
+
 .hotline-num {
-	float:left;
-	color:#ff0
+    float: left;
+    color: #5fbc0d;
+    font-size: 17px;
+    padding: 0px;
+    margin: 0px
 }
 .hotline-num a {
-	color:#ff0;
-	margin-left:3px;
-	font-weight:700
+    color: #ff6e04;
+    margin-left: 3px;
+    font-weight: 700;
 }
 .comment-item blockquote {
 	font-size:13px;
@@ -3491,9 +3495,7 @@ span.content {
 	display:none;
 	margin-left:50px
 }
-.navbar-default .navbar-nav>li>a {
-	font-size:18px
-}
+
 .full-text {
 	height:70px;
 	line-height:40px!important

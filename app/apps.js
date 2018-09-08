@@ -59,6 +59,7 @@ $(document).ready(function(){
 	$('[data-toggle="tooltip"]').tooltip();
 	
 });
+
 function init_apps(){
 	init_client_balancer();
 	setInterval(init_client_balancer, 10000);

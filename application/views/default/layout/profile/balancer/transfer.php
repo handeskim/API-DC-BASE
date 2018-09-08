@@ -39,4 +39,3 @@
 		</div>
 	</div>
 </div>
-<script src="<?php echo base_url()?>app/Services/Public/profile_bank.js">  </script>

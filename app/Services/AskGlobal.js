@@ -1,3 +1,5 @@
+function DateMunisDefault(t){e=new Date,d=new Date(e.setDate(e.getDate()-t));var a=d.getDate(),n=d.getMonth()+1,D=d.getFullYear();return n<10&&(n="0"+n),a<10&&(a="0"+a),D+"-"+n+"-"+a}
+
 function randomIntFromInterval(e){
 	if(e < 5){var min = 0;var max = 0;
 	}else if(e > 10 ){var min = 3;var max = 5;
@@ -6,9 +8,47 @@ function randomIntFromInterval(e){
 	}else if(e > 100){var min = 3;var max = 5;
 	}else{var min = 4;var max = 5;} var r = Math.floor(Math.random()*(max-min+1)+min);return r;
 }
+function LFactoryDetails_load(f){
+	  $("#LoadAjax").css('display','block');
+		$('.main-profile-body-load').empty();
+		$('.main-profile-body-load').css('display','none');
+		$('.main-profile-body-load-default').css('display','none');
+		$('.main-profile-body-load').load(BASE_URL+f,function(){ 
+			 $("#LoadAjax").css('display','none');
+			 $('.main-profile-body-load').css('display','block');
+		});
+}
+function CFactory_load(){
+	$('.main-profile-body-load').empty();
+	$('.main-profile-body-load').css('display','none');
+	$('.main-profile-body-load-default').css('display','block');
+}
+function date_start_default(){
+	return dateDefault();
+	
+}
+function date_end_default(){
+	return dateDefault();
+}
+function dateDefault(){
+	var date = new Date();
+	var day = date.getDate();
+	var month = date.getMonth() + 1;
+	var year = date.getFullYear();
+	if (month < 10) month = "0" + month;
+	if (day < 10) day = "0" + day;
+	var today = year + "-" + month + "-" + day;    
+	return today;
+}
 function price_convert(p){
 	var pc = parseInt(p).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
 	return pc ;
+}
+function transaction_status(e){
+	if(e==='done'){ return '<span class="label bg-green">'+e+'</span>';}
+	else if(e==='hold'){ return '<span class="label bg-red">'+e+'</span>';}
+	else if(e==='cancel'){ return '<span class="label bg-blue">'+e+'</span>';}
+	else{ return '<span class="label bg-black">'+e+'</span>'; }
 }
 function transfer_action(e) {
     if(e === 'minus'){ return "Chuyển"; }
@@ -96,6 +136,33 @@ function LFactory_load(elements,url){
 			 $(elements).css('display','block');
 		});
 		
+}
+function disable_header_notify_popup(){
+	var e = null;
+	var f = 'api/disable_notify_popup';
+	var r = GFactory_Providers(f,e);
+	// console.log(r);
+	if(r.status==true){
+		$("#modal-notify-popup").modal('hide');
+	}
+}
+function Notification_popup(e){
+	var f = 'api/notify_popup';
+	var p = {e:e};
+	var r = GFactory_Providers(f,p);
+	if(r.status==true){
+		if(r.data.title != null || r.data.title != undefined){
+			$(".header-notify-popup").empty();
+			$(".header-notify-popup").append(r.data.title);
+		}
+		if(r.data.description != null || r.data.description != undefined){
+			$(".body-notify-popup").empty();
+			$(".body-notify-popup").append(r.data.description);
+		}
+		$("#modal-notify-popup").modal('show');
+	}else{
+			$("#modal-notify-popup").modal('hide');
+	}
 }
 function TFactory_Load(elements,f,t){
 	var e = $(elements).val();

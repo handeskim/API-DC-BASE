@@ -8,10 +8,7 @@ class Register extends MY_Controller{
 		$this->param = array();
 		$this->result = array();
 		$this->data = $this->GlobalMD->site_default();
-		$this->_token = $this->session->userdata('token');
-		if($this->_token==false){	
-			$this->_token = $this->GlobalMD->_token();
-		}
+		$this->_token = $this->GlobalMD->_token();
 		$this->data['msg'] = null;
 		$this->api_name = $this->config->item('api_name');
 		$this->secret_key = $this->config->item('secret_key');
@@ -21,12 +18,20 @@ class Register extends MY_Controller{
 	}
 	
 	public function index(){
-	
+		session_destroy();
+		$this->session->sess_destroy();
+		$this->session->unset_userdata('data_user');
+		$this->session->unset_userdata('token_session');
 		$this->data['remarketing'] = array('dynx_itemid' =>'','dynx_pagetype' => 'register', 'dynx_totalvalue' => 0 );
 		$this->parser->parse('default/header',$this->data);
 		$this->parser->parse('default/header-top',$this->data);
+		$this->parser->parse('default/adson/header_top',$this->data);
+		$this->parser->parse('default/adson/header_nav',$this->data);
 		$this->parser->parse('default/col/start-main',$this->data);
 		$this->parser->parse('default/col/col-3-start',$this->data);
+		$this->parser->parse('default/adson/support',$this->data);
+		$this->parser->parse('default/adson/faq_box',$this->data);
+		$this->parser->parse('default/adson/new_box',$this->data);
 		$this->parser->parse('default/col/col-end',$this->data);
 		$this->parser->parse('default/col/col-9-start',$this->data);
 		$this->parser->parse('default/layout/Index_Layout_Register',$this->data);

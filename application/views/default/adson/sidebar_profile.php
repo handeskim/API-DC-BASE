@@ -1,6 +1,16 @@
 <div class="col-md-12 col-sm-12 col-xs-12 sub profile_bar">
 	<button class="btn btn-default sub pull-right expand_profile_bar" > <span class="fa fa-align-justify fa_expand_profile_bar"></span></button>
 	<div id="profile_left" class="profile_left col-md-12 col-sm-12 col-xs-12 sub">
+		<?php 
+		if(isset($profile['role'])){
+			
+			$id_client = $profile["_id"]['$id'];
+			$role = (int)$profile['role'];
+			if($role==1 || $role==2){
+				echo '<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate"> <h5> <a href="'.base_url('reseller.html').'"><span> <i class="fa fa-dashboard"> </i> </span><span class="cate_exit"> Quản lý CMS Admin </span> </a></h5> </div>';
+			}
+		}
+		?>
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5 class="default_profile"> <span> <i class="fa fa-user"> </i> </span><span class="cate_profile default_profile_cate"> Tài khoản <i class="fa fa-plus-square pull-right ppx ppx_account"> </i></span> </h5></div>
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub sub_profile_info sub_cate_profile">
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-user"> </i> </span><span class="cate_profile edit_profile"> Chỉnh sửa thông tin</span> </h5></div>
@@ -23,7 +33,7 @@
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-area-chart"> </i> </span><span class="cate_profile"> Chiết khấu</span> </h5></div>
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-line-chart"> </i> </span><span class="cate_profile"> Báo cáo doanh thu</span> </h5></div>
 		</div>
-		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-share-alt-square"> </i> </span><span class="cate_collaborators"> Chia sẻ Nạp Ngay</span> </h5> </div>
+		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <a target="_blank" href="<?php echo base_url('nap-ngay/'.$id_client.'.html');?>"><span> <i class="fa fa-share-alt-square"> </i> </span><span class="cate_collaborators"> Chia sẻ Nạp Ngay</span> </a></h5> </div>
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-sitemap"> </i> </span><span class="cate_collaborators"> Kiếm tiền Giới thiệu (CTV ) <i class="fa fa-plus-square pull-right ppx ppx_collaborators"> </i></span> </h5> </div>
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub sub_profile_collaborators sub_cate_profile">
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-user-plus"> </i> </span><span class="cate_profile"> Thêm mới CTV</span> </h5></div>
@@ -33,7 +43,7 @@
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub sub_profile_banlancer sub_cate_profile">
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-money"> </i> </span><span class="cate_profile"> Nạp thêm số dư</span> </h5></div>
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-history"> </i> </span><span class="cate_profile history_balancer"> Lịch sử thay đổi số dư</span> </h5></div>
-			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-exchange"> </i> </span><span class="cate_profile"> Rút tiền</span> </h5></div>
+			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-exchange"> </i> </span><span class="cate_profile withdrawal"> Rút tiền</span> </h5></div>
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-exchange"> </i> </span><span class="cate_profile balancer_transfer"> Chuyển khoản</span> </h5></div>
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-history"> </i> </span><span class="cate_profile"> Lịch sử rút tiền</span> </h5></div>
 		</div>
@@ -42,6 +52,7 @@
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-connectdevelop"> </i> </span><span class="cate_profile connectdeveloper"> Quản lý API</span> </h5></div>
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa fa-book"> </i> </span><span class="cate_profile developer_document"><a target="_blank" href="{developer_url}" class="developer-document">Tài liệu API</a></span> </h5></div>
 		</div>
+		
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate"> <h5> <a href="<?php echo base_url('thoat-tai-khoan.html');?>"><span> <i class="fa fa-unlock-alt"> </i> </span><span class="cate_exit"> Thoát ra </span> </a></h5> </div>
 	</div>
 </div>

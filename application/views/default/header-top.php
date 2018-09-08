@@ -1,3 +1,39 @@
+<?php 
+if(isset($_SESSION['notify_popup'])){
+	$sesion_notify_popup = $_SESSION['notify_popup'];
+	// var_dump($sesion_notify_popup);
+}else{
+	$sesion_notify_popup = true;
+}
+?>
+<script> 
+$(document).ready(function(){
+	var popup_sesion =  '<?php echo $sesion_notify_popup; ?>';
+	if(popup_sesion==true){
+		Notification_popup(popup_sesion);
+	}else{
+		$("#modal-notify-popup").modal('hide');
+	}
+});
+
+</script>
+<div class="modal fade" id="modal-notify-popup">
+	<div class="modal-dialog">
+		<div class="modal-content notify-popup-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span></button>
+				<h4 class="modal-title">Thông báo <i class="fa fa-bell-o"></i> <span class="header-notify-popup"> </span> </h4>
+			</div>
+			<div class="modal-body body-notify-popup">
+					
+			</div>
+			<div class="modal-footer">
+				<button type="button" onclick="disable_header_notify_popup()" class="btn btn-default pull-left" >không nhắc lại</button>
+			</div>
+		</div>
+	</div>
+</div>
 <div id="header_controller" class="header_controller">
 	<div id="header" class="header" style="display: block;">
 		<div class="container">
@@ -13,8 +49,6 @@
 						<ul class="menu-top">
 							<li class="head_notify"> <a rel="nofollow" href="tel:<?php if(!empty($hotline)){ echo $hotline; }?>" style="color: #eaeaea;">Khiếu nại, báo lỗi: <?php if(!empty($hotline)){ echo $hotline; }?></a></li>
 							<li class="menu-home"><a href="<?php echo base_url(); ?>"><span class="glyphicon glyphicon-home"></span></a></li>
-							<li class="menu-news"><a href="<?php echo base_url(); ?>tin-tuc.html">Tin tức</a></li>
-							<li class="menu-faq"><a rel="nofollow" href="<?php echo base_url(); ?>tin-moi/faq.html">FAQ</a></li>
 							<?php if(isset($token_session)){ ?>
 							<li class="menu-faq"><a rel="nofollow" href="<?php echo base_url('thong-tin-ca-nhan.html'); ?>tin-moi/faq.html"><i class="fa fa-money"></i> Số Dư: <span class="balancer"><?php if(!empty($balancer)){ echo $balancer;} ?>0</span> vnđ</a></li>
 							<li id="QuickLogin">

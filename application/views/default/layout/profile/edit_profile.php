@@ -9,31 +9,31 @@
 					<form class="from-edit-profile" method="post" action="<?php echo base_url();?>profile/update_info">
 						<div class="input-group">
 							<span class="input-group-addon"><?php echo lang('email');?></span>
-								<input type="email" name="email" class="form-control" placeholder="" value="<?php echo $profile['email']; ?>" required>
+								<input type="email" name="email" class="form-control" placeholder="" value="<?php if(!empty($profile['email'])){ echo $profile['email'];}  ?>" required>
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon"><?php echo lang('full_name');?></span>
-								<input type="text" name="full_name" class="form-control" placeholder="" value="<?php echo $profile['full_name']; ?>" required>
+								<input type="text" name="full_name" class="form-control" placeholder="" value="<?php if(!empty($profile['full_name'])){ echo $profile['full_name'];} ?>" required>
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon"><?php echo lang('address');?></span>
-								<input type="text" name="address" class="form-control" placeholder="" value="<?php echo $profile['address']; ?>" required>
+								<input type="text" name="address" class="form-control" placeholder="" value="<?php if(!empty($profile['address'])){ echo $profile['address'];} ?>" required>
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon"><?php echo lang('phone');?></span>
-								<input type="number" name="phone" class="form-control" placeholder="" value="<?php echo $profile['phone']; ?>" required>
+								<input type="number" name="phone" class="form-control" placeholder="" value="<?php if(!empty($profile['phone'])){ echo $profile['phone'];} ?>" required>
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon"><?php echo lang('birthday');?></span>
-								<input type="date" name="birthday" class="form-control" placeholder="" value="<?php echo $profile['birthday']; ?>" required>
+								<input type="date" name="birthday" class="form-control" placeholder="" value="<?php if(!empty($profile['birthday'])){ echo $profile['birthday'];} ?>" required>
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon"><?php echo lang('city');?></span>
-								<input type="text" name="city" class="form-control" placeholder="" value="<?php echo $profile['city']; ?>" required>
+								<input type="text" name="city" class="form-control" placeholder="" value="<?php if(!empty($profile['city'])){ echo $profile['city'];} ?>" required>
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon"><?php echo lang('country');?></span>
-								<input type="text" name="country" class="form-control" placeholder="" value="<?php echo $profile['country']; ?>" required>
+								<input type="text" name="country" class="form-control" placeholder="" value="<?php if(!empty($profile['country'])){ echo $profile['country'];}  ?>" required>
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon"><?php echo lang('auth');?></span>

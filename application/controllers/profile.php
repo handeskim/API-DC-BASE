@@ -9,29 +9,25 @@ class Profile extends MY_Controller{
 		$this->param = array();
 		$this->result = array();
 		$this->data = $this->GlobalMD->site_default();
-		$this->_token = $this->session->userdata('token');
-		if(isset($this->_token)==true){	
-			$this->_token = $this->session->userdata('token');
-		}else{
-			$this->_token = $this->GlobalMD->_token();
-		}
+		$this->data['remarketing'] = array();
+		$this->data = $this->GlobalMD->site_default();
+		$this->_token = $this->GlobalMD->_token();
 		$this->data['msg'] = null;
 		$this->api_name = $this->config->item('api_name');
 		$this->secret_key = $this->config->item('secret_key');
 		$this->priv_key = $this->config->item('priv_key');
 		$this->token_session = $this->session->userdata('token_session');
-		if($this->token_session){  
-			if($this->token_session){
+		if(isset($this->token_session)){  
+			if(!empty($this->token_session)){
 				$this->data['profile'] = $this->session->userdata('data_user');
 				$this->profile = $this->session->userdata('data_user');
+				$this->_role = (int)$this->profile['role'];
 				if(!empty($this->profile)){
 					$this->client_id = ClientID($this->profile);
-				
-				}
-			}
-		}else{
-			redirect(base_url('dang-ky.html'));
-		}
+					$this->data['client_id'] = $this->client_id;
+				}else{redirect(base_url('thoat-tai-khoan.html'));}
+			}else{redirect(base_url('thoat-tai-khoan.html'));}
+		}else{redirect(base_url('dang-ky.html'));}
 	}
 	
 	public function update_info(){
@@ -65,6 +61,8 @@ class Profile extends MY_Controller{
 		$this->data['remarketing'] = array('dynx_itemid' =>'','dynx_pagetype' => 'profile', 'dynx_totalvalue' => 0 );
 		$this->parser->parse('default/header',$this->data);
 		$this->parser->parse('default/header-top',$this->data);
+		$this->parser->parse('default/adson/header_top',$this->data);
+		$this->parser->parse('default/adson/header_nav',$this->data);
 		$this->parser->parse('default/col/start-main',$this->data);
 		$this->parser->parse('default/col/col-3-start',$this->data);
 		$this->parser->parse('default/adson/sidebar_profile',$this->data);
@@ -141,8 +139,10 @@ class Profile extends MY_Controller{
 	}
 	
 	public function bank_info(){
-		
-		$this->data['bank_info'] = $this->bank();
+		$bank_info =  $this->bank();
+		if(!empty($bank_info)){
+			$this->data['bank_info'] = $this->bank();
+		}
 		$this->data['bank_option'] = $this->bank_option();
 		$this->parser->parse('default/layout/profile/bank_info',$this->data);
 	}
@@ -151,11 +151,13 @@ class Profile extends MY_Controller{
 		$this->obj['client_id'] = $this->client_id;
 		$bank = $this->GlobalMD->query_global('api/user/bank_info',$this->obj);
 		if(!empty($bank)){
-			$bank = convert_obj(json_decode($bank));
-			if(!empty($bank[0])){
-				return $bank[0];
-			}
+			if(($bank->status == 1000)){
+				if(!empty($bank->info_bank)){
+					$this->result = $bank->info_bank;
+				}
+			};
 		}
+		return $this->result;
 	}
 	public function unlock(){
 			if(isset($_POST['is_checked'])){ 
@@ -247,10 +249,28 @@ class Profile extends MY_Controller{
 	public function unlock_auth(){
 		$this->parser->parse('default/layout/profile/unlock_auth',$this->data);
 	}
+	public function transfer_info($id){
+		if(isset($id)){
+			$this->obj['token'] = $this->_token;
+			$this->obj['client_id'] = $this->client_id;
+			$this->obj['keys'] = $id;
+			$this->result = $this->GlobalMD->query_result('api/transfer/info',$this->obj);
+			if(isset($this->result->result)){
+				if(!empty($this->result->result)){
+					$this->data['withdrawal'] = convert_object($this->result->result);
+				}
+			}
+			$this->data['root_id'] = $id;
+		}
+		$this->data['title'] = lang('withdrawal');
+		$this->data['title_main'] = 'Chi tiết giao dịch ID#'.$id;
+		$this->data['side_bar'] = 4;
+		$this->parser->parse('default/layout/profile/transfer_info',$this->data);
+	}
 	public function forgot_auth(){
 		$this->parser->parse('default/layout/profile/forgot_auth',$this->data);
 	}
-	private function developers_create(){
+	public function developers_create(){
 		$this->obj['token'] = $this->_token;
 		$this->obj['client_id'] = $this->client_id;
 		$developers = $this->GlobalMD->query_global('api/user/developer_create',$this->obj);
@@ -287,7 +307,7 @@ class Profile extends MY_Controller{
 							$this->obj['client_id'] = $this->client_id;
 							$this->obj['password'] = $_POST['password'];
 							$this->obj['authentication'] = $_POST['authentication'];
-							$transfer = $this->GlobalMD->query_global('api/balancer/transfer_confirm',$this->obj);
+							$transfer = $this->GlobalMD->query_result('api/balancer/transfer_confirm',$this->obj);
 							if(!empty($transfer->status)){
 								if($transfer->status==1999){
 										redirect(base_url('giao-dich-thanh-cong.html'));
@@ -298,6 +318,7 @@ class Profile extends MY_Controller{
 			}else{ $this->confirm('vui lòng đồng ý giao dịch'); }
 		}else{ $this->confirm('vui lòng đồng ý giao dịch'); }
 	}
+	
 	public function transfer(){
 		if(isset($_POST['is_checked'])){ 
 			if($_POST['is_checked'] == 'on'){
@@ -309,13 +330,13 @@ class Profile extends MY_Controller{
 						$this->obj['beneficiary_id'] = $_POST['beneficiary_id'];
 						$this->obj['money_transfer'] = $_POST['money_transfer'];
 						$this->obj['auth'] = $_POST['auth'];
-						$transfer = $this->GlobalMD->query_global('api/balancer/transfer',$this->obj);
+						$transfer = $this->GlobalMD->query_result('api/balancer/transfer',$this->obj);
 						if(!empty($transfer)){
-							$p = convert_obj(json_decode($transfer));
-							if(isset($p)){
-								try{
+						if($transfer->status == 1000){
+								$p = convert_obj($transfer);
+							
+								if(isset($p)){
 								if($p["status"]==1000){
-									
 									$this->data['confim_transfer'] = $p;
 										$this->parser->parse('default/header',$this->data);
 										$this->parser->parse('default/header-top',$this->data);
@@ -330,9 +351,38 @@ class Profile extends MY_Controller{
 										$this->parser->parse('default/col/end-main',$this->data);
 										$this->parser->parse('default/footer',$this->data);
 								}else{ $this->confirm('Giao dịch lỗi Thử lại giao dịch'); }
-								}catch (Exception $e) { $this->confirm('Giao dịch lỗi Thử lại giao dịch');}
-							}else{ $this->confirm('Giao dịch lỗi Thử lại giao dịch'); }
+								}else{ $this->confirm('Giao dịch lỗi Thử lại giao dịch'); }
+							}else{ $this->confirm($transfer->msg); }
 						}else{ $this->confirm('Giao dịch lỗi Thử lại giao dịch'); }
+					}else{ $this->confirm('vui lòng không bỏ trống số tiền chuyển'); }
+				}else{ $this->confirm('vui lòng không bỏ trống tài khoản nhận'); }
+			}else{ $this->confirm('vui lòng không bỏ trống mã bảo mật cấp 2'); }
+			}else{ $this->confirm('vui lòng đồng ý giao dịch'); }
+		}else{ $this->confirm('vui lòng đồng ý giao dịch'); }
+	}	
+
+	public function transfer_withdrawal(){
+		if(isset($_POST['is_checked'])){ 
+			if($_POST['is_checked'] == 'on'){
+			if(!empty($_POST['auth'])){
+				if(!empty($_POST['bank_id'])){
+					if(!empty($_POST['money_transfer'])){
+						$this->obj['token'] = $this->_token;
+						$this->obj['client_id'] = $this->client_id;
+						$this->obj['bank_id'] = $_POST['bank_id'];
+						$this->obj['auth'] = $_POST['auth'];
+						$this->obj['money_transfer'] = $_POST['money_transfer'];
+						$this->obj['bank_name'] = $_POST['bank_name'];
+						$this->obj['account_holders'] = $_POST['account_holders'];
+						$this->obj['bank_account'] = $_POST['bank_account'];
+						$this->obj['provinces_bank'] = $_POST['provinces_bank'];
+						$this->obj['branch_bank'] = $_POST['branch_bank'];
+						$transfer = $this->GlobalMD->query_global('api/balancer/withdrawal',$this->obj);
+						if(isset($transfer->status)){
+							if($transfer->status === 1999){
+								redirect(base_url('giao-dich-thanh-cong.html'));
+							}else{ $this->confirm($transfer->msg); }
+						}else{ $this->confirm($transfer->msg); }
 					}else{ $this->confirm('vui lòng không bỏ trống số tiền chuyển'); }
 				}else{ $this->confirm('vui lòng không bỏ trống tài khoản nhận'); }
 			}else{ $this->confirm('vui lòng không bỏ trống mã bảo mật cấp 2'); }
@@ -344,6 +394,11 @@ class Profile extends MY_Controller{
 	}
 	public function history_balancer(){
 		$this->parser->parse('default/layout/profile/balancer/history_balancer',$this->data);
+	}
+	public function withdrawal(){
+		$min_transfer = $this->GlobalMD->query_global('apps/site/min_transfer',$this->obj);
+		$this->data['min_transfer'] = $min_transfer->result;
+		$this->parser->parse('default/layout/profile/balancer/withdrawal',$this->data);
 	}
 	
 }

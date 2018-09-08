@@ -30,16 +30,9 @@ ob_start();
  */
 session_start();
 
-if(isset($_SESSION['token_site'])){
-	$_SESSION['token_site'] = true;
-}else{
-	$_SESSION['token_site'] = false;
-}
-if(isset($_SESSION['token'])){
-	$_SESSION['token'] = true;
-}else{
-	$_SESSION['token'] = false;
-}
+// if(isset($_SESSION['token_site'])){ $_SESSION['token_site'] = true; }else{ $_SESSION['token_site'] = false; }
+// if(isset($_SESSION['notify_popup'])){$_SESSION['notify_popup'] = false;}else{$_SESSION['notify_popup'] = true;}
+
 if (defined('ENVIRONMENT'))
 {
 	switch (ENVIRONMENT)

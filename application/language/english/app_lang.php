@@ -7,6 +7,9 @@ $lang['email'] = "Thư điện tử";
 $lang['auth'] = "Mật khẩu cấp 2";
 $lang['auth_new'] = "Mật khẩu cấp 2 Mới";
 $lang['password'] = "Mật khẩu cấp 1";
+$lang['transaction'] = "Giao dịch";
+$lang['type'] = "Kiểu Giao dịch";
+$lang['types'] = "Kiểu Giao dịch";
 $lang['awatar'] = "Hình đại diện";
 $lang['full_name'] = "Họ và tên";
 $lang['phone'] = "Số điện thoại";
@@ -40,3 +43,73 @@ $lang['payer_name'] = "Người chuyển";
 $lang['glosbe'] = "Biến động";
 $lang['action_transfer'] = "Kiểu";
 $lang['status'] = "Trạng thái";
+///////////////////////////////
+$lang['no'] = "#STT";
+$lang['staff'] = "Tài khoản ";
+$lang['client_name'] = "Tên Tài Khoản ";
+$lang['developer'] = "Nhà Phát Triển ";
+$lang['date_created'] = "Ngày Tạo";
+$lang['users'] = "ID Tài Khoản";
+$lang['client_id'] = "ID Tài Khoản";
+$lang['reseller'] = "ID Đại Lý";
+$lang['key'] = "Merchant ID";
+$lang['role'] = "Quyền Hạn";
+$lang['level'] = "Cấp Độ API";
+$lang['ip_addresses'] = "Địa Chỉ IP";
+$lang['config'] = "Cấu hình chung";
+$lang['transfer_config'] = "Phí giao dịch chuyển tiền nội bộ";
+$lang['withdraw_config'] = "Phí giao dịch chuyển tiền về ngân hàng";
+$lang['withdrawal'] = "Rút Tiền về ngân hàng";
+$lang['min_withdraw'] = "Định mức tối thiểu giao dịch về hgân hàng";
+$lang['rose_reseller'] = "Phần trăm hoa hồng cho đại lý";
+$lang['transfer_log'] = "Lịch sử giao dịch";
+$lang['rose_client'] = "Phần trăm hoa hồng cho tài khoản thường";
+$lang['action'] = "Hành động";
+$lang['date_update_transfer'] = "Thời gian cập nhập giao dịch";
+$lang['transfer_transaction'] = "Tracking Transfer";
+//////////////////////////////////////////////////
+
+$lang['beneficiary_balancer'] = "Số dư người nhận";
+$lang['balancer_plus'] = "Số dư Sau nhận";
+$lang['balancer_munis'] = "Số dư Sau Trừ";
+$lang['balancer_clients'] = "Số dư Tài khoản";
+$lang['withdrawal'] = "Chuyển Khoản Về Ngân Hàng";
+$lang['money_rose'] = "Hoa Hồng";
+
+/////////////////// CARD//////////////////////
+
+$lang['publisher'] = "Cộng Tác viên ID";
+$lang['time_update_transfer'] = "Time";
+$lang['password_transfer'] = "PA";
+$lang['time_create'] = "Time";
+$lang['transaction_card'] = "Giao dịch Card";
+$lang['ip'] = "IP ";
+$lang['card'] = "Giao dịch đổi thẻ";
+$lang['tracking'] = "Track ID";
+$lang['note'] = "Note ID";
+$lang['card_seri'] = "Mã Seri";
+$lang['card_code'] = "Mã Thẻ";
+$lang['card_type'] = "Kiểu Thẻ";
+$lang['card_amount'] = "Tiền Thẻ";
+$lang['card_deduct'] = "Chiết Khấu";
+$lang['card_rose'] = "Hoa Hồng";
+$lang['card_status'] = "Trạng Thái Thẻ";
+$lang['card_message'] = "Thông báo Thẻ";
+$lang['transaction_service'] = "Transaction Serivce";
+
+///////////////////ACTION//////////
+$lang['hold'] = "hold";
+$lang['done'] = "done";
+$lang['reject'] = "reject";
+
+/*////////////////////////////////*/
+
+$lang['title'] = "Tiêu đề";
+$lang['alias'] = "Đường dẫn";
+$lang['images'] = "Hình ảnh";
+$lang['keywords'] = "Từ khóa";
+$lang['categories'] = "Danh mục";
+$lang['description'] = "Mô tả ngắn";
+$lang['description_seo'] = "Mô tả SEO";
+$lang['title_seo'] = "Tiêu đề SEO";
+$lang['contents'] = "Nội dung";
