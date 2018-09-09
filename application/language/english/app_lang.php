@@ -96,6 +96,7 @@ $lang['card_rose'] = "Hoa Hồng";
 $lang['card_status'] = "Trạng Thái Thẻ";
 $lang['card_message'] = "Thông báo Thẻ";
 $lang['transaction_service'] = "Transaction Serivce";
+$lang['transfer_transaction'] = "Track ID";
 
 ///////////////////ACTION//////////
 $lang['hold'] = "hold";

@@ -82,19 +82,48 @@
 					<tfoot>
 						<td><?php echo 	lang('no'); ?></td>
 						<td><?php echo 	lang('date_created'); ?></td>
-						<td><?php echo 	lang('card_seri'); ?></td>
-						<td><?php echo 	lang('card_code'); ?></td>
+						<td>
+							<select class="select2 select_filter">
+							<option value="">All</option>
+							<option value="hold" >hold</option>
+							<option value="done" >done</option>
+							<option value="reject" >reject</option>
+							</select>
+						</td>
+						<td>
+							<input type="text" class="text_filter" placeholder="[<?php echo 	lang('card_seri'); ?>]">
+						</td>
+						<td>
+							<input type="text" class="text_filter" placeholder="[	<?php echo 	lang('card_code'); ?>]">
+						</td>
 						<td><?php echo 	lang('card_type'); ?></td>
-						<td><?php echo 	lang('card_amount'); ?></td>
-						<td><?php echo 	lang('client_id'); ?></td>
-						<td><?php echo 	lang('transaction_card'); ?></td>
-						<td><?php echo 	lang('card_deduct'); ?></td>
-						<td><?php echo 	lang('card_rose'); ?></td>
-						<td><?php echo 	lang('card_status'); ?></td>
-						<td><?php echo 	lang('card_message'); ?></td>
-						<td><?php echo 	lang('transaction_service'); ?></td>
-						<td><?php echo 	lang('tracking'); ?></td>
+						<td>
+							<input type="text" class="text_filter" placeholder="[<?php echo 	lang('card_amount'); ?>]">
+						</td>
+						<td>
+						<input type="text" class="text_filter" placeholder="[<?php echo 	lang('client_id'); ?>]">
+						</td>
+						<td>
+						<input type="text" class="text_filter" placeholder="[<?php echo 	lang('card_deduct'); ?>]">
+						</td>
+						<td>
+						<input type="text" class="text_filter" placeholder="[<?php echo 	lang('card_rose'); ?>]">
+						</td>
+						<td>
+						<input type="text" class="text_filter" placeholder="[<?php echo 	lang('card_status'); ?>]">
+						</td>
+						<td><?php echo 	lang('card_message'); ?>
+						</td>
+						<td>
+						<input type="text" class="text_filter" placeholder="[<?php echo 	lang('transaction_service'); ?>]">
+						</td>
+						<td>
+						<input type="text" class="text_filter" placeholder="[<?php echo 	lang('tracking'); ?>]">
+						</td>
 						<th> </th>
+						 <tr>
+								<td colspan="15" class="p0"><input type="text" class="form-control b0" name="search_table" id="search_table" placeholder="<?= lang('type_hit_enter'); ?>" style="width:100%;"></td>
+						</tr>
 					</tfoot>
 				</table>
 			</div>

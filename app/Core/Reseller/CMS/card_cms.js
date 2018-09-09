@@ -75,7 +75,7 @@ function TempResolver(e){
 	TableResolver(p);
 }
 function TableResolver(e){
-	$('#TableSLData').dataTable({
+	var table = $('#TableSLData').DataTable({
 		"dom": 'Blfrtip',
 		 "buttons": [ 
 			{ extend: 'copy', 'footer': false, exportOptions: { columns: [ 0,1,2,3,4,5,6,7,8,9,10,11,12,13 ] } },
@@ -93,17 +93,49 @@ function TableResolver(e){
 			{"data": 'transaction_card',"render":transaction_status},
 			{"data": 'card_seri'},
 			{"data": 'card_code'},
-			{"data": 'card_type'},
+			{"data": 'card_type',"visible": false},
 			{"data": 'card_amount',"render":price_convert},
 			{"data": 'client_id'},
 			{"data": 'card_deduct',"render":percentage},
 			{"data": 'card_rose',"render":percentage},
 			{"data": 'card_status',"render":status_card_chage},
 			{"data": 'card_message'},
-			{"data": 'transaction_service'},
+			{"data": 'transaction_service',"visible": false},
 			{"data": 'tracking'},
 			{"data": 'action_info'}
-			]
+			],
+			"fnRowCallback": function (nRow, aData, iDisplayIndex) {
+					nRow.id = aData.id;
+					return nRow;
+			},
+			"footerCallback": function (  tfoot, data, start, end, display ) {
+					var api = this.api(), data;
+					 $(api.column(6).footer()).html( price_convert(api.column(6).data().reduce( function (a, b) { return pf(a) + pf(b); }, 0)));
+			}
+	});
+	table.columns().every(function () {
+			var self = this;
+			$( 'input.datepicker', this.footer() ).on('dp.change', function (e) {
+					self.search( this.value ).draw();
+			});
+			$( 'input:not(.datepicker)', this.footer() ).on('keyup change', function (e) {
+					var code = (e.keyCode ? e.keyCode : e.which);
+					if (((code == 13 && self.search() !== this.value) || (self.search() !== '' && this.value === ''))) {
+							self.search( this.value ).draw();
+					}
+			});
+			$( 'select', this.footer() ).on( 'change', function (e) {
+					self.search( this.value ).draw();
+			});
+			$('#text_filter').on('keyup change', function () {
+        table.columns(1).search( this.value ).draw();
+			})
+	});
+	 $('#search_table').on( 'keypress', function (e) {
+			var code = (e.keyCode ? e.keyCode : e.which);
+			if (((code == 13 && table.search() !== this.value) || (table.search() !== '' && this.value === ''))) {
+					table.search( this.value ).draw();
+			}
 	});
 	
 }

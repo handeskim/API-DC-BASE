@@ -1,4 +1,63 @@
 function DateMunisDefault(t){e=new Date,d=new Date(e.setDate(e.getDate()-t));var a=d.getDate(),n=d.getMonth()+1,D=d.getFullYear();return n<10&&(n="0"+n),a<10&&(a="0"+a),D+"-"+n+"-"+a}
+function TPhone(n){var i=n;if(null!=n||void 0!=n){var l=i.length,e=n.slice(0,2);84!=e&&80!=e||(i="0"+n.slice(2,l))}return i}function TRole(n){return 1==n?"Administrator":2==n?"Admin":3==n?"Đại Lý":4==n?"Thành viên":void 0}function TLevel(n){return 1==n?"Chỉ đọc":2==n?"Full Admin":3==n?"Full Reseller":4==n?"Full Clients":void 0}
+function date_start_default(){return dateDefault()}function date_end_default(){return dateDefault()}
+function dateDefault(){var e=new Date,t=e.getDate(),a=e.getMonth()+1,n=e.getFullYear();return a<10&&(a="0"+a),t<10&&(t="0"+t),n+"-"+a+"-"+t}
+function getNum(val) {
+   if (isNaN(val)) {
+     return 0;
+   }
+   return val;
+}
+function images_render(e,w,h,r){
+	return '<img src="'+e+'" style="width:'+w+r+';height:'+h+r+';">';
+}
+function price_convert(p){
+	if(p != null || p != undefined || p != NaN){
+		if(p < 1){
+			p = getNum(0);
+		}else{
+			var p = parseFloat(p).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+		}
+	}
+	return p ;
+}
+function pi(t) {
+    return parseInt(t);
+}
+function pf(t) {
+    return parseFloat(t);
+}
+function getSum(total, num) {
+    return total + num;
+}
+function status_card_chage(e){
+	if(e != null || e != undefined || e != NaN){
+		e = parseInt(e);
+	}else{ 
+		e = 2000;
+	}
+	if(e===4002){ return '<span class="label bg-green"> Thẻ đúng</span>';}
+	else{ return '<span class="label bg-red"> Thẻ sai</span>'; }
+}
+function percentage(e){
+	return (((e/100) * 100).toFixed(2)) + '%';
+}
+function transaction_type(e){
+	if(e==='withdrawal'){return "withdrawal";}
+	if(e==='card_transfers'){return "Change Card";}
+	if(e==='transfers'){return "transfer";}
+}
+function transaction_status(e){
+	if(e==='done'){ return '<span class="label bg-green">'+e+'</span>';}
+	else if(e==='hold'){ return '<span class="label bg-red">'+e+'</span>';}
+	else if(e==='cancel'){ return '<span class="label bg-blue">'+e+'</span>';}
+	else{ return '<span class="label bg-black">'+e+'</span>'; }
+}
+function transfer_action(e) {
+    if(e === 'minus'){ return "Chuyển"; }
+		else if(e === 'plus'){ return "Nhận"; }
+		else { return "Unknown"; }
+}
 
 function randomIntFromInterval(e){
 	if(e < 5){var min = 0;var max = 0;
@@ -22,23 +81,6 @@ function CFactory_load(){
 	$('.main-profile-body-load').empty();
 	$('.main-profile-body-load').css('display','none');
 	$('.main-profile-body-load-default').css('display','block');
-}
-function date_start_default(){
-	return dateDefault();
-	
-}
-function date_end_default(){
-	return dateDefault();
-}
-function dateDefault(){
-	var date = new Date();
-	var day = date.getDate();
-	var month = date.getMonth() + 1;
-	var year = date.getFullYear();
-	if (month < 10) month = "0" + month;
-	if (day < 10) day = "0" + day;
-	var today = year + "-" + month + "-" + day;    
-	return today;
 }
 function price_convert(p){
 	var pc = parseInt(p).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
@@ -126,6 +168,13 @@ function TFactory_LoadScroll(el,f,t,x){
 			}
 		}
 	});
+}
+function printDiv(elements) {    
+var printContents = document.getElementById(elements).innerHTML;
+var originalContents = document.body.innerHTML;
+ document.body.innerHTML = printContents;
+ window.print();
+ document.body.innerHTML = originalContents;
 }
 function LFactory_load(elements,url){
 	  $(".LoaddingCharAnalytics").css('display','block');

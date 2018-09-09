@@ -11,8 +11,8 @@ $(document).ready(function(){
 });
 function data_realtime(s,e){
 	var f = 'api/balancer_history';
-	var p = {csrf_asterisk_name:token_csrf,s:s,e:e};
-	var r = GFactory_Providers(f,p);
+	var p = {csrf_hk_token:token_csrf,s:s,e:e};
+	var r = PFactory_Providers(f,p);
 	$(".Loadding").css('display','none');
 	if(r.status==true){
 		if(r.result.status===1000){
@@ -53,8 +53,8 @@ function temp_Extension(e){
 	TableResponseDetails(p);
 }
 function TableResponseDetails(e){
-	$('#TableExtReport').dataTable({
-		dom: 'Blfrtip',
+	var table =  $('#TableExtReport').DataTable({
+		dom: 'Blrtip',
 		 "buttons": [ 
 			{ extend: 'copy', 'footer': false, exportOptions: { columns: [ 0, 1, 2, 3, 4, 5, 6 ] } },
 			{ extend: 'csv', 'footer': false, exportOptions: { columns: [ 0, 1, 2, 3, 4, 5, 6 ] } },
@@ -70,7 +70,7 @@ function TableResponseDetails(e){
 			{"data": 'date_create'}, 
 			{"data": 'type'}, 
 			{"data": 'transaction','render':transaction_status}, 
-			{"data": 'action','render':transfer_action}, 
+			{"data": 'action'}, 
 			{"data": 'glosbe','render':price_convert}, 
 			{"data": 'balancer','render':price_convert}, 
 			{"data": 'beneficiary'}, 
@@ -78,7 +78,40 @@ function TableResponseDetails(e){
 			{"data": 'status'}, 
 			
 			{"data": 'info'}, 
-		]
+		],
+			"fnRowCallback": function (nRow, aData, iDisplayIndex) {
+					nRow.id = aData.id;
+					return nRow;
+			},
+			"footerCallback": function (  tfoot, data, start, end, display ) {
+					var api = this.api(), data;
+					 $(api.column(5).footer()).html( price_convert(api.column(5).data().reduce( function (a, b) { return pf(a) + pf(b); }, 0)));
+					 $(api.column(6).footer()).html( price_convert(api.column(6).data().reduce( function (a, b) { return pf(a) + pf(b); }, 0)));
+			}
+	});
+	table.columns().every(function () {
+			var self = this;
+			$( 'input.datepicker', this.footer() ).on('dp.change', function (e) {
+					self.search( this.value ).draw();
+			});
+			$( 'input:not(.datepicker)', this.footer() ).on('keyup change', function (e) {
+					var code = (e.keyCode ? e.keyCode : e.which);
+					if (((code == 13 && self.search() !== this.value) || (self.search() !== '' && this.value === ''))) {
+							self.search( this.value ).draw();
+					}
+			});
+			$( 'select', this.footer() ).on( 'change', function (e) {
+					self.search( this.value ).draw();
+			});
+			$('#text_filter').on('keyup change', function () {
+        table.columns(1).search( this.value ).draw();
+			})
+	});
+	 $('#search_table').on( 'keypress', function (e) {
+			var code = (e.keyCode ? e.keyCode : e.which);
+			if (((code == 13 && table.search() !== this.value) || (table.search() !== '' && this.value === ''))) {
+					table.search( this.value ).draw();
+			}
 	});
 	
 }

@@ -8,6 +8,8 @@ class Home extends MY_Controller{
 		$this->obj = array();
 		$this->param = array();
 		$this->result = array();
+		$this->data = array();
+		$this->data['remarketing'] = array();
 		$this->data = $this->GlobalMD->site_default();
 		$this->_token = $this->GlobalMD->_token();
 		$this->data['msg'] = null;
@@ -15,12 +17,13 @@ class Home extends MY_Controller{
 		$this->secret_key = $this->config->item('secret_key');
 		$this->priv_key = $this->config->item('priv_key');
 		$this->token_session = $this->session->userdata('token_session');
-		if($this->token_session){  
-			if($this->token_session){
-			
-				$this->data['profile'] = $this->session->userdata('data_user');
+		if(isset($this->token_session)){  
+			if($this->token_session==true){
 				$this->profile = $this->session->userdata('data_user');
+				$this->_role = (int)$this->profile['role'];
 				if(!empty($this->profile)){
+					$this->data['token_session'] = $this->session->userdata('token_session');
+					$this->data['profile'] = $this->session->userdata('data_user');
 					$this->client_id = ClientID($this->profile);
 					$this->data['client_id'] = $this->client_id;
 				}

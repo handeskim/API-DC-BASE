@@ -1,6 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 $route['thong-tin-he-thong'] = "reseller";
+$route['nap-ngay'] = "payments";
 $route['doi-the-cao'] = "card";
 $route['gui-the-cao'] = "card/card_post";
 $route['trang-chu'] = "home";
@@ -17,6 +18,7 @@ $route['quan-ly-developer'] = "reseller/developer";
 $route['rut-tien'] = "profile/transfer_withdrawal/$1";
 $route['nap-ngay/(:any)'] = 'share/share/$1';
 $route['thong-tin-ca-nhan'] = "profile";
+$route['thong-tin-tai-khoan'] = "profile";
 $route['khoi-phuc-ma-bao-mat'] = "profile/activation";
 $route['khong-ton-tai-trang'] = "unknown";
 $route['loi-truy-cap-trang'] = "unknown";

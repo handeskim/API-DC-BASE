@@ -1,22 +1,12 @@
-<?php 
-if(isset($_SESSION['notify_popup'])){
-	$sesion_notify_popup = $_SESSION['notify_popup'];
-	// var_dump($sesion_notify_popup);
+<?php
+$notify_popup = $this->session->userdata('notify_popup');
+if(isset($notify_popup)){
+	$notify_popup = $this->session->userdata('notify_popup');
 }else{
-	$sesion_notify_popup = true;
-}
+	$notify_popup = 1001;
+} 
 ?>
-<script> 
-$(document).ready(function(){
-	var popup_sesion =  '<?php echo $sesion_notify_popup; ?>';
-	if(popup_sesion==true){
-		Notification_popup(popup_sesion);
-	}else{
-		$("#modal-notify-popup").modal('hide');
-	}
-});
-
-</script>
+<input type="hidden" id="notify_popup" value="<?php echo $notify_popup;?>"> 
 <div class="modal fade" id="modal-notify-popup">
 	<div class="modal-dialog">
 		<div class="modal-content notify-popup-content">
@@ -49,7 +39,10 @@ $(document).ready(function(){
 						<ul class="menu-top">
 							<li class="head_notify"> <a rel="nofollow" href="tel:<?php if(!empty($hotline)){ echo $hotline; }?>" style="color: #eaeaea;">Khiếu nại, báo lỗi: <?php if(!empty($hotline)){ echo $hotline; }?></a></li>
 							<li class="menu-home"><a href="<?php echo base_url(); ?>"><span class="glyphicon glyphicon-home"></span></a></li>
-							<?php if(isset($token_session)){ ?>
+							<?php 
+							if(isset($token_session)){ 
+						
+							?>
 							<li class="menu-faq"><a rel="nofollow" href="<?php echo base_url('thong-tin-ca-nhan.html'); ?>tin-moi/faq.html"><i class="fa fa-money"></i> Số Dư: <span class="balancer"><?php if(!empty($balancer)){ echo $balancer;} ?>0</span> vnđ</a></li>
 							<li id="QuickLogin">
 								<a rel="nofollow" href="<?php echo base_url('thong-tin-ca-nhan.html');?>" title="Tài khoản của tôi"><i class="fa fa-user"></i> Tài khoản của tôi</a>

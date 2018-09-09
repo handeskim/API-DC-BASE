@@ -58,23 +58,22 @@ class Api extends REST_Controller {
 	}
 	
 	public function disable_notify_popup_get(){
-		$this->session->set_userdata(array('notify_popup'=>false));
-		$_SESSION['notify_popup'] = false;
+		$this->session->set_userdata(array('notify_popup'=>1001));
+		$_SESSION['notify_popup'] = 1001;
 		$this->r['status'] = true;
 		$this->response($this->r);
 	}
 	public function notify_popup_get(){
 		if(!empty($_GET['e'])){
-			
 			if($_GET['e']==true){
 				$obj = $this->GlobalMD->pquery_result('apps/site/site_notification',$this->obj);
 				if(!empty($obj->result)){
-					$this->session->set_userdata(array('notify_popup'=>false));
+					$this->session->set_userdata(array('notify_popup'=>1000));
 					$this->r['data'] = $obj->result;
 					$this->r['status'] = true;
 				}else{
-					$this->session->set_userdata(array('notify_popup'=>false));
-					$this->r['status'] = false;
+					$this->session->set_userdata(array('notify_popup'=>1000));
+					$this->r['status'] = true;
 				}
 			}
 		}
@@ -99,8 +98,6 @@ class Api extends REST_Controller {
 		$this->response($this->r);
 	}	
 	
-	
-	
 	public function card_post(){
 		if(!empty($_POST)){
 			$p = $_POST;
@@ -123,13 +120,15 @@ class Api extends REST_Controller {
 				if(isset($this->result->result)){
 					if(isset($this->result->result->status)){
 						if(!empty($this->result->result->msg)){
-							 echo '<span class="label label-info">'.$this->result->result->msg .'<a href="'.$p['share_url'].'"> nhấn vào đây để thực hiện lại</a></span>';
+							return $this->return_msg($this->result->result,$p['share_url']);
 						}
 					}
 				}
 			}
 		}
-		
+	}
+	public function return_msg($result,$share_url){
+		 echo '<span class="label label-info">'.$result->msg .'<a href="'.$share_url.'"> nhấn vào đây để thực hiện lại</a></span>';
 	}
 	public function bank_get(){
 		if(!empty($this->token_session)){
@@ -168,15 +167,44 @@ class Api extends REST_Controller {
 		}
 		$this->response($this->r);
 	}
-	public function balancer_history_get(){
+	public function balancer_history_post(){
 		if(!empty($this->token_session)){
 			if(!empty($this->ClientID)){
-				if(!empty($_GET['s'])){ $date_start = $_GET['s'];}else{$date_start = date("Y-m-d",time());}
-				if(!empty($_GET['e'])){ $date_end = $_GET['e'];}else{$date_end = date("Y-m-d",time());}
+				if(!empty($_POST['s'])){ $date_start = $_POST['s'];}else{$date_start = date("Y-m-d",time());}
+				if(!empty($_POST['e'])){ $date_end = $_POST['e'];}else{$date_end = date("Y-m-d",time());}
 				$this->param = array( 'client_id'=>$this->ClientID,'token'=>$this->_token,'date_start'=>$date_start,'date_end'=>$date_end);
 				$balancer_history = $this->GlobalMD->query_global('apps/api/history_balancer',$this->param);
 				if(!empty($balancer_history)){
 					$this->r = array('status'=>true,'result'=> $balancer_history);
+				}
+			}
+		}
+		$this->response($this->r);
+	}
+	public function withdrawal_balancer_history_post(){
+		if(!empty($this->token_session)){
+			if(!empty($this->ClientID)){
+				if(!empty($_POST['s'])){ $date_start = $_POST['s'];}else{$date_start = date("Y-m-d",time());}
+				if(!empty($_POST['e'])){ $date_end = $_POST['e'];}else{$date_end = date("Y-m-d",time());}
+				$this->param = array( 'client_id'=>$this->ClientID,'token'=>$this->_token,'date_start'=>$date_start,'date_end'=>$date_end);
+				$balancer_history = $this->GlobalMD->query_global('apps/api/history_withdrawal',$this->param);
+				if(!empty($balancer_history)){
+					$this->r = array('status'=>true,'result'=> $balancer_history);
+				}
+			}
+		}
+		$this->response($this->r);
+	}	
+	public function history_card_post(){
+		if(!empty($this->token_session)){
+			if(!empty($this->ClientID)){
+				if(!empty($_POST['s'])){ $date_start = $_POST['s'];}else{$date_start = date("Y-m-d",time());}
+				if(!empty($_POST['e'])){ $date_end = $_POST['e'];}else{$date_end = date("Y-m-d",time());}
+				$this->param = array( 'client_id'=>$this->ClientID,'token'=>$this->_token,'date_start'=>$date_start,'date_end'=>$date_end);
+				$history_card = $this->GlobalMD->query_global('apps/api/history_card',$this->param);
+				// var_dump($history_card);
+				if(!empty($history_card)){
+					$this->r = array('status'=>true,'result'=> $history_card);
 				}
 			}
 		}

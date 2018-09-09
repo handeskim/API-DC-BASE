@@ -50,19 +50,19 @@ class Global_model extends CI_Model{
 		return $this->result;
 	}
 	public function site_default(){
-		$token_site = $this->session->userdata('token_site');
-		if($token_site==true){
-			return $this->session->all_userdata();
-		}else{
+		// $token_site = $this->session->userdata('token_site');
+		// if($token_site==true){
+			// return $this->session->all_userdata();
+		// }else{
 			$this->result = $this->query_get('apps/site/info',$this->obj);
 			$r = json_decode($this->result);
 			if(!empty($r[0])){
 				$this->obj = convert_obj($r[0]);
-				$this->session->set_userdata($this->obj);
-				$this->session->set_userdata(array('token_site'=>true));
+				// $this->session->set_userdata($this->obj);
+				// $this->session->set_userdata(array('token_site'=>true));
 				return $this->obj;
 			}
-		}
+		// }
 	}
 	public function query_get($url,$array){
 		$this->_connect[] = $array;

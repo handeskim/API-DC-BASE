@@ -57,7 +57,12 @@ $(document).ready(function(){
 	});
 	init_apps();
 	$('[data-toggle="tooltip"]').tooltip();
-	
+	var popup_sesion =  pi($("#notify_popup").val());
+	if(popup_sesion === 1001){
+		$("#modal-notify-popup").modal('hide');
+	}else{
+		Notification_popup(popup_sesion);
+	}
 });
 
 function init_apps(){

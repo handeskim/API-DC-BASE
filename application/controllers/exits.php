@@ -10,16 +10,7 @@ class Exits extends MY_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->model('global_model', 'GlobalMD');	
-		$this->msg = null;
-		$this->lang_details = 'en';
-		$this->title = null;
-		$this->keywords = null;
-		$this->description = null;
-		$this->title_main = null;
-		$this->data = array(
-			'title' => $this->msg,
-			'msg' => $this->msg,
-		);
+
 	}
 	
 	public function index(){
@@ -27,6 +18,7 @@ class Exits extends MY_Controller{
 		$this->session->sess_destroy();
 		$this->session->unset_userdata('data_user');
 		$this->session->unset_userdata('token_session');
+		foreach (array_keys($this->session->userdata) as $key) {   $this->session->unset_userdata($key); }
 		redirect(base_url());
 	}
 	

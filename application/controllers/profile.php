@@ -8,7 +8,7 @@ class Profile extends MY_Controller{
 		$this->obj = array();
 		$this->param = array();
 		$this->result = array();
-		$this->data = $this->GlobalMD->site_default();
+		$this->data = array();
 		$this->data['remarketing'] = array();
 		$this->data = $this->GlobalMD->site_default();
 		$this->_token = $this->GlobalMD->_token();
@@ -18,11 +18,12 @@ class Profile extends MY_Controller{
 		$this->priv_key = $this->config->item('priv_key');
 		$this->token_session = $this->session->userdata('token_session');
 		if(isset($this->token_session)){  
-			if(!empty($this->token_session)){
-				$this->data['profile'] = $this->session->userdata('data_user');
+			if($this->token_session==true){
 				$this->profile = $this->session->userdata('data_user');
 				$this->_role = (int)$this->profile['role'];
 				if(!empty($this->profile)){
+					$this->data['token_session'] = $this->session->userdata('token_session');
+					$this->data['profile'] = $this->session->userdata('data_user');
 					$this->client_id = ClientID($this->profile);
 					$this->data['client_id'] = $this->client_id;
 				}else{redirect(base_url('thoat-tai-khoan.html'));}
@@ -248,6 +249,42 @@ class Profile extends MY_Controller{
 	}
 	public function unlock_auth(){
 		$this->parser->parse('default/layout/profile/unlock_auth',$this->data);
+	}
+	public function withdrawal_info($id){
+		if(isset($id)){
+			$this->obj['token'] = $this->_token;
+			$this->obj['client_id'] = $this->client_id;
+			$this->obj['keys'] = $id;
+			$this->result = $this->GlobalMD->query_result('api/withdrawal/info',$this->obj);
+			if(isset($this->result->result)){
+				if(!empty($this->result->result)){
+					$this->data['withdrawal'] = convert_object($this->result->result);
+				}
+			}
+			$this->data['root_id'] = $id;
+		}
+		$this->data['title'] = lang('withdrawal');
+		$this->data['title_main'] = 'Chi tiết giao dịch ID#'.$id;
+		$this->data['side_bar'] = 4;
+		$this->parser->parse('default/layout/profile/transfer_info',$this->data);
+	}	
+	public function history_card_info($id){
+		if(isset($id)){
+			$this->obj['token'] = $this->_token;
+			$this->obj['client_id'] = $this->client_id;
+			$this->obj['keys'] = $id;
+			$this->result = $this->GlobalMD->query_result('api/withdrawal/info',$this->obj);
+			if(isset($this->result->result)){
+				if(!empty($this->result->result)){
+					$this->data['withdrawal'] = convert_object($this->result->result);
+				}
+			}
+			$this->data['root_id'] = $id;
+		}
+		$this->data['title'] = lang('withdrawal');
+		$this->data['title_main'] = 'Chi tiết giao dịch ID#'.$id;
+		$this->data['side_bar'] = 4;
+		$this->parser->parse('default/layout/profile/transfer_info',$this->data);
 	}
 	public function transfer_info($id){
 		if(isset($id)){

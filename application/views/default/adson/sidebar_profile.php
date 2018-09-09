@@ -21,9 +21,7 @@
 		</div>
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-shopping-cart"> </i> </span><span class="cate_cart"> Giao dịch Thẻ <i class="fa fa-plus-square pull-right ppx ppx_cart"> </i></span> </h5> </div>
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub sub_profile_cart sub_cate_profile">
-			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-history"> </i> </span><span class="cate_profile"> Lịch sử giao dịch</span> </h5></div>
-			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-circle-o"> </i> </span><span class="cate_profile"> Tra cứu tình trạng thẻ</span> </h5></div>
-			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-circle-o"> </i> </span><span class="cate_profile"> Thống kê sản lượng đổi thẻ</span> </h5></div>
+			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <a  href="<?php echo base_url('history_card.html');?>"> <span> <i class="fa fa-circle-o"> </i> </span><span class="cate_profile"> Tra cứu tình trạng thẻ</span>  </a></h5></div>
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-circle-o"> </i> </span><span class="cate_profile"> Lịch sử mua thẻ</span> </h5></div>
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-circle-o"> </i> </span><span class="cate_profile"> Lịch sử mua thẻ CTV</span> </h5></div>
 		</div>
@@ -42,10 +40,10 @@
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-creative-commons"> </i> </span><span class="cate_point"> Số dư:  <small class="label bg-yellow"> <span class="balancer_profile"> <?php if(!empty($balancer)){ echo number_format($balancer,0,'.','.'); }else{ echo 0 ;}?> </span>vnđ</small> <i class="fa fa-plus-square pull-right ppx ppx_balancer"> </i> </span> </h5> </div>
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub sub_profile_banlancer sub_cate_profile">
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-money"> </i> </span><span class="cate_profile"> Nạp thêm số dư</span> </h5></div>
-			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-history"> </i> </span><span class="cate_profile history_balancer"> Lịch sử thay đổi số dư</span> </h5></div>
+			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5>  <a href="<?php echo base_url('history_transfer.html');?>"><span> <i class="fa fa-history"> </i> </span><span class="cate_profile history_balancer"> Lịch sử thay đổi số dư</span> </a></h5></div>
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-exchange"> </i> </span><span class="cate_profile withdrawal"> Rút tiền</span> </h5></div>
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-exchange"> </i> </span><span class="cate_profile balancer_transfer"> Chuyển khoản</span> </h5></div>
-			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-history"> </i> </span><span class="cate_profile"> Lịch sử rút tiền</span> </h5></div>
+			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <a  href="<?php echo base_url('history_withdrawal.html');?>">  <span> <i class="fa fa-history"> </i> </span><span class="cate_profile"> Lịch sử rút tiền</span> </a></h5></div>
 		</div>
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-connectdevelop"> </i> </span><span class="cate_password connectdevelop"> Nhà Phát Triển  <i class="fa fa-plus-square pull-right ppx ppx_developer"> </i>  </span> </h5> </div>
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub sub_profile_developer sub_cate_profile">

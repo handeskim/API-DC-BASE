@@ -1,14 +1,14 @@
 <?php
 class Card extends MY_Controller{
-
 	function __construct(){
 		parent::__construct();
 		$this->load->model('global_model', 'GlobalMD');	
 		$this->msg = null;
 		$this->obj = array();
-		$this->profile = array();
 		$this->param = array();
 		$this->result = array();
+		$this->data = array();
+		$this->data['remarketing'] = array();
 		$this->data = $this->GlobalMD->site_default();
 		$this->_token = $this->GlobalMD->_token();
 		$this->data['msg'] = null;
@@ -17,16 +17,17 @@ class Card extends MY_Controller{
 		$this->priv_key = $this->config->item('priv_key');
 		$this->token_session = $this->session->userdata('token_session');
 		if(isset($this->token_session)){  
-			if(!empty($this->token_session)){
-				$this->data['profile'] = $this->session->userdata('data_user');
+			if($this->token_session==true){
 				$this->profile = $this->session->userdata('data_user');
 				$this->_role = (int)$this->profile['role'];
 				if(!empty($this->profile)){
+					$this->data['token_session'] = $this->session->userdata('token_session');
+					$this->data['profile'] = $this->session->userdata('data_user');
 					$this->client_id = ClientID($this->profile);
 					$this->data['client_id'] = $this->client_id;
-				}
-			}
-		}
+				}else{redirect(base_url('thoat-tai-khoan.html'));}
+			}else{redirect(base_url('thoat-tai-khoan.html'));}
+		}else{redirect(base_url('dang-ky.html'));}
 	}
 	public function card_post(){
 		if(!empty($_POST)){
@@ -35,7 +36,7 @@ class Card extends MY_Controller{
 				$this->obj['card_seri'] = $p['card_seri'];
 				$this->obj['card_code'] = $p['card_code'];
 				$this->obj['card_type'] = $p['card_type'];
-				$this->obj['card_amount'] = $p['card_amount'];
+				$this->obj['card_amount'] = (int)$p['card_amount'];
 				$this->obj['token'] = $this->_token;
 				if(!empty($p['share_client'])){
 					if(!empty($this->client_id)){

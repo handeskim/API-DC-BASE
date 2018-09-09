@@ -35,7 +35,9 @@
 			</li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#">Nạp Ngay</a></li>
+		<?php if(isset($token_session)){ ?>
+			<li><a href="<?php echo base_url('nap-ngay.html');?>">Nạp Ngay</a></li>
+		<?php } ?>
 			<li><a href="#">Mua Thẻ Cào</a></li>
 			<li><a href="#">Mua Game</a></li>
 			<li><a href="<?php echo base_url();?>doi-the-cao.html">Đổi Thẻ</a></li>

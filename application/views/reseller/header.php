@@ -44,7 +44,7 @@
 <?php  $user_data = $this->session->userdata('data_user'); $authorities = $user_data['role']; ?>
   <header   class="main-header">
     <!-- Logo -->
-    <a href="<?php echo base_url('apps');?>" class="logo">
+    <a href="<?php echo base_url('thong-tin-tai-khoan.html');?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">
 			{brand}
