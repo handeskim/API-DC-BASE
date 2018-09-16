@@ -18,7 +18,13 @@ function data_realtime(s,e){
 		if(r.result.status===1000){
 			var e = r.result.data;
 			temp_Extension(e);
+		}else{
+			var e = null;
+			temp_Extension(e);
 		}
+	}else{
+		var e = null;
+		temp_Extension(e);
 	}
 }
 function info_ask(e){
@@ -50,6 +56,7 @@ function temp_Extension(e){
 			'card_rose':v.card_rose,
 			'card_status':v.card_status,
 			'card_message':v.card_message,
+			'publisher':v.publisher,
 			'transaction_service':v.transaction_service,
 			'transaction_card':v.transaction_card,
 			'tracking':v.tracking,
@@ -69,7 +76,7 @@ function TableResponseDetails(e){
 			{ extend: 'pdf', 'footer': false, exportOptions: { columns: [ 0,1,2,3,4,5,6,7,8  ] } }
 			],
 		"destroy": true,
-		"order": [[ 1, "desc" ]],
+		"order": [[ 0, "desc" ]],
 		"async": true,
 		"data": e,
 		"columns": [
@@ -81,6 +88,7 @@ function TableResponseDetails(e){
 			{"data": 'card_status',"render":status_card_chage},
 			{"data": 'card_message'},
 			{"data": 'tracking'},
+			{"data": 'publisher',"visible": false},
 			{"data": 'action_info'}
 			],
 			"fnRowCallback": function (nRow, aData, iDisplayIndex) {

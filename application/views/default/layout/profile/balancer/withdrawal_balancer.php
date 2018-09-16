@@ -17,7 +17,7 @@
 					</div>
 					<div class="main-profile-body-load-default col-md-12 col-sm-12 col-xs-12 sub "> 
 					<div class="col-md-12 col-sm-12 col-xs-12 sub tab_add_bank" >
-							<div class="col-md-12 col-sm-12 col-xs-12 sub" >
+						<div class="col-md-12 col-sm-12 col-xs-12 sub" >
 						<div class="col-md-10 col-sm-10 col-xs-12 sub pull-left">
 							<div class="input-group date col-md-6 col-sm-6 col-xs-12 sub pull-left">
 									<div class="input-group-addon"><i class="fa fa-calendar"> <label> Ngày bắt đầu </label></i></div>

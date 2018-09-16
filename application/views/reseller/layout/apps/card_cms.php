@@ -109,8 +109,12 @@
 						<td>
 						<input type="text" class="text_filter" placeholder="[<?php echo 	lang('card_rose'); ?>]">
 						</td>
-						<td>
-						<input type="text" class="text_filter" placeholder="[<?php echo 	lang('card_status'); ?>]">
+							<td>
+							<select class="select2 select_filter">
+							<option value="">All</option>
+							<option value="True" >Thẻ đúng</option>
+							<option value="False" >Thẻ sai</option>
+							</select>
 						</td>
 						<td><?php echo 	lang('card_message'); ?>
 						</td>

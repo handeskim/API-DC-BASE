@@ -58,6 +58,7 @@ class Profile extends MY_Controller{
 	public function confirm($msg){
 		echo '<script> alert("'.$msg.'"); window.location.href = "'.base_url('thong-tin-ca-nhan.html').'";</script>';
 	}
+	
 	public function index(){
 		$this->data['remarketing'] = array('dynx_itemid' =>'','dynx_pagetype' => 'profile', 'dynx_totalvalue' => 0 );
 		$this->parser->parse('default/header',$this->data);
@@ -267,13 +268,13 @@ class Profile extends MY_Controller{
 		$this->data['title_main'] = 'Chi tiết giao dịch ID#'.$id;
 		$this->data['side_bar'] = 4;
 		$this->parser->parse('default/layout/profile/transfer_info',$this->data);
-	}	
-	public function history_card_info($id){
+	}		
+	public function history_naptien_info($id){
 		if(isset($id)){
 			$this->obj['token'] = $this->_token;
 			$this->obj['client_id'] = $this->client_id;
 			$this->obj['keys'] = $id;
-			$this->result = $this->GlobalMD->query_result('api/withdrawal/info',$this->obj);
+			$this->result = $this->GlobalMD->pquery_result('apps/api/history_naptien_info',$this->obj);
 			if(isset($this->result->result)){
 				if(!empty($this->result->result)){
 					$this->data['withdrawal'] = convert_object($this->result->result);
@@ -285,6 +286,43 @@ class Profile extends MY_Controller{
 		$this->data['title_main'] = 'Chi tiết giao dịch ID#'.$id;
 		$this->data['side_bar'] = 4;
 		$this->parser->parse('default/layout/profile/transfer_info',$this->data);
+	}	
+	public function history_card_info($id){
+		if(isset($id)){
+			$this->obj['token'] = $this->_token;
+			$this->obj['client_id'] = $this->client_id;
+			$this->obj['keys'] = $id;
+			$this->result = $this->GlobalMD->query_result('apps/api/card_info',$this->obj);
+		
+			if(isset($this->result->result)){
+				if(!empty($this->result->result)){
+					$this->data['withdrawal'] = convert_object($this->result->result);
+				}
+			}
+			$this->data['root_id'] = $id;
+		}
+		$this->data['title'] = lang('withdrawal');
+		$this->data['title_main'] = 'Chi tiết giao dịch ID#'.$id;
+		$this->data['side_bar'] = 4;
+		$this->parser->parse('default/layout/profile/transfer_info',$this->data);
+	}
+	public function history_bycard_info($id){
+		if(isset($id)){
+			$this->obj['token'] = $this->_token;
+			$this->obj['client_id'] = $this->client_id;
+			$this->obj['keys'] = $id;
+			$this->result = $this->GlobalMD->query_result('apps/api/buycard_info',$this->obj);
+			if(isset($this->result->result)){
+				if(!empty($this->result->result)){
+					$this->data['withdrawal'] = convert_object($this->result->result);
+				}
+			}
+			$this->data['root_id'] = $id;
+		}
+		$this->data['title'] = lang('withdrawal');
+		$this->data['title_main'] = 'Chi tiết giao dịch ID#'.$id;
+		$this->data['side_bar'] = 4;
+		$this->parser->parse('default/layout/profile/buycard_info',$this->data);
 	}
 	public function transfer_info($id){
 		if(isset($id)){
@@ -432,6 +470,7 @@ class Profile extends MY_Controller{
 	public function history_balancer(){
 		$this->parser->parse('default/layout/profile/balancer/history_balancer',$this->data);
 	}
+	
 	public function withdrawal(){
 		$min_transfer = $this->GlobalMD->query_global('apps/site/min_transfer',$this->obj);
 		$this->data['min_transfer'] = $min_transfer->result;

@@ -103,10 +103,11 @@
 							<td>
 							<select class="select2 select_filter">
 							<option value="">All</option>
-							<option value="withdrawal" >withdrawal</option>
+							<option value="withdrawal" >Rút tiền</option>
 							<option value="Change Card" >Change Card</option>
-							<option value="transfer" >transfer</option>
-						
+							<option value="transfer" >Chuyển khoản</option>
+							<option value="refill" >Nạp tiền</option>
+							<option value="transfers" >Giao dịch khác</option>
 							</select>
 						</td>
 						<td><input type="text" class="text_filter" placeholder="[<?php echo 	lang('client_name'); ?>]"></td>

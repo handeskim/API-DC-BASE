@@ -16,11 +16,42 @@ function delete_ask(e){
 		}
 	}
 }
+function save_status(e){
+	var f = "reseller/service/cms_staff_status";
+	var x = $("#update_status").val();
+	var p = {csrf_hk_token:token_csrf,e:e,x:x};
+	var q = confirm('bạn chắc chắn thay đổi trạng thái người dùng');
+	if(q==true){
+		var r = PFactory_Providers(f,p);
+		if(r.status==true){
+			alert(r.result);
+			window.location.reload();
+		}
+	}
+}
+function transfer_out(e){
+	var f = "reseller/service/cms_staff_transfer_out";
+	var x = $("#money_transfer").val();
+	var n = $("#note").val();
+	var p = {csrf_hk_token:token_csrf,e:e,x:pi(x),n:n};
+	var q = confirm('bạn chắc chắn rút số dư người dùng');
+	if(q==true){
+		var r = PFactory_Providers(f,p);
+		if(r.status==true){
+			alert(r.result);
+			window.location.reload();
+		}
+	}
+}
+function edit_ask(e){
+	LFactory_load('reseller/staff/edit/'+e);
+}
 function TempResolver(e){
 	var p = [];
 	$.each(e, function(k, v) {
 		var no = k;
 		var action_remove = '<a class="btn btn-small btn-danger" onclick="delete_ask(\'' + v.id + '\')"><i class="fa fa-trash"></i></a>';
+		var action_edit = '<a class="btn btn-small btn-warning" onclick="edit_ask(\'' + v.id + '\')"><i class="fa fa-edit"></i></a>';
 		var px = { 
 			'no':no,
 			'id':v.id,
@@ -36,11 +67,27 @@ function TempResolver(e){
 			'country':v.country,
 			'balancer':v.balancer,
 			'role':v.role,
+			'status':v.status,
 			'action_remove':action_remove,
+			'action_edit':action_edit,
 		};
 		p.push(px);
 	});
 	TableResolver(p);
+}
+function status_render(e){
+	if(e==true){
+		return "Active";
+	}else{
+		return "Disable";
+	}
+}
+function role_render(e){
+	if(e==1){return "Administrator";}
+	else if(e==2){return "Admin";}
+	else if(e==3){return "reseller";}
+	else if(e==4){return "client";}
+	else{ return "undefined"; }
 }
 function TableResolver(e){
 	$('#TableSLData').dataTable({
@@ -66,8 +113,10 @@ function TableResolver(e){
 			{"data": 'birthday',"visible": false,},
 			{"data": 'city',"visible": false,},
 			{"data": 'country',"visible": false,},
-			{"data": 'balancer'},
-			{"data": 'role'},
+			{"data": 'balancer',"render":price_convert},
+			{"data": 'role',"render":role_render},
+			{"data": 'status',"render":status_render},
+			{"data": 'action_edit'},
 			{"data": 'action_remove'}
 			]
 	});

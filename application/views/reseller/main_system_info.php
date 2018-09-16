@@ -92,7 +92,7 @@
 								</div>
 						<?php }}}}}?>
 						<div class="col-md-12 col-sm-12 col-xs-12 info_status_header" > 
-								<span class="info_status"> Tổng Giao Dịch Đổi Thẻ <span></span> <span class="label label-success"><?php echo number_format(array_sum($card_total),0,'.','.'); ?> vnđ</span></span>
+								<span class="info_status"> Tổng Giao Dịch Đổi Thẻ <span></span> <span class="label label-success"><?php if(!empty($card_total)){ echo number_format(array_sum($card_total),0,'.','.'); } ?> vnđ</span></span>
 						</div>
 				</div>
 				
@@ -148,11 +148,11 @@
 							</div>
 					<?php }}}}}?>
 					<div class="col-md-12 col-sm-12 col-xs-12 info_status_header" > 
-							<span class="info_status"> Tổng Giao Dịch withdrawal <span></span> <span class="label label-success"><?php echo number_format(array_sum($withdrawal_total),0,'.','.'); ?> vnđ</span></span>
+							<span class="info_status"> Tổng Giao Dịch withdrawal <span></span> <span class="label label-success"><?php if(!empty($withdrawal_total)){echo number_format(array_sum($withdrawal_total),0,'.','.'); } ?> vnđ</span></span>
 					</div>
 				</div>
 				
-				<div class="col-md-4 col-sm-6 col-xs-12 sub tab_line">
+				<div class="col-md-4 col-sm-6 col-xs-12 sub pull-left  tab_line">
 				<div class="col-md-12 col-sm-12 col-xs-12 info_status_header" > 
 						<span class="info_status"> Tổng Transfer <span></span> <span class="label label-success">{transfer_log}</span></span>
 				</div>
@@ -178,34 +178,62 @@
 				<?php }}}}}?>
 				</div>
 				
-				<div class="col-md-4 col-sm-6 col-xs-12 sub tab_line">
-				
+				<div class="col-md-4 col-sm-6 col-xs-12 sub pull-left  tab_line">
 						<?php 
 					if(!empty($transfer_transaction)){
 					if(is_array($transfer_transaction)){
 					if(!empty($transfer_transaction['result'])){
 					if(is_array($transfer_transaction['result'])){
-					$transfer_total = array();
-					foreach($transfer_transaction['result'] as $transfer_transaction_result){ 
+					$transfer_total = array(); ?>
+					<div class="col-md-12 col-sm-12 col-xs-12 info_status_header" > 
+						<?php foreach($transfer_transaction['result'] as $transfer_transaction_result){ 
 						$transfer_total[] = $transfer_transaction_result['count'];
-					?>
-							<div class="col-md-12 col-sm-12 col-xs-12 info_status_header" > 
+						?>
+							
 							<?php if($transfer_transaction_result['_id']=='hold'){?>
-							<span class="info_status">Giao Dịch Transfer <span> <?php echo $transfer_transaction_result['_id']; ?>  </span> <span class="label label-success"><?php echo number_format($transfer_transaction_result['count'],0,'.','.'); ?> vnđ</span></span>
+							<span class=" pull-left info_status">Giao Dịch Transfer <span> <?php echo $transfer_transaction_result['_id']; ?>  </span> <span class="label label-success"><?php echo number_format($transfer_transaction_result['count'],0,'.','.'); ?> vnđ</span></span>
 							<?php } ?>
 							
 							<?php if($transfer_transaction_result['_id']=='reject'){?>
-							<span class="info_status"> Giao Dịch Transfer <span> <?php echo $transfer_transaction_result['_id']; ?>  </span>   <span class="label bg-black"><?php echo number_format($transfer_transaction_result['count'],0,'.','.'); ?> vnđ</span></span>
+							<span class=" pull-left info_status"> Giao Dịch Transfer <span> <?php echo $transfer_transaction_result['_id']; ?>  </span>   <span class="label bg-black"><?php echo number_format($transfer_transaction_result['count'],0,'.','.'); ?> vnđ</span></span>
 							<?php } ?>
 							
 							<?php if($transfer_transaction_result['_id']=='done'){?>
-							<span class="info_status">Giao Dịch Transfer<span> <?php echo $transfer_transaction_result['_id']; ?>  </span> <span class="label bg-yellow"><?php echo number_format($transfer_transaction_result['count'],0,'.','.'); ?> vnđ</span></span>
+							<span class=" pull-left info_status">Giao Dịch Transfer<span> <?php echo $transfer_transaction_result['_id']; ?>  </span> <span class="label bg-yellow"><?php echo number_format($transfer_transaction_result['count'],0,'.','.'); ?> vnđ</span></span>
 							<?php } ?>
-							</div>
-					<?php }}}}}?>
+							
+					<?php } ?>
+						</div>
+						
 					<div class="col-md-12 col-sm-12 col-xs-12 info_status_header" > 
-							<span class="info_status"> Tổng Giao Dịch Transfer <span></span> <span class="label label-success"><?php echo number_format(array_sum($transfer_total),0,'.','.'); ?> vnđ</span></span>
-					</div>
+							<span class=" pull-left info_status"> Tổng Giao Dịch Transfer <span></span> <span class="label label-success"><?php if(!empty($transfer_total)){ echo number_format(array_sum($transfer_total),0,'.','.'); } ?> vnđ</span></span>
+						</div>
+					<?php }}}}?>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12 sub  pull-left tab_line">
+				<div class="col-md-12 col-sm-12 col-xs-12 info_status_header" > 
+						<span class="info_status"> Tổng Giao Dịch Nạp Tài khoản<span></span> <span class="label label-success">{history_payments}</span></span>
+				</div>
+					<?php 
+				if(!empty($history_payments_transaction)){
+				if(is_array($history_payments_transaction)){
+				if(!empty($history_payments_transaction['result'])){
+				if(is_array($history_payments_transaction['result'])){
+				foreach($history_payments_transaction['result'] as $history_payments_transaction_result){ ?>
+						<div class="col-md-12 col-sm-12 col-xs-12 info_status_header" > 
+						<?php if($history_payments_transaction_result['_id']=='hold'){?>
+						<span class="info_status">Trạng Thái Nạp  Tài khoản <span><?php echo $history_payments_transaction_result['_id']; ?>  </span> <span class="label label-success"><?php echo number_format($history_payments_transaction_result['count'],0,'.','.'); ?> </span></span>
+						<?php } ?>
+						
+						<?php if($history_payments_transaction_result['_id']=='reject'){?>
+						<span class="info_status"> Trạng Thái  Nạp  Tài khoản <span><?php echo $history_payments_transaction_result['_id']; ?>  </span>   <span class="label bg-black"><?php echo number_format($history_payments_transaction_result['count'],0,'.','.'); ?> </span></span>
+						<?php } ?>
+						
+						<?php if($history_payments_transaction_result['_id']=='done'){?>
+						<span class="info_status"> Trạng Thái Nạp Tài khoản <span><?php echo $history_payments_transaction_result['_id']; ?>  </span> <span class="label bg-yellow"><?php echo number_format($history_payments_transaction_result['count'],0,'.','.'); ?> </span></span>
+						<?php } ?>
+						</div>
+				<?php }}}}}?>
 				</div>
 			</div>
 		</div>

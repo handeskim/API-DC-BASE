@@ -67,13 +67,13 @@ $(document).ready(function(){
 				$(".balancer_transfer").addClass('active');
 				
 		});
-		$('.history_balancer').click(function(){
-				url = BASE_URL+'profile/history_balancer';
-				LFactory_load('.main-profile',url);
-				load_active_tab();
-				$(".history_balancer").addClass('active');
+		// $('.history_balancer').click(function(){
+				// url = BASE_URL+'profile/history_balancer';
+				// LFactory_load('.main-profile',url);
+				// load_active_tab();
+				// $(".history_balancer").addClass('active');
 				
-		});	
+		// });	
 		$('.withdrawal').click(function(){
 				url = BASE_URL+'profile/withdrawal';
 				LFactory_load('.main-profile',url);

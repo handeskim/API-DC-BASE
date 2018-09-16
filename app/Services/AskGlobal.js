@@ -36,8 +36,8 @@ function status_card_chage(e){
 	}else{ 
 		e = 2000;
 	}
-	if(e===4002){ return '<span class="label bg-green"> Thẻ đúng</span>';}
-	else{ return '<span class="label bg-red"> Thẻ sai</span>'; }
+	if(e===4002){ return '<span class="label bg-green">True</span>';}
+	else{ return '<span class="label bg-red">False</span>'; }
 }
 function percentage(e){
 	return (((e/100) * 100).toFixed(2)) + '%';

@@ -2700,3 +2700,47 @@ margin: 5px;
 	padding:0px;
 	margin:23px;
 }
+
+.main-deduct{
+    margin-top: 10px;
+    margin-left: 5px;
+    padding: 39px;
+    border: 1px solid #e3e3e3;
+    border-radius: 10px;
+}
+.main-deduct-title{
+	    padding: 0px;
+    border-bottom: 1px solid #5fbc0d;
+    margin-bottom: 23px;
+}
+.text_filter{
+	width:100%;
+	padding:0px;
+	margin:0px;
+}
+.main-dich-vu-sub{
+	padding: 20px;
+}
+.main-dich-vu{
+		padding: 10px;
+       margin-top: 0px;
+}
+.card-box{
+	padding: 22px;
+    background: #f9f9f9;
+}
+.main-dich-vu-title h1{
+	font-size:14px;padding: 10px;
+	border-bottom: 1px solid #1ea6ec;
+	color: #1ea6ec;font-weight: 700;
+} 
+.main-dich-vu-title h2{
+	font-size:14px;padding: 10px;
+	border-bottom: 1px solid #1ea6ec;
+	color: #1ea6ec;font-weight: 700;
+}
+.info-blockquote-cart{
+	    list-style: none;
+    padding: 10px;
+    border-bottom: 1px dotted;
+}

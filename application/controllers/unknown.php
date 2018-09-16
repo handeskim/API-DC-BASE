@@ -42,12 +42,57 @@ function __construct(){
 				if(!empty($alias_page->result)){
 					$this->details($alias_page);
 				}else{
-					// $details = $this->alias($alias);
+					if(!empty($_GET['next'])){
+							$limit = (int)$_GET['next'];
+						}else{
+							$limit = 1;
+						}
+					if($alias=='tin-tuc'){
+						
+						$alias_tin_tuc = $this->alias_tin_tuc('news',$limit);
+					
+						if(!empty($alias_tin_tuc->result)){
+							$nextx = $alias_tin_tuc->next;
+							$this->list_categories($alias_tin_tuc->result,$nextx);
+						}else{
+							$this->index_details();
+						}
+					}else if($alias=='faq'){
+						$alias_tin_tuc = $this->alias_tin_tuc('faq',$limit);
+						if(!empty($alias_tin_tuc->result)){
+							$nextx = $alias_tin_tuc->next;
+							$this->list_categories($alias_tin_tuc->result,$nextx);
+						}else{
+							$this->index_details();
+						}
+					}else{
+						$this->index_details();
+					}
 				}
 			}
 		}else{
 			$this->index_details();
 		}
+	}
+	public function list_categories($param,$next){
+		
+			$this->data['related'] = $param;
+			$this->data['next'] = $next;
+			$this->parser->parse('default/header',$this->data);
+			$this->parser->parse('default/header-top',$this->data);
+			$this->parser->parse('default/adson/header_top',$this->data);
+			$this->parser->parse('default/adson/header_nav',$this->data);
+			$this->parser->parse('default/col/start-main',$this->data);
+			$this->parser->parse('default/col/col-3-start',$this->data);
+			$this->parser->parse('default/adson/support',$this->data);
+			$this->parser->parse('default/adson/faq_box',$this->data);
+			$this->parser->parse('default/adson/new_box',$this->data);
+			$this->parser->parse('default/col/col-end',$this->data);
+			$this->parser->parse('default/col/col-8-start',$this->data);
+			$this->parser->parse('default/layout/categories',$this->data);
+			$this->parser->parse('default/col/col-end',$this->data);
+			$this->parser->parse('default/col/end-main',$this->data);
+			$this->parser->parse('default/footer',$this->data);
 	}
 	public function details($details){
 		$p = convert_object($details->result[0]);
@@ -85,7 +130,17 @@ function __construct(){
 		$this->result = $this->GlobalMD->pquery_result('apps/site/alias',$this->obj);
 		return $this->result;
 	}
-	public function alias_categories($alias){
+	public function alias_tin_tuc($alias,$limit){
+		if(!empty($limit)){
+			if($limit < 1){
+				$offset = 1;
+			}else{
+				$offset = (int)$limit;
+			}
+		}
+		$this->obj['categories'] = $alias;
+		$this->obj['limit'] = $offset;
+		$this->result = $this->GlobalMD->pquery_result('apps/site/new_categories',$this->obj);
 		return $this->result;
 	}
 	public function categories($categories){
@@ -99,7 +154,13 @@ function __construct(){
 		$this->parser->parse('default/adson/header_top',$this->data);
 		$this->parser->parse('default/adson/header_nav',$this->data);
 		$this->parser->parse('default/col/start-main',$this->data);
-		// $this->parser->parse('default/layout/Index_Layout',$this->data);
+		$this->parser->parse('default/col/col-3-start',$this->data);
+		$this->parser->parse('default/adson/support',$this->data);
+		$this->parser->parse('default/adson/faq_box',$this->data);
+		$this->parser->parse('default/col/col-end',$this->data);
+		$this->parser->parse('default/col/col-8-start',$this->data);
+		$this->parser->parse('default/unknown',$this->data);
+		$this->parser->parse('default/col/col-end',$this->data);
 		$this->parser->parse('default/col/end-main',$this->data);
 		$this->parser->parse('default/footer',$this->data);
 	

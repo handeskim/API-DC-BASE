@@ -31,15 +31,13 @@ if(is_array($v)) { } elseif(is_object($v)) {} else { ?>
 	<?php } 
 	if($card['transaction_card'] === 'done'){?>
 	<div class="form-group  col-md-2 col-sm-6 col-xs-12 sub">
-		<button type="button" onclick="Cancel_transaction('{root_id}')" class="btn btn-warning "> <i class="fa fa-ban"> </i> THU HỒI </button>	
+		<button type="button" onclick="Cancel_transaction('{root_id}')" class="btn btn-warning "> <i class="fa fa-ban"> </i> THU HỒI THẺ </button>	
 	</div>
 	<?php	} 
 }  ?> 
-	<?php if($card['transaction_card'] === 'reject'){ ?> 
 	<div class="form-group  col-md-2 col-sm-6 col-xs-12 sub">
-		<button type="button" onclick="Delete_transaction('{root_id}')" class="btn btn-danger"><i class="fa fa-trash"> </i> XÓA GIAO DỊCH  </button>	
+		<button type="button" onclick="Delete_transaction('{root_id}')" class="btn btn-danger"><i class="fa fa-trash"> </i> XÓA THẺ  </button>	
 	</div>	
-	<?php	}   ?> 
 <?php	}   ?> 
 	<div class="form-group  col-md-2 col-sm-6 col-xs-12 sub">
 		<button type="button" onclick="printDiv('printDiv')" class="btn btn-primary pull-right"><i class="fa fa-print"> </i> IN </button>	

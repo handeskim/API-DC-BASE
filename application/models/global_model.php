@@ -45,7 +45,16 @@ class Global_model extends CI_Model{
 	public  function _site_load_site_faq(){
 		$this->result = $this->pquery_result('apps/site/site_load_site_faq',$this->obj);
 		return $this->result;
-	}public  function _site_load_site_news_box(){
+	}
+	public  function _site_load_card_default(){
+		$this->result = $this->pquery_result('apps/site/site_load_card',$this->obj);
+		return $this->result;
+	}
+	public  function _site_load_bycard_default(){
+		$this->result = $this->pquery_result('apps/site/site_load_bycard',$this->obj);
+		return $this->result;
+	}
+	public  function _site_load_site_news_box(){
 		$this->result = $this->pquery_result('apps/site/news_box',$this->obj);
 		return $this->result;
 	}
@@ -64,13 +73,23 @@ class Global_model extends CI_Model{
 			}
 		// }
 	}
+	
 	public function query_get($url,$array){
 		$this->_connect[] = $array;
 		$this->obj = $this->rest->get($url,$this->_connect);
 		return $this->response($this->obj);
 	}
+	public function nganluong_sevice(){
+		$object_service['name_service'] = 'NGANLUONG';
+		$object_name = $this->pquery_result('apps/site/info_service_payments',$object_service);
+		return $object_name;
+	}
 	public function query_global($url,$param){
 		$this->obj = $this->rest->get($url,array($this->api_name => $this->secret_key,'param'=> encrypt_obj(json_encode($param),$this->secret_key,$this->priv_key),));
+		return $this->_result($this->obj);
+	}
+	public function pquery_global($url,$param){
+		$this->obj = $this->rest->post($url,array($this->api_name => $this->secret_key,'param'=> encrypt_obj(json_encode($param),$this->secret_key,$this->priv_key),));
 		return $this->_result($this->obj);
 	}
 	public function query_result($url,$param){

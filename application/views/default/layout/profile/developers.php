@@ -12,19 +12,39 @@
 							<table class="table table-bordered table-striped"> 
 								<tr> 
 								<td> Merchant ID </td>
-									<td><?php echo $developer[0]['merchant_id']?></td>
+									<td><?php 
+									if(isset($developer[0]['merchant_id'])){
+										echo $developer[0]['merchant_id'];
+									}
+									?></td>
 								</tr>
 								<tr> 
 									<td> Secret key </td>
-									<td><textarea class="secret_key_developer" rows="4" readonly><?php echo $developer[0]['secret_key']?></textarea></td>
+									<td><textarea class="secret_key_developer" rows="4" readonly><?php 
+										if(isset($developer[0]['secret_key'])){
+											echo $developer[0]['secret_key'];
+										}
+									?></textarea></td>
 								</tr>
 								<tr> 
 									<td> Ngày Tạo </td>
-									<td><?php echo $developer[0]['date_created']?></td>
+									<td><?php 
+										if(isset($developer[0]['date_created'])){
+											echo $developer[0]['date_created'];
+										}
+									?></td>
 								</tr>
 								<tr> 
 									<td> Trạng thái </td>
-									<td><?php echo $developer[0]['level']?></td>
+									<td><?php 
+										if(isset($developer[0]['level'])){
+											if($developer[0]['level']>1){
+												echo "Active";
+											}else{
+												echo "Not active";
+											}
+										}
+									?></td>
 								</tr>
 							</table>
 						</div>

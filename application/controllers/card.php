@@ -7,6 +7,7 @@ class Card extends MY_Controller{
 		$this->obj = array();
 		$this->param = array();
 		$this->result = array();
+		$this->profile = array();
 		$this->data = array();
 		$this->data['remarketing'] = array();
 		$this->data = $this->GlobalMD->site_default();
@@ -25,9 +26,9 @@ class Card extends MY_Controller{
 					$this->data['profile'] = $this->session->userdata('data_user');
 					$this->client_id = ClientID($this->profile);
 					$this->data['client_id'] = $this->client_id;
-				}else{redirect(base_url('thoat-tai-khoan.html'));}
-			}else{redirect(base_url('thoat-tai-khoan.html'));}
-		}else{redirect(base_url('dang-ky.html'));}
+				}
+			}
+		}
 	}
 	public function card_post(){
 		if(!empty($_POST)){
@@ -67,15 +68,15 @@ class Card extends MY_Controller{
 		echo '<script> alert("'.$msg.'"); window.location.href = "'.base_url('doi-the-cao.html').'";</script>';
 	}
 	public function index(){
-		$this->obj = $this->GlobalMD->query_global('apps/site/info_card',$this->obj);
+		$this->obj = $this->GlobalMD->query_result('apps/site/info_card',$this->obj);
 		$this->data['info_card'] = convert_object($this->obj->result);
+		$this->data['title'] = 'Đổi thẻ cào sang tiền mặt nhanh chóng';
 		$this->data['title_main'] = 'ĐỔI THẺ CÀO';
 		if(!empty($this->client_id)){
 			$this->data['clients_id'] = $this->client_id;
 			if(isset($this->profile['full_name'])){
 					$this->data['clients_username'] = $this->profile['full_name'];
 			}
-		
 		}else{
 			$this->data['clients_username'] = 'vui lòng đăng nhập sau đó thực hiện chuyển đổi thẻ cào';
 		}
@@ -93,10 +94,13 @@ class Card extends MY_Controller{
 		$this->parser->parse('default/col/col-3-start',$this->data);
 		$this->parser->parse('default/adson/support',$this->data);
 		$this->parser->parse('default/adson/faq_box',$this->data);
+		$this->parser->parse('default/adson/new_box',$this->data);
 		$this->parser->parse('default/col/col-end',$this->data);
 		$this->parser->parse('default/col/col-9-start',$this->data);
-		$this->parser->parse('default/layout/share/nap_ngay_main',$this->data);
+		$this->parser->parse('default/layout/share/doi_ngay_main',$this->data);
+		$this->parser->parse('default/layout/deduct',$this->data);
 		$this->parser->parse('default/col/col-end',$this->data);
+		
 		$this->parser->parse('default/col/end-main',$this->data);
 		$this->parser->parse('default/footer',$this->data);
 	}

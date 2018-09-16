@@ -38,6 +38,7 @@ class Reseller extends MY_Controller{
 			$this->data['card_change'] = $info->card_change;
 			$this->data['withdrawal'] = $info->withdrawal;
 			$this->data['transfer_log'] = $info->transfer_log;
+			$this->data['history_payments'] = $info->history_payments;
 			
 			$this->data['card_change_sum'] = convert_object($info->card_change_hod);
 			$this->data['api_group'] = convert_object($info->api_group);
@@ -45,6 +46,7 @@ class Reseller extends MY_Controller{
 			$this->data['transfer_log_group'] = convert_object($info->transfer_log_group);
 			$this->data['withdrawal_transaction'] = convert_object($info->withdrawal_transaction);
 			$this->data['transfer_transaction'] = convert_object($info->transfer_transaction);
+			$this->data['history_payments_transaction'] = convert_object($info->history_payments_transaction);
 			$this->data['card_transaction'] = convert_object($info->card_transaction);
 			$this->data['user_info'] = $info->user;
 			$this->data['side_bar'] = 0;

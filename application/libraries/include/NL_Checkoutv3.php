@@ -2,7 +2,7 @@
 
   class NL_CheckOutV3
   {
-	        public $url_api ='https://www.nganluong.vn/checkout.api.nganluong.post.php';  
+			public $url_api ='https://www.nganluong.vn/checkout.api.nganluong.post.php';  
 			public $merchant_id = '';
 			public $merchant_password = '';
 			public $receiver_email = '';

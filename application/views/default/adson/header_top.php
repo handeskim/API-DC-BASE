@@ -2,7 +2,7 @@
 	<div class="container">
 		<span class="nav-toggle"></span>
 		<div class="col-md-3 col-sm-3 col-xs-12 sub"> 
-			<a class="logo" href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>public/logo_1461817203.png"></a>
+			<a class="logo" href="<?php echo base_url(); ?>"><img style="min-height: 55px;max-height: 55px;" src="{logo}"></a>
 		</div>
 		<div class="col-md-6 col-sm-6 col-xs-12 sub"> 
 			<div class="col-md-12 col-sm-12 col-xs-12 sub pull-left"> 

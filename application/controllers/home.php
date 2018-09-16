@@ -42,7 +42,16 @@ class Home extends MY_Controller{
 		$this->parser->parse('default/adson/header_top',$this->data);
 		$this->parser->parse('default/adson/header_nav',$this->data);
 		$this->parser->parse('default/col/start-main',$this->data);
-		// $this->parser->parse('default/layout/Index_Layout',$this->data);
+			$this->parser->parse('default/col/col-3-start',$this->data);
+			$this->parser->parse('default/adson/support',$this->data);
+			$this->parser->parse('default/adson/faq_box',$this->data);
+				$this->parser->parse('default/adson/new_box',$this->data);
+		$this->parser->parse('default/col/col-end',$this->data);
+		$this->parser->parse('default/col/col-8-start',$this->data);
+			$this->parser->parse('default/layout/deduct',$this->data);
+			$this->parser->parse('default/layout/buycard',$this->data);
+			
+		$this->parser->parse('default/col/col-end',$this->data);
 		$this->parser->parse('default/col/end-main',$this->data);
 		$this->parser->parse('default/footer',$this->data);
 	

@@ -54,13 +54,14 @@ class Register extends MY_Controller{
 					if($p['auth'] === $p['auth_duplicate']){
 					if(!empty($p['full_name'])){
 					if(!empty($p['phone'])){
-					$recaptcha = $p['g-recaptcha-response'];
-					$response = $this->recaptcha->verifyResponse($recaptcha);
-					if(isset($response['success'])){
-					if($response['success']==true){
-						$this->Prosesser($p);
-					}else{ echo $this->confirm('vui lòng điền recaptcha'); }
-					}else{ echo $this->confirm('vui lòng điền recaptcha '); }
+					// $recaptcha = $p['g-recaptcha-response'];
+					// $response = $this->recaptcha->verifyResponse($recaptcha);
+					// if(isset($response['success'])){
+					// if($response['success']==true){
+					$this->Prosesser($p);
+					
+					// }else{ echo $this->confirm('vui lòng điền recaptcha'); }
+					// }else{ echo $this->confirm('vui lòng điền recaptcha '); }
 					}else{ echo $this->confirm('vui lòng điền số điện thoại thiếu'); }
 					}else{ echo $this->confirm('vui lòng điền họ và tên thiếu'); }
 					}else{ echo $this->confirm('Mật khẩu cấp 2 không giống nhau'); }

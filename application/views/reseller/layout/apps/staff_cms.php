@@ -61,24 +61,28 @@
 							<th><?php echo  lang('country'); ?></th>
 							<th><?php echo  lang('balancer'); ?></th>
 							<th><?php echo  lang('role'); ?></th>
+							<th><?php echo  lang('status'); ?></th>
+							<th></th>
 							<th></th>
 					</thead>
 					<tbody> 
 						<tr> 
-							<td>không có dữ liệu </td>
-							<td>không có dữ liệu </td>
-							<td>không có dữ liệu </td>
-							<td>không có dữ liệu </td>
-							<td>không có dữ liệu </td>
-							<td>không có dữ liệu </td>
-							<td>không có dữ liệu </td>
-							<td>không có dữ liệu </td>
-							<td>không có dữ liệu </td>
-							<td>không có dữ liệu </td>
-							<td>không có dữ liệu </td>
-							<td>không có dữ liệu </td>
-							<td>không có dữ liệu </td>
-							<td>không có dữ liệu </td>
+							<td>No</td>
+							<td>No</td>
+							<td>No</td>
+							<td>No</td>
+							<td>No</td>
+							<td>No</td>
+							<td>No</td>
+							<td>No</td>
+							<td>No</td>
+							<td>No</td>
+							<td>No</td>
+							<td>No</td>
+							<td>No</td>
+							<td>No</td>
+							<td>No</td>
+							<td>No</td>
 						</tr>
 					</tbody>
 					<tfoot>
@@ -95,6 +99,8 @@
 							<th><?php echo  lang('country'); ?></th>
 							<th><?php echo  lang('balancer'); ?></th>
 							<th><?php echo  lang('role'); ?></th>
+							<th><?php echo  lang('status'); ?></th>
+							<th> </th>
 							<th> </th>
 					</tfoot>
 				</table>

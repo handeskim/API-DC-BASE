@@ -18,7 +18,13 @@ function data_realtime(s,e){
 		if(r.result.status===1000){
 			var e = r.result.data;
 			temp_Extension(e);
-		}
+		}else{
+		var e = null;
+		temp_Extension(e);
+	}
+	}else{
+		var e = null;
+		temp_Extension(e);
 	}
 }
 function info_ask(e){
@@ -80,8 +86,8 @@ function TableResponseDetails(e){
 			{"data": 'bank_name'},
 			{"data": 'account_holders'},
 			{"data": 'bank_account'},
-			{"data": 'provinces_bank'},
-			{"data": 'branch_bank'},
+			{"data": 'provinces_bank',"visible": false},
+			{"data": 'branch_bank',"visible": false},
 			{"data": 'type'},
 			{"data": 'client_name',"visible": false},
 			{"data": 'client_id',"visible": false},

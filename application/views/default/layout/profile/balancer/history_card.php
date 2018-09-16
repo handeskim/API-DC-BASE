@@ -1,13 +1,13 @@
 <div class="main-profile-body-history col-md-12 col-sm-12 col-xs-12 sub">
 	<div class="main-profile-body-edit col-md-12 col-sm-12 col-xs-12 sub">
 		<div class="main-profile-title col-md-12 col-sm-12 col-xs-12 sub">
-				GIAO DỊCH RÚT TIỀN
+				ĐỔI THẺ CÀO
 		</div>
 		<div class="main-profile-body col-md-12 col-sm-12 col-xs-12 sub ">
 			
 			<div class="main-profile-body-details col-md-12 col-sm-12 col-xs-12 sub main-body-col"> 
 					<h3 class="title col-md-12 col-sm-12 col-xs-12 sub"><span class="title_head"> 
-					LỊCH SỬ BIẾN ĐỘNG RÚT TIỀN</span>  </h3>
+					LỊCH SỬ ĐỔI CARD</span>  </h3>
 					<div class="col-md-12 col-sm-12 col-xs-12 sub reset" > 
 						<div id="LoadAjax" style="margin: 0 auto;  min-width: 200px; max-width: 400px; display:none;" >
 						<img src="<?php echo base_url();?>public/images/giphy.gif">
@@ -48,10 +48,12 @@
 							<td><?php echo 	lang('card_status'); ?></td>
 							<td><?php echo 	lang('card_message'); ?></td>
 							<td><?php echo 	lang('tracking'); ?></td>
+							<td><?php echo 	lang('publisher'); ?></td>
 							<th></th>
 					</thead>
 					<tbody> 
 						<tr> 
+							<td>không có dữ liệu </td>
 							<td>không có dữ liệu </td>
 							<td>không có dữ liệu </td>
 							<td>không có dữ liệu </td>
@@ -85,16 +87,22 @@
 							<input type="text" class="text_filter" placeholder="[<?php echo 	lang('card_amount'); ?>]">
 						</td>
 						<td>
-						<input type="text" class="text_filter" placeholder="[<?php echo 	lang('card_status'); ?>]">
+							<select class="select2 select_filter">
+							<option value="">All</option>
+							<option value="False" >Thẻ Sai</option>
+							<option value="True" >Thẻ Đúng</option>
+							</select>
 						</td>
 						<td><?php echo 	lang('card_message'); ?>
 						</td>
+						<td><input type="text" class="text_filter" placeholder="[<?php echo 	lang('tracking'); ?>]">
+						</td>
 						<td>
-						<input type="text" class="text_filter" placeholder="[<?php echo 	lang('tracking'); ?>]">
+						<input type="text" class="text_filter" placeholder="[<?php echo 	lang('publisher'); ?>]">
 						</td>
 						<th> </th>
 						 <tr>
-								<td colspan="9" class="p0"><input type="text" class="form-control b0" name="search_table" id="search_table" placeholder="<?= lang('type_hit_enter'); ?>" style="width:100%;"></td>
+								<td colspan="10" class="p0"><input type="text" class="form-control b0" name="search_table" id="search_table" placeholder="<?= lang('type_hit_enter'); ?>" style="width:100%;"></td>
 						</tr>
 					</tfoot>
 					</table>

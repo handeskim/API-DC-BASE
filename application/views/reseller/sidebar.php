@@ -10,6 +10,9 @@
 		<ul class="treeview-menu" id="cate_41">
 			<li><a href="<?php echo base_url('reseller/withdrawal.html');?>"><i class="fa fa-user"></i> <span> Withdrawal Manager</span></a></li>
 			<li><a href="<?php echo base_url('reseller/transfer.html');?>"><i class="fa fa-bank "></i> <span>Transfer Manager</span></a></li>
+			<li><a href="<?php echo base_url('reseller/payments.html');?>"><i class="fa fa-bank "></i> <span>Nạp số dư</span></a></li>
+			<li><a href="<?php echo base_url('reseller/publisher/rose.html');?>"><i class="fa fa-money "></i> <span>Hoa Hồng CTV</span></a></li>
+			<li><a href="<?php echo base_url('reseller/revenue.html');?>"><i class="fa fa-money "></i> <span>Revenue</span></a></li>
 		</ul>
 	</li>
 	
@@ -17,6 +20,7 @@
 		<a href="#"><i class="fa fa-credit-card"></i> <span>Card Manager</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
 		<ul class="treeview-menu" id="cate_41">
 			<li><a href="<?php echo base_url('reseller/card.html');?>"><i class="fa fa-credit-card"></i> <span> Card Change</span></a></li>
+			<li><a href="<?php echo base_url('reseller/cart.html');?>"><i class="fa fa-shopping-cart"></i> <span> Card Buy</span></a></li>
 		</ul>
 	</li>
 	<li class="treeview" id="bar_6">
@@ -32,6 +36,8 @@
 		<ul class="treeview-menu" id="cate_22">
 			<li><a href="<?php echo base_url('reseller/staff.html');?>"><i class="fa fa-user"></i> <span> User Manager</span></a></li>
 			<li><a href="<?php echo base_url('reseller/bank.html');?>"><i class="fa fa-bank "></i> <span>Bank Manager </span></a></li>
+			<li><a href="<?php echo base_url('reseller/publisher.html');?>"><i class="fa fa-users "></i> <span>Publisher Manager </span></a></li>
+			<li><a href="<?php echo base_url('reseller/staff/revenue.html');?>"><i class="fa fa-pie-chart "></i> <span>Revenue Manager </span></a></li>
 		</ul>
 	</li>
 	
@@ -52,7 +58,18 @@
 				<li><a href="<?php echo base_url();?>reseller/bank/config"><i class="fa  fa-cog"></i>General Bank</a></li>
 			</ul>
 		</li>
-		<li><a href="<?php echo base_url();?>cms/generic"><i class="fa fa-gears"></i> Page settings</a></li>
+		<li class="treeview"  id="cate_11">
+			<a href="#"><i class="fa fa-cc-visa" ></i>Service Configuration
+				<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+			</a>
+			<ul class="treeview-menu" id="sub_12">
+				<li><a href="<?php echo base_url();?>reseller/services/nganluong.html"><i class="fa  fa-cog"></i>Service Payment</a></li>
+			</ul>
+		</li>
+		<li><a href="<?php echo base_url();?>reseller/card_chage_config"><i class="fa fa-gears"></i> Card Change</a></li>
+		<li><a href="<?php echo base_url();?>reseller/card_buy_config"><i class="fa fa-gears"></i> Card Buy</a></li>
+		<li><a href="<?php echo base_url();?>reseller/generic"><i class="fa fa-gears"></i> Page settings</a></li>
+		<li><a href="<?php echo base_url();?>reseller/staff/addmoney"><i class="fa fa-gears"></i> Credit Balance Admin</a></li>
 
 	</ul>
 	</li>

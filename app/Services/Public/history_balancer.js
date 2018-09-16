@@ -18,7 +18,13 @@ function data_realtime(s,e){
 		if(r.result.status===1000){
 			var e = r.result.data;
 			temp_Extension(e);
+		}else{
+			var e = null;
+			temp_Extension(e);
 		}
+	}else{
+		var e = null;
+		temp_Extension(e);
 	}
 }
 function info_ask(e){

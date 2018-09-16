@@ -43,7 +43,7 @@ if(isset($notify_popup)){
 							if(isset($token_session)){ 
 						
 							?>
-							<li class="menu-faq"><a rel="nofollow" href="<?php echo base_url('thong-tin-ca-nhan.html'); ?>tin-moi/faq.html"><i class="fa fa-money"></i> Số Dư: <span class="balancer"><?php if(!empty($balancer)){ echo $balancer;} ?>0</span> vnđ</a></li>
+							<li class="menu-faq"><a rel="nofollow" href="<?php echo base_url('thong-tin-ca-nhan.html'); ?>"><i class="fa fa-money"></i> Số Dư: <span class="balancer"><?php if(!empty($balancer)){ echo $balancer;} ?>0</span> vnđ</a></li>
 							<li id="QuickLogin">
 								<a rel="nofollow" href="<?php echo base_url('thong-tin-ca-nhan.html');?>" title="Tài khoản của tôi"><i class="fa fa-user"></i> Tài khoản của tôi</a>
 							</li>
