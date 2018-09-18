@@ -46,6 +46,7 @@
 					<thead>
 							<td><?php echo 	lang('no'); ?></td>
 							<td><?php echo 	lang('date_created'); ?></td>
+							<td><?php echo 	lang('partner'); ?></td>
 							<td><?php echo 	lang('client_id'); ?></td>
 							<td><?php echo 	lang('full_name'); ?></td>
 							<td><?php echo 	lang('username'); ?></td>
@@ -65,11 +66,13 @@
 							<td>No</td>
 							<td>No</td>
 							<td>No</td>
+							<td>No</td>
 						</tr>
 					</tbody>
 					<tfoot>
 						<td><?php echo 	lang('no'); ?></td>
 						<td><?php echo 	lang('date_created'); ?></td>
+						<td><?php echo 	lang('partner'); ?></td>
 						<td><?php echo 	lang('client_id'); ?></td>
 						<td><?php echo 	lang('full_name'); ?></td>
 						<td><?php echo 	lang('username'); ?></td>
@@ -78,7 +81,7 @@
 						<th> </th>
 						<th> </th>
 						 <tr>
-								<td colspan="9" class="p0"><input type="text" class="form-control b0" name="search_table" id="search_table" placeholder="<?= lang('type_hit_enter'); ?>" style="width:100%;"></td>
+								<td colspan="10" class="p0"><input type="text" class="form-control b0" name="search_table" id="search_table" placeholder="<?= lang('type_hit_enter'); ?>" style="width:100%;"></td>
 						</tr>
 					</tfoot>
 				</table>

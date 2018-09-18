@@ -77,6 +77,8 @@ $lang['balancer_munis'] = "Số dư Sau Trừ";
 $lang['balancer_clients'] = "Số dư Tài khoản";
 $lang['withdrawal'] = "Chuyển Khoản Về Ngân Hàng";
 $lang['money_rose'] = "Hoa Hồng";
+$lang['total_rose_partner'] = "Hoa Hồng Cho  ID Share";
+$lang['rose_partner'] = "Phần trăm hoa hồng CTV Share";
 
 /////////////////// CARD//////////////////////
 
@@ -100,6 +102,7 @@ $lang['card_status'] = "Trạng Thái Thẻ";
 $lang['card_message'] = "Thông báo Thẻ";
 $lang['transaction_service'] = "Transaction Serivce";
 $lang['transfer_transaction'] = "Track ID";
+$lang['partner'] = "ID Share";
 
 ///////////////////ACTION//////////
 $lang['hold'] = "hold";

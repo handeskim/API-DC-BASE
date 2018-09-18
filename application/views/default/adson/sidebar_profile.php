@@ -25,9 +25,9 @@
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <a  href="<?php echo base_url('history_buycard.html');?>"> <span> <i class="fa fa-circle-o"> </i> </span><span class="cate_profile"> Lịch sử đơn hàng mua thẻ</span>  </a> </h5></div>
 		</div>
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <a target="_blank" href="<?php echo base_url('nap-ngay/'.$id_client.'.html');?>"><span> <i class="fa fa-share-alt-square"> </i> </span><span class="cate_collaborators"> Chia sẻ Nạp Ngay</span> </a></h5> </div> 
-		<?php if(!empty($profile['publisher'])){ ?>
+	
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <a href="<?php echo base_url('kiem-tien/'.$id_client.'.html');?>"><span> <i class="fa fa-sitemap"> </i> </span><span class="cate_collaborators"> Kiếm tiền Giới thiệu (CTV )</span>  </a> </h5> </div>
-		<?php } ?>
+		
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-creative-commons"> </i> </span><span class="cate_point"> Số dư:  <small class="label bg-yellow"> <span class="balancer_profile"> <?php if(!empty($balancer)){ echo number_format($balancer,0,'.','.'); }else{ echo 0 ;}?> </span>vnđ</small> <i class="fa fa-plus-square pull-right ppx ppx_balancer"> </i> </span> </h5> </div>
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub sub_profile_banlancer sub_cate_profile">
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <a href="<?php echo base_url('nap-tai-khoan.html');?>"> <span> <i class="fa fa-money"> </i> </span><span class="cate_profile"> Nạp thêm số dư</span> </a></h5></div>

@@ -15,11 +15,13 @@
 						<div class="input-group">
 							<span class="input-group-addon"><?php echo lang('beneficiary_id');?></span>
 							<input type="text" name="beneficiary_id" class="form-control" placeholder="" value="" required>
+							
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon"><?php echo lang('money_transfer');?></span>
 							<input type="number" min="10000" max="10000000" name="money_transfer" class="form-control" placeholder="" value="" required>
 						</div>
+						
 						<input type="hidden" name="<?php echo core_csrf_name(); ?>" value="<?php echo core_token_csrf(); ?>">
 						<div class="checkbox">
 							<label>
@@ -33,6 +35,15 @@
 							<div class="col-md-6 col-sm-6 col-xs-12">
 								<button type="button" class="btn btn-default pull-right close_expand_bank"> Đóng</button>
 							</div>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12 " style="margin-top:10px;">
+						<blockquote>
+						<small>  (*)  Số dư của bạn phải lớn hơn hoặc băng = Số tiền chuyển thấp nhất là 10.000 + 1.000 đồng số dư bắt buộc + Phí giao dịch chuyển khoản là 
+							<?php echo number_format($this->GlobalMD->_load_info_transfer_wget(),0,',','.'); ?>
+						</small>
+						<small> (*)  ID Tài khoản người nhận ví dụ: {client_id}, ở phần thông tin cá nhân trong danh mục thông tin tài khoản</small>
+						
+						</blockquote>
 						</div>
 					</form>
 				</div>

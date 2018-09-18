@@ -42,6 +42,31 @@ class Global_model extends CI_Model{
 		$this->result = $this->pquery_result('apps/site/site_notifacation_top',$this->obj);
 		return $this->result;
 	}
+	public  function _load_info_rose_partner(){
+		$this->result = $this->pquery_result('apps/site/info_rose_partner',$this->obj);
+		if(!empty($this->result->rose_partner)){
+			return $this->result->rose_partner * 100;
+		}else{
+			return 0;
+		}
+	}
+		public  function _load_info_transfer_wget(){
+		$this->result = $this->pquery_result('apps/site/info_transfer_wget',$this->obj);
+		if(!empty($this->result->transfer_fee)){
+			return $this->result->transfer_fee;
+		}else{
+			return 0;
+		}
+	}
+	public  function _load_info_withdraw_wget(){
+		$this->result = $this->pquery_result('apps/site/info_withdraw_wget',$this->obj);
+		if(!empty($this->result->withdrawal_fee)){
+			return $this->result->withdrawal_fee;
+		}else{
+			return 0;
+		}
+	}
+
 	public  function _site_load_site_faq(){
 		$this->result = $this->pquery_result('apps/site/site_load_site_faq',$this->obj);
 		return $this->result;

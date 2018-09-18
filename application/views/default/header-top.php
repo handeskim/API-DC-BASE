@@ -76,17 +76,17 @@ if(isset($notify_popup)){
 									</div>
 									<div class="col-xs-12 forget-pass">
 										<p>Bạn hãy nhập email để chúng tôi gửi mật khẩu cho bạn</p>
-										<div class="form"  method="post" action="<?php echo base_url(); ?>forgotpass.html">
+										<form class="form"  method="post" action="<?php echo base_url(); ?>forgotpass.html">
 											<div class="form-group">
 												<label class="sr-only" for="exampleInputEmail2">Email</label>
 												<input type="email" name="email" class="form-control" id="forgotpass" placeholder="Email" required="">
 											</div>
 											<div class="form-group">
-												<button type="button" class="btn btn-success">Gửi mật khẩu</button>
+												<button type="submit" class="btn btn-success">Gửi mật khẩu</button>
 												<input type="hidden" name="<?php echo core_csrf_name(); ?>" value="<?php echo core_token_csrf(); ?>">
 												<a href="javascript:void(0);" class="btn btn-primary pull-right close_fogotpass">Đóng</a>
 											</div>
-										</div>
+										</form>
 									</div>
 								</div>
 								</li>		

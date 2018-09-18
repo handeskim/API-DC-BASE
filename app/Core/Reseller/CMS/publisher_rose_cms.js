@@ -34,11 +34,13 @@ function TempResolver(e){
 		var no = k;
 		var px = { 
 			'no':no,
+			'partner':v.partner,
 			'client_id':v.client_id,
 			'username':v.username,
 			'cart_rose':v.cart_rose,
 			'card_change_rose':v.card_change_rose,
 			'total_rose':v.total_rose,
+			'total_rose_partner':v.total_rose_partner,
 			'date_start':v.date_start,
 			'date_end':v.date_end,
 			'action_info':action_info,
@@ -60,10 +62,10 @@ function TableResolver(e){
 	var table = $('#TableSLData').DataTable({
 		"dom": 'Blfrtip',
 		 "buttons": [ 
-			{ extend: 'copy', 'footer': false, exportOptions: { columns: [ 0,1,2,3,4,5,6,7 ] } },
-			{ extend: 'csv', 'footer': false, exportOptions: { columns: [ 0,1,2,3,4,5,6,7 ] } },
-			{ extend: 'excel', 'footer': false, exportOptions: { columns: [ 0,1,2,3,4,5,6,7 ] } },
-			{ extend: 'pdf', 'footer': false, exportOptions: { columns: [ 0,1,2,3,4,5,6,7 ] } }
+			{ extend: 'copy', 'footer': false, exportOptions: { columns: [ 0,1,2,3,4,5,6,7,8,9,10 ] } },
+			{ extend: 'csv', 'footer': false, exportOptions: { columns: [ 0,1,2,3,4,5,6,7,8,9,10 ] } },
+			{ extend: 'excel', 'footer': false, exportOptions: { columns: [ 0,1,2,3,4,5,6,7,8,9,10 ] } },
+			{ extend: 'pdf', 'footer': false, exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10 ] } }
 			],
 		"destroy": true,
 		"async": true,
@@ -76,6 +78,8 @@ function TableResolver(e){
 			{"data": 'cart_rose','render':price_convert},
 			{"data": 'card_change_rose','render':price_convert},
 			{"data": 'total_rose','render':price_convert},
+			{"data": 'partner'},
+			{"data": 'total_rose_partner','render':price_convert},
 			{"data": 'date_start'},
 			{"data": 'date_end'},
 			{"data": 'action_info'},

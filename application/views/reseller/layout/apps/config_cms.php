@@ -35,6 +35,12 @@
                 <input  type="number" min="1" name="rose_client" value="<?php if(!empty($config['rose_client'])){ echo $config['rose_client'];}else{ echo 0; }?>"  class="form-control" placeholder="<?php echo lang('rose_client'); ?>">
               </div>
 						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+							<div class="input-group">
+                <span class="input-group-addon"><?php echo lang('rose_partner'); ?> ( Mức hiện tại: <?php if(!empty($config['rose_partner'])){ echo $config['rose_partner'];}else{ echo 0; }?>%)</span>
+                <input  type="number" min="1" name="rose_partner" value="<?php if(!empty($config['rose_partner'])){ echo $config['rose_partner'];}else{ echo 0; }?>"  class="form-control" placeholder="<?php echo lang('rose_partner'); ?>">
+              </div>
+						</div>
 						<button type="submit" class="btn btn-success"> Cập nhập thông tin</button>
 						<input type="hidden" name="<?php echo core_csrf_name(); ?>" value="<?php echo core_token_csrf(); ?>" >
 						<input type="hidden" name="keys" value="<?php echo $config['_id']['$id'];?>" >

@@ -44,16 +44,14 @@
 					<input type="text" class="form-control" name="phone" placeholder="Số điện thoại" required="">
 				</div>
 		    </div>
-			<!--<div class="col-md-12 col-sm-12 col-xs-12 sub">
-				<div class="col-md-12 col-sm-12 col-xs-12 sub">
-					<div class="g-recaptcha" data-sitekey="6LcKd2wUAAAAAO-ebaApoUbUjoHMeTPxPfFN2pGE"></div>
-				</div>
-			</div>-->
 			<div class="col-md-12 col-sm-12 col-xs-12 sub">
 				<div class="form-group">
 					<div class="checkbox"><label><input type="checkbox" name="is_register"> Tôi đã đọc và đồng ý với các <a href="{policy_url}">điều khoản dịch vụ</a> </label></div>
 				</div>
 			</div>
+			<?php if(isset($pub)){ if(!empty($pub)){ ?>
+				<input type="hidden" value="{pub}" name="publisher" >
+			<?php } } ?>
 			<input type="hidden" name="<?php echo core_csrf_name(); ?>" value="<?php echo core_token_csrf(); ?>">
 			<div class="col-md-12 col-sm-12 col-xs-12 sub">
 				<button type="submit" class="btn btn-primary pull-left">ĐĂNG KÝ</button>

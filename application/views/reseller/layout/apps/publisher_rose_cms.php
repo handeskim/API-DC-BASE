@@ -50,12 +50,16 @@
 							<td><?php echo 	lang('cart_rose'); ?></td>
 							<td><?php echo 	lang('card_change_rose'); ?></td>
 							<td><?php echo 	lang('total_rose'); ?></td>
+							<td><?php echo 	lang('partner'); ?></td>
+							<td><?php echo 	lang('total_rose_partner'); ?></td>
 							<td><?php echo 	lang('date_start'); ?></td>
 							<td><?php echo 	lang('date_end'); ?></td>
 							<td></td>
 					</thead>
 					<tbody> 
 						<tr> 
+							<td>No</td>
+							<td>No</td>
 							<td>No</td>
 							<td>No</td>
 							<td>No</td>
@@ -74,14 +78,21 @@
 						<td><?php echo 	lang('cart_rose'); ?></td>
 						<td><?php echo 	lang('card_change_rose'); ?></td>
 						<td><?php echo 	lang('total_rose'); ?></td>
+						<td><?php echo 	lang('partner'); ?></td>
+						<td><?php echo 	lang('total_rose_partner'); ?></td>
 						<td><?php echo 	lang('date_start'); ?></td>
 						<td><?php echo 	lang('date_end'); ?></td>
 						<td></td>
 						 <tr>
-								<td colspan="9" class="p0"><input type="text" class="form-control b0" name="search_table" id="search_table" placeholder="<?= lang('type_hit_enter'); ?>" style="width:100%;"></td>
+								<td colspan="11" class="p0"><input type="text" class="form-control b0" name="search_table" id="search_table" placeholder="<?= lang('type_hit_enter'); ?>" style="width:100%;"></td>
 						</tr>
 					</tfoot>
 				</table>
+				<blockquote>
+				<small> <?php echo 	lang('total_rose_partner'); ?> Là (%) Của <?php echo 	lang('total_rose'); ?> (x) <?php echo 	lang('rose_partner'); ?> Trong cấu hình</small><br>
+				<small> <?php echo 	lang('total_rose'); ?> Là  <?php echo 	lang('card_change_rose'); ?> (+) <?php echo 	lang('cart_rose'); ?></small><br>
+				<small> <?php echo 	lang('cart_rose'); ?> và  <?php echo 	lang('card_change_rose'); ?> được tính là tổng doanh thu của CTV (x) cấp độ theo <?php echo 	lang('rose_reseller'); ?> hoặc <?php echo 	lang('rose_client'); ?>  Trong cấu hình </small>
+				</blockquote>
 			</div>
 		</div>
 	</div>

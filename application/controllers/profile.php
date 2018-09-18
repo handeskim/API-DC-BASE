@@ -197,12 +197,12 @@ class Profile extends MY_Controller{
 					$subject = 'Khôi phục mật khẩu cấp 2 của bạn trên hệ thống '.base_url();
 					$this->load->library('email');
 					$config['protocol']    = 'smtp';
-					$config['smtp_host']    =  $this->session->userdata('smtp_host');
-					$config['smtp_port']    =  $this->session->userdata('smtp_port');
-					$config['smtp_crypto'] = 	$this->session->userdata('smtp_crypto');
+					$config['smtp_host']    =  $this->data['smtp_host'];
+					$config['smtp_port']    =  $this->data['smtp_port'];
+					$config['smtp_crypto'] = 	$this->data['smtp_crypto'];
 					$config['smtp_timeout'] = '7';
-					$config['smtp_user']    =  $this->session->userdata('smtp_user');
-					$config['smtp_pass']    =  $this->session->userdata('smtp_password');
+					$config['smtp_user']    =  $this->data['smtp_user'];
+					$config['smtp_pass']    = $this->data['smtp_password']; 
 					$config['charset']    = 'utf-8';
 					$config['newline']    = "\r\n";
 					$config['mailtype'] = 'html';

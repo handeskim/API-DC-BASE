@@ -5,6 +5,8 @@ class Register extends MY_Controller{
 		parent::__construct();
 		$this->load->model('global_model', 'GlobalMD');	
 		$this->msg = null;
+		$this->publisher = null;
+		$this->partner = null;
 		$this->obj = array();
 		$this->param = array();
 		$this->result = array();
@@ -24,6 +26,7 @@ class Register extends MY_Controller{
 		$this->session->unset_userdata('data_user');
 		$this->session->unset_userdata('token_session');
 		$this->data['remarketing'] = array('dynx_itemid' =>'','dynx_pagetype' => 'register', 'dynx_totalvalue' => 0 );
+		if(!empty($_GET['pub'])){ $this->data['pub'] = $_GET['pub'];}
 		$this->parser->parse('default/header',$this->data);
 		$this->parser->parse('default/header-top',$this->data);
 		$this->parser->parse('default/adson/header_top',$this->data);
@@ -54,14 +57,7 @@ class Register extends MY_Controller{
 					if($p['auth'] === $p['auth_duplicate']){
 					if(!empty($p['full_name'])){
 					if(!empty($p['phone'])){
-					// $recaptcha = $p['g-recaptcha-response'];
-					// $response = $this->recaptcha->verifyResponse($recaptcha);
-					// if(isset($response['success'])){
-					// if($response['success']==true){
-					$this->Prosesser($p);
-					
-					// }else{ echo $this->confirm('vui lòng điền recaptcha'); }
-					// }else{ echo $this->confirm('vui lòng điền recaptcha '); }
+						$this->Prosesser($p);
 					}else{ echo $this->confirm('vui lòng điền số điện thoại thiếu'); }
 					}else{ echo $this->confirm('vui lòng điền họ và tên thiếu'); }
 					}else{ echo $this->confirm('Mật khẩu cấp 2 không giống nhau'); }
@@ -76,9 +72,10 @@ class Register extends MY_Controller{
 		}
 	}
 	public function confirm($msg){
-		return '<script> confirm("'.$msg.'"); window.location.href = "'.base_url('đăng ký.html').'"; </script>';
+		return '<script> confirm("'.$msg.'"); window.location.href = "'.base_url('dang-ky.html').'"; </script>';
 	}
 	public function Prosesser($p){
+		
 		$this->param = array(
 			'token'=> $this->_token,
 			'email'=> (string)$p['email'],
@@ -88,6 +85,7 @@ class Register extends MY_Controller{
 			'full_name'=> (string)$p['full_name'],
 			'phone'=> (string)$p['phone'],
 		);
+		if(!empty($p['publisher'])){ $this->param['partner'] = $p['publisher']; } 
 		$this->obj = $this->GlobalMD->query_global('api/user/create',$this->param);
 		if(!empty($this->obj)){
 				$obj = json_decode($this->obj);

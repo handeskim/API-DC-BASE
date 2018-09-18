@@ -211,6 +211,16 @@ if ( ! function_exists('fpath_ssl')){
 		return $username;
     }
   }
+if(! function_exists('random_pas')){
+    function random_pas(){
+		$length = 5;
+		$lengthc = 3;
+		$randoms = substr(str_shuffle("012345678@#qwertyuioppasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"), 0, $length);
+		$randomc = substr(str_shuffle("012345678@#qwertyuioppasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"), 0, $lengthc);
+		$username = $randomc.$randoms;
+		return $username;
+    }
+  }
  if(! function_exists('random_name_ssl')){
     function random_name_ssl(){
 		$length = 18;

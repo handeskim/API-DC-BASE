@@ -48,6 +48,7 @@ function TempResolver(e){
 			'no':no,
 			'date_create':v.date_create,
 			'client_id':v.client_id,
+			'partner':v.partner,
 			'full_name':v.full_name,
 			'username':v.username,
 			'email':v.email,
@@ -84,6 +85,7 @@ function TableResolver(e){
 		"columns": [
 			{"data": 'no',"visible": false},
 			{"data": 'date_create'},
+			{"data": 'partner'},
 			{"data": 'client_id'},
 			{"data": 'username'},
 			{"data": 'full_name'},

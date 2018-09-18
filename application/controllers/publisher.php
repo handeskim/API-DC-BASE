@@ -46,7 +46,9 @@ class Publisher extends MY_Controller{
 						}else{$this->confirms("không tồn tại thành viên, hoặc thành viên đã là cộng tác viên trên hệ thống");}
 					}else{$this->confirms("không tồn tại thành viên, hoặc thành viên đã là cộng tác viên trên hệ thống");}
 				}else{ redirect(base_url('cong-tac-vien.html'));}
-			}else{$this->confirm("đăng nhập trước khi xác nhận cộng tác viên");}
+			}else{
+				redirect(base_url('dang-ky.html?pub='.$alias));
+			}
 		}else{$this->confirm("không tồn tại thành viên, hoặc thành viên đã là cộng tác viên trên hệ thống");}
 	}
 	public function share(){
