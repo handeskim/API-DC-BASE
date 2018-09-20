@@ -87,7 +87,7 @@
 						<td><?php echo 	lang('money_transfer'); ?></td>
 						<td><?php echo 	lang('fee'); ?></td>
 						<td><?php echo 	lang('total_transfer'); ?></td>
-							<td>
+						<td>
 							<select class="select2 select_filter">
 							<option value="">All</option>
 							<option value="hold" >hold</option>
@@ -107,6 +107,7 @@
 							<option value="Change Card" >Change Card</option>
 							<option value="transfer" >Chuyển khoản</option>
 							<option value="refill" >Nạp tiền</option>
+							<option value="buy" >Mua Thẻ</option>
 							<option value="transfers" >Giao dịch khác</option>
 							</select>
 						</td>

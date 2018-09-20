@@ -1,7 +1,6 @@
 <div class="wp-menu">
 <div class="container">
 <nav class="navbar navbar-default nav-main-menu">
-<div class="container-fluid">
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 			<span class="sr-only">Toggle navigation</span>
@@ -43,7 +42,6 @@
 			<li><a href="<?php echo base_url('doi-the-cao.html');?>">Đổi Thẻ</a></li>
 		</ul>
 	</div><!--/.nav-collapse -->
-</div><!--/.container-fluid -->
 </nav>
 </div>
 </div>

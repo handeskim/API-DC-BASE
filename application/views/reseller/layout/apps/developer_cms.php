@@ -74,13 +74,19 @@
 					</tbody>
 					<tfoot>
 							<td><?php echo 	lang('no'); ?></td>
-							<th><?php echo 	lang('date_created'); ?> </th>
-							<th><?php echo  lang('users'); ?></th>
-							<th><?php echo  lang('reseller'); ?></th>
-							<th><?php echo  lang('key'); ?></th>
-							<th><?php echo  lang('level'); ?></th>
+							<th><input type="text" class="text_filter" placeholder="[<?php echo 	lang('date_created'); ?>]"></th>
+							<th><input type="text" class="text_filter" placeholder="[<?php echo 	lang('users'); ?>]"></th>
+							<th><input type="text" class="text_filter" placeholder="[<?php echo 	lang('reseller'); ?>]"></th>
+							<th><input type="text" class="text_filter" placeholder="[<?php echo 	lang('key'); ?>]"></th>
+							<th>
+								<select class="select2 select_filter">
+								<option value="" >Tất cả</option>
+								<option value="No Active">No Active</option>
+								<option value="Full Clients" >Active</option>
+								</select>
+							</th>
 							<th><?php echo  lang('role'); ?></th>
-							<th><?php echo  lang('ip_addresses'); ?></th>
+							<th><input type="text" class="text_filter" placeholder="[<?php echo 	lang('ip_addresses'); ?>]"></th>
 						<th> </th>
 						<th> </th>
 					</tfoot>

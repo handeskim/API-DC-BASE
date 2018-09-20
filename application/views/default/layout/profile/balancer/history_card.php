@@ -13,11 +13,10 @@
 						<img src="<?php echo base_url();?>public/images/giphy.gif">
 						</div>
 					</div>
-					<div class="main-profile-body-load col-md-12 col-sm-12 col-xs-12 sub "> 
-					</div>
+					
 					<div class="main-profile-body-load-default col-md-12 col-sm-12 col-xs-12 sub "> 
 					<div class="col-md-12 col-sm-12 col-xs-12 sub tab_add_bank" >
-							<div class="col-md-12 col-sm-12 col-xs-12 sub" >
+						<div class="col-md-12 col-sm-12 col-xs-12 sub" >
 						<div class="col-md-10 col-sm-10 col-xs-12 sub pull-left">
 							<div class="input-group date col-md-6 col-sm-6 col-xs-12 sub pull-left">
 									<div class="input-group-addon"><i class="fa fa-calendar"> <label> Ngày bắt đầu </label></i></div>
@@ -36,6 +35,10 @@
 						<div class="Loadding" style="margin: 0 auto;  min-width: 200px; max-width: 400px; display:none;" >
 								<img src="<?php echo base_url();?>public/images/giphy.gif">
 						</div>
+					</div>
+					<div class="main-profile-body-load col-md-12 col-sm-12 col-xs-12 sub "> 
+						Mọi thắc mắc xin vui lòng liên hệ hotline/chat trực tuyến với bộ phận hỗ trợ
+						<h2> Tổng nạp: <span class="money_conver money_convert_total"> </span> | Thực nhận:  <span class="money_conver money_convert_received"> </span> |   Tạm giữ:  <span class="money_conver money_convert_hold"> </span>  </h2>
 					</div>
 						<table  id="TableExtReport" class="table table-bordered table-hover dataTable display" style="width:100%" role="grid">
 								<thead>
@@ -93,7 +96,8 @@
 							<option value="True" >Thẻ Đúng</option>
 							</select>
 						</td>
-						<td><?php echo 	lang('card_message'); ?>
+						<td>
+						<input type="text" class="text_filter" placeholder="[<?php echo 	lang('card_message'); ?>]">
 						</td>
 						<td><input type="text" class="text_filter" placeholder="[<?php echo 	lang('tracking'); ?>]">
 						</td>

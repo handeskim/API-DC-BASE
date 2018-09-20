@@ -34,6 +34,7 @@
 <!-- jQuery UI 1.11.4 -->
 <script src="<?php echo base_url();?>public/reseller/bower_components/jquery-ui/jquery-ui.min.js"></script>
 <script src="<?php echo base_url();?>public/reseller/app/glolbal.js"></script>
+<script src="<?php echo base_url();?>public/reseller/cleave.min.js"></script>
 <script src="<?php echo base_url();?>public/reseller/select2.min.js"></script>
 <script type="text/javascript">var BASE_URL = "<?php echo base_url(); ?>";</script>
 <script>  var csrf_name = '<?php echo core_csrf_name(); ?>'; var token_csrf = '<?php echo core_token_csrf(); ?>'; </script>

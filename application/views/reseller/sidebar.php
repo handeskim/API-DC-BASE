@@ -21,6 +21,7 @@
 		<ul class="treeview-menu" id="cate_41">
 			<li><a href="<?php echo base_url('reseller/card.html');?>"><i class="fa fa-credit-card"></i> <span> Card Change</span></a></li>
 			<li><a href="<?php echo base_url('reseller/cart.html');?>"><i class="fa fa-shopping-cart"></i> <span> Card Buy</span></a></li>
+			<li><a href="<?php echo base_url('reseller/blockseri.html');?>"><i class="fa fa-credit-card"></i> <span> Block Seri</span></a></li>
 		</ul>
 	</li>
 	<li class="treeview" id="bar_6">
@@ -64,6 +65,7 @@
 			</a>
 			<ul class="treeview-menu" id="sub_12">
 				<li><a href="<?php echo base_url();?>reseller/services/nganluong.html"><i class="fa  fa-cog"></i>Service Payment</a></li>
+				<li><a href="<?php echo base_url();?>reseller/services.html"><i class="fa  fa-cog"></i>Service Config</a></li>
 			</ul>
 		</li>
 		<li><a href="<?php echo base_url();?>reseller/card_chage_config"><i class="fa fa-gears"></i> Card Change</a></li>

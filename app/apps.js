@@ -67,7 +67,7 @@ $(document).ready(function(){
 
 function init_apps(){
 	init_client_balancer();
-	setInterval(init_client_balancer, 10000);
+	setInterval(init_client_balancer, 60000);
 }
 function init_client_balancer(){
 	var f = 'api/balancer';

@@ -52,6 +52,7 @@ function TempResolver(e){
 		var no = k;
 		var action_remove = '<a class="btn btn-small btn-danger" onclick="delete_ask(\'' + v.id + '\')"><i class="fa fa-trash"></i></a>';
 		var action_edit = '<a class="btn btn-small btn-warning" onclick="edit_ask(\'' + v.id + '\')"><i class="fa fa-edit"></i></a>';
+		var info_details = '<a class="btn btn-small btn-info" href="'+BASE_URL+'reseller/staff/details.html?keys=' + v.client_id + '"><i class="fa fa-info-circle"></i></a>';
 		var px = { 
 			'no':no,
 			'id':v.id,
@@ -68,6 +69,7 @@ function TempResolver(e){
 			'balancer':v.balancer,
 			'role':v.role,
 			'status':v.status,
+			'info_details':info_details,
 			'action_remove':action_remove,
 			'action_edit':action_edit,
 		};
@@ -116,6 +118,7 @@ function TableResolver(e){
 			{"data": 'balancer',"render":price_convert},
 			{"data": 'role',"render":role_render},
 			{"data": 'status',"render":status_render},
+			{"data": 'info_details'},
 			{"data": 'action_edit'},
 			{"data": 'action_remove'}
 			]

@@ -1,5 +1,5 @@
 <div class="col-md-12 col-sm-12 col-xs-12 main-dich-vu" >
-<div class="col-md-6 col-sm-6 col-xs-6 main-dich-vu-sub card-box">
+<div class="col-md-6 col-sm-6 col-xs-12 main-dich-vu-sub card-box">
 <form method="post" action="<?php echo base_url('api/card')?>">
 <div class="col-md-12 col-sm-12 col-xs-12 sub main-dich-vu-title">
 	<h1> {title_main} </h1>
@@ -54,7 +54,7 @@
 	</div>
 </div>
 
-<div class="col-md-6 col-sm-6 col-xs-6 sub main-dich-vu-sub card-desc">
+<div class="col-md-6 col-sm-6 col-xs-12 sub main-dich-vu-sub card-desc">
 	<div class="col-md-12 col-sm-12 col-xs-12 sub main-dich-vu-title">
 		<h1> HƯỚNG DẪN ĐỔI THẺ CÀO </h1> 
 	</div>

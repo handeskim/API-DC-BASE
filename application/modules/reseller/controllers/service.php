@@ -60,6 +60,15 @@ class Service extends REST_Controller {
 		}
 		$this->response($this->r);
 	}
+	public function review_clients_post(){
+		if(!empty($_POST)){
+			$this->obj = $_POST;
+			$this->obj['token'] = $this->_token;
+			$update = $this->GlobalMD->pquery_result('api/staff_cms/details',$this->obj);
+			$this->r = $update;
+		}
+		$this->response($this->r);
+	}
 	public function cms_staff_transfer_out_post(){
 		if(!empty($_POST)){
 			$this->obj = $_POST;
@@ -279,6 +288,24 @@ public function payments_cms_agree_post(){
 		}
 		$this->response($this->r);
 	}
+	public function blockseri_cms_get(){
+		if(!empty($this->token_session)){
+			if(!empty($this->ClientID)){
+					if(!empty($_GET['sd'])){ $date_start = $_GET['sd'];}else{$date_start = date("Y-m-d",time());}
+					if(!empty($_GET['ed'])){ $date_end = $_GET['ed'];}else{$date_end = date("Y-m-d",time());}
+					$this->param = array('client_id'=>$this->ClientID,'token'=>$this->_token,'date_start'=>$date_start,'date_end'=>$date_end);
+					if(!empty($_GET['date_start'])){ }
+					if(!empty($_GET['date_start'])){ }
+					$developer = $this->GlobalMD->query_result('api/blockseri_cms',$this->param);
+					if(!empty($developer)){
+						if((int)$developer->status->status == 1000){
+							$this->r = array('status'=>true,'data'=> $developer->result);
+						}
+					}
+			}
+		}
+		$this->response($this->r);
+	}
 	public function cart_cms_get(){
 		if(!empty($this->token_session)){
 			if(!empty($this->ClientID)){
@@ -424,6 +451,16 @@ public function payments_cms_agree_post(){
 			$this->obj['client_id'] = $this->client_id;
 			$this->obj['keys'] = $_POST['e'];
 			$developer = $this->GlobalMD->query_result('apps/site/card_buy_cms_del',$this->obj);
+			$this->r = array('status'=>true,'data'=> $developer);
+		}
+		$this->response($this->r);
+	}	
+	public function blockseri_cms_del_post(){
+		if(!empty($_POST['e'])){
+			$this->obj['token'] = $this->_token;
+			$this->obj['client_id'] = $this->client_id;
+			$this->obj['keys'] = $_POST['e'];
+			$developer = $this->GlobalMD->query_result('apps/site/blockseri_cms_del',$this->obj);
 			$this->r = array('status'=>true,'data'=> $developer);
 		}
 		$this->response($this->r);

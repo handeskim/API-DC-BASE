@@ -99,7 +99,7 @@ function TableResolver(e){
 			{"data": 'card_deduct',"render":percentage},
 			{"data": 'card_rose',"render":percentage},
 			{"data": 'card_status',"render":status_card_chage},
-			{"data": 'card_message'},
+			{"data": 'card_message',"visible": false},
 			{"data": 'transaction_service',"visible": false},
 			{"data": 'tracking'},
 			{"data": 'action_info'}

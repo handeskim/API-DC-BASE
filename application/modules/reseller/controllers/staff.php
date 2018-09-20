@@ -63,6 +63,23 @@ class Staff extends MY_Controller{
 			$this->is_profile();
 		}
 	}	
+	public function details(){
+		if($this->_role == 1 || $this->_role == 2 || $this->_role ==3){
+			if(!empty($_GET['keys'])){
+					$this->data['title'] = lang('staff');
+					$this->data['title_main'] = lang('staff');
+					$this->data['side_bar'] = 3;
+					$this->data['root_id'] = $_GET['keys'];
+					$this->parser->parse('reseller/header',$this->data);
+					$this->parser->parse('reseller/sidebar',$this->data);
+					$this->parser->parse('reseller/main',$this->data);
+					$this->parser->parse('reseller/layout/apps/staff_details_cms',$this->data);
+					$this->parser->parse('reseller/footer',$this->data);
+			}else{
+				redirect(base_url('reseller/staff.html'));
+			}
+		}else{ $this->is_profile();}
+	}	
 	public function addmoney(){
 		if($this->_role == 1 || $this->_role == 2){
 			$this->obj['token'] = $this->_token;

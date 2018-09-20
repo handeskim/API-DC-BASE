@@ -2,6 +2,33 @@
 	margin:0px;
 	padding:0px;
 }
+.money_conver {
+		font-size: 18px;
+    color: #F44336;
+    font-weight: 700;
+    font-family: sans-serif;
+}
+.money_convert_reject {
+	font-size: 18px;
+    color: #03A9F4;
+    font-weight: 700;
+    font-family: sans-serif;
+    text-decoration: line-through;
+}
+.money_convert_hold {
+font-size: 18px;
+    color: #FFEB3B;
+    font-weight: 700;
+    font-family: sans-serif;
+    text-decoration: initial;
+}
+.money_convert_total {
+font-size: 18px;
+    color: #5fbc0d;
+    font-weight: 700;
+    font-family: sans-serif;
+    text-decoration: initial;
+}
 .reset{
 	margin:0px;
 	padding:0px;

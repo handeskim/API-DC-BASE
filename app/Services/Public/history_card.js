@@ -32,7 +32,26 @@ function info_ask(e){
 }
 function temp_Extension(e){
 	var p = [];
+	var total_card_change = [];
+	var total_card_received = [];
+	var total_card_hold = [];
+	var total_card_reject = [];
 	$.each(e, function(k, v) {
+	
+		var transaction = v.transaction_card;
+		if(transaction=='done'){
+			total_card_change.push(v.card_amount);
+			var card_deduct = v.card_deduct/100;
+			var card_amount =v.card_amount;
+			var amount = card_amount * card_deduct;
+			total_card_received.push(amount);
+		}
+		if(transaction=='hold'){
+			total_card_hold.push(v.card_amount);
+		}
+		if(transaction=='reject'){
+			total_card_reject.push(v.card_amount);
+		}
 		var no = k;
 		if(v.action === 'minus'){ 	
 			var balancer = v.balancer_munis;
@@ -64,6 +83,30 @@ function temp_Extension(e){
 		};
 		p.push(px);
 	});
+	$('.money_convert_received').empty();
+	$('.money_convert_total').empty();
+	$('.money_convert_reject').empty();
+	$('.money_convert_hold').empty();
+	if(total_card_received.length > 0){
+		$('.money_convert_received').append(price_convert(sum_array(total_card_received))+' vnđ');
+	}else{
+		$('.money_convert_received').append('0 vnđ');
+	}
+	if(total_card_change.length > 0){
+		$('.money_convert_total').append(price_convert(sum_array(total_card_change))+' vnđ');
+	}else{
+		$('.money_convert_total').append('0 vnđ');
+	}
+	if(total_card_reject.length > 0){
+		$('.money_convert_reject').append(price_convert(sum_array(total_card_reject))+' vnđ');
+	}else{
+		$('.money_convert_reject').append('0 vnđ');
+	}
+	if(total_card_hold.length > 0){
+		$('.money_convert_hold').append(price_convert(sum_array(total_card_hold))+' vnđ');
+	}else{
+		$('.money_convert_hold').append('0 vnđ');
+	}
 	TableResponseDetails(p);
 }
 function TableResponseDetails(e){
@@ -78,6 +121,8 @@ function TableResponseDetails(e){
 		"destroy": true,
 		"order": [[ 0, "desc" ]],
 		"async": true,
+		"processing": true,
+		// "serverSide": true,
 		"data": e,
 		"columns": [
 			{"data": 'date_created'},
@@ -97,7 +142,7 @@ function TableResponseDetails(e){
 			},
 			"footerCallback": function (  tfoot, data, start, end, display ) {
 					var api = this.api(), data;
-					 $(api.column(4).footer()).html( price_convert(api.column(4).data().reduce( function (a, b) { return pf(a) + pf(b); }, 0)));
+					 // $(api.column(4).footer()).html( price_convert(api.column(4).data().reduce( function (a, b) { return pf(a) + pf(b); }, 0)));
 					
 			}
 	});

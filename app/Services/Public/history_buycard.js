@@ -32,6 +32,7 @@ function info_ask(e){
 }
 function temp_Extension(e){
 	var p = [];
+	
 	$.each(e, function(k, v) {
 		var no = k;
 		if(v.action === 'minus'){ 	

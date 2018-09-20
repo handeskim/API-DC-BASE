@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var p={sd:DateMunisDefault(0),ed:DateMunisDefault(0)};Resolver(p),$("#selection_days").change(function(){var e=$("#selection_days").val();if(1==e&&($(".DateSeletor").css("display","none"),p={sd:DateMunisDefault(0),ed:DateMunisDefault(0)},Resolver(p)),2==e&&($(".DateSeletor").css("display","none"),p={sd:DateMunisDefault(7),ed:DateMunisDefault(0)},Resolver(p)),3==e&&($(".DateSeletor").css("display","none"),p={sd:DateMunisDefault(15),ed:DateMunisDefault(0)},Resolver(p)),4==e&&($(".DateSeletor").css("display","none"),p={sd:DateMunisDefault(30),ed:DateMunisDefault(0)},Resolver(p)),5==e){var a=dateDefault()+" 00:00:00",t=dateDefault()+" 23:59:59";$("#date_start").datetimepicker({defaultDate:a,format:"DD-MM-YYYY HH:mm:ss"}),$("#date_end").datetimepicker({defaultDate:t,format:"DD-MM-YYYY HH:mm:ss"}),$(".DateSeletor").toggle(),$("#Search").click(function(){$("#LoaddingCharAnalyticsx").css("display","block");var e=$("#date_start").val(),a=$("#date_end").val();Resolver({sd:e,ed:a})})}});
+	var p={sd:DateMunisDefault(30),ed:DateMunisDefault(0)};Resolver(p),$("#selection_days").change(function(){var e=$("#selection_days").val();if(1==e&&($(".DateSeletor").css("display","none"),p={sd:DateMunisDefault(0),ed:DateMunisDefault(0)},Resolver(p)),2==e&&($(".DateSeletor").css("display","none"),p={sd:DateMunisDefault(7),ed:DateMunisDefault(0)},Resolver(p)),3==e&&($(".DateSeletor").css("display","none"),p={sd:DateMunisDefault(15),ed:DateMunisDefault(0)},Resolver(p)),4==e&&($(".DateSeletor").css("display","none"),p={sd:DateMunisDefault(30),ed:DateMunisDefault(0)},Resolver(p)),5==e){var a=dateDefault()+" 00:00:00",t=dateDefault()+" 23:59:59";$("#date_start").datetimepicker({defaultDate:a,format:"DD-MM-YYYY HH:mm:ss"}),$("#date_end").datetimepicker({defaultDate:t,format:"DD-MM-YYYY HH:mm:ss"}),$(".DateSeletor").toggle(),$("#Search").click(function(){$("#LoaddingCharAnalyticsx").css("display","block");var e=$("#date_start").val(),a=$("#date_end").val();Resolver({sd:e,ed:a})})}});
 	
 });
 
@@ -56,7 +56,7 @@ function TempResolver(e){
 	TableResolver(p);
 }
 function TableResolver(e){
-	$('#TableSLData').dataTable({
+	var table = $('#TableSLData').DataTable({
 		"dom": 'Blfrtip',
 		 "buttons": [ 
 			{ extend: 'copy', 'footer': false, exportOptions: { columns: [ 0,1,2,4,5,6,7 ] } },
@@ -67,6 +67,7 @@ function TableResolver(e){
 		"destroy": true,
 		"async": true,
 		"data": e,
+		"order": [[ 1, "desc" ]],
 		"columns": [
 			{"data": 'no'},
 			{"data": 'date_created'},
@@ -79,6 +80,30 @@ function TableResolver(e){
 			{"data": 'action_edit'},
 			{"data": 'action_remove'}
 			]
+	});
+	table.columns().every(function () {
+			var self = this;
+			$( 'input.datepicker', this.footer() ).on('dp.change', function (e) {
+					self.search( this.value ).draw();
+			});
+			$( 'input:not(.datepicker)', this.footer() ).on('keyup change', function (e) {
+					var code = (e.keyCode ? e.keyCode : e.which);
+					if (((code == 13 && self.search() !== this.value) || (self.search() !== '' && this.value === ''))) {
+							self.search( this.value ).draw();
+					}
+			});
+			$( 'select', this.footer() ).on( 'change', function (e) {
+					self.search( this.value ).draw();
+			});
+			$('#text_filter').on('keyup change', function () {
+        table.columns(1).search( this.value ).draw();
+			})
+	});
+	 $('#search_table').on( 'keypress', function (e) {
+			var code = (e.keyCode ? e.keyCode : e.which);
+			if (((code == 13 && table.search() !== this.value) || (table.search() !== '' && this.value === ''))) {
+					table.search( this.value ).draw();
+			}
 	});
 	
 }

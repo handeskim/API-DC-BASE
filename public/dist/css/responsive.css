@@ -224,9 +224,9 @@
 	#login-chiaki {
 		left: 31px;
 	}
-	.navbar-default{
-		display:none;
-	}
+	/* .navbar-default{ */
+		/* display:none; */
+	/* } */
 }
 
  /* // Large devices (desktops, 992px and up) */

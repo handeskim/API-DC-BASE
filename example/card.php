@@ -13,7 +13,7 @@ $doicard = new Lib();
 
 $method = 'card';
 $array = array(
-	'card_seri' => '1112223334457',
+	'card_seri' => '22221111222222',
 	'card_code' => '111222333445721',
 	'card_type' => 1,  // Giá Trị Telco 1: Viettel, 2:zing
 	'card_amount' => '20000',
@@ -22,8 +22,8 @@ $array = array(
 $param = $doicard->encrypt(json_encode($array)); // mã hóa dữ liệu
 $url = $doicard->create_url($method,$param); /// Tạo url kết nối
 $result = $doicard->Sending($url); // gửi lệnh tạo kết nối lên server
-$card_result = json_decode($result); // lấy kết quả trả về 
-var_dump($card_result);
+// $card_result = json_decode($result); // lấy kết quả trả về 
+var_dump($result);
 
 
 

@@ -12,11 +12,77 @@
 				
 			</div>
 		</div>
+		<div class="col-md-12 col-sm-12 col-xs-12 sub container-realtime-work"> 
+			<div class="col-md-12 col-sm-12 col-xs-12 sub container-realtime-work-withdrawal reset"> 
+				<h4>Yêu cầu rút tiền</h4>
+				<div class="col-md-12 col-sm-12 col-xs-12 sub container-realtime-work-withdrawal reset"> 
+					<?php 
+					if(!empty($task_work['withdraw'])){ ?>
+					<table class="table table-striped table-bordered"> 
+							<tr> 
+								<td> <?php echo lang('date_created');?></td>
+								<td> <?php echo lang('money_transfer');?></td>
+								<td> <?php echo lang('fee');?></td>
+								<td> <?php echo lang('client_id');?></td>
+								<td> <?php echo lang('account_holders');?></td>
+								<td> <?php echo lang('bank_name');?></td>
+								<td> <?php echo lang('branch_bank');?></td>
+								<td> <?php echo lang('transaction');?></td>
+								<td> Quản lý</td>
+							</tr>
+							<?php foreach($task_work['withdraw'] as $v_task_withdraw){?>
+								<?php if(!empty($v_task_withdraw['client_id'])){ ?>
+								<tr> 
+									<td><?php echo $v_task_withdraw['date_update_transfer']; ?></td>
+									<td><?php echo $v_task_withdraw['money_transfer']; ?></td>
+									<td><?php echo $v_task_withdraw['fee']; ?></td>
+									<td><a class="btn btn-small btn-info" target="_blank" href="<?php echo base_url('reseller/staff/details.html');?>?keys=<?php echo $v_task_withdraw['client_id']; ?>"><?php echo $v_task_withdraw['client_id']; ?></a></td>
+									<td><?php echo $v_task_withdraw['payer_name']; ?></td>
+									<td><?php echo $v_task_withdraw['bank_name']; ?></td>
+									<td><?php echo $v_task_withdraw['branch_bank']; ?></td>
+									<td><?php echo $v_task_withdraw['transaction']; ?></td>
+									<td><a class="btn btn-info" href="<?php echo base_url('reseller/withdrawal.html');?>"><i class="fa fa-info"> </i> Quản lý</a></td>
+								</tr>
+								<?php } ?>
+							<?php } ?>
+						</table>
+					<?php } ?>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12 sub container-realtime-work-withdrawal reset"> 
+				<h4>Yêu cầu đăng ký API</h4>
+				<div class="col-md-12 col-sm-12 col-xs-12 sub container-realtime-work-withdrawal reset"> 
+					<?php 
+					if(!empty($task_work['api_keys'])){ ?>
+						<table class="table table-striped table-bordered"> 
+							<tr> 
+								<td> <?php echo lang('date_created');?></td>
+								<td> <?php echo lang('key');?></td>
+								<td> <?php echo lang('client_id');?></td>
+								<td> IP Register</td>
+								<td> Quản lý</td>
+							</tr>
+							<?php foreach($task_work['api_keys'] as $v_task_api){?>
+								<?php if(!empty($v_task_api['users'])){ ?>
+								<tr> 
+									<td><?php echo $v_task_api['date_created']; ?></td>
+									<td><?php echo $v_task_api['key']; ?></td>
+									<td><a class="btn btn-small btn-info" target="_blank" href="<?php echo base_url('reseller/staff/details.html');?>?keys=<?php echo $v_task_api['users']; ?>"><?php echo $v_task_api['users']; ?></a></td>
+									<td><?php echo $v_task_api['ip_addresses']; ?></td>
+									<td><a class="btn btn-info" href="<?php echo base_url('reseller/developer.html');?>"><i class="fa fa-info"> </i> Quản lý</a></td>
+								</tr>
+								<?php } ?>
+							<?php } ?>
+						</table>
+					<?php } ?>
+				</div>
+			</div>
+		</div>
 		<div class="col-md-12 col-sm-12 col-xs-12 sub container-table" id="container-table"> 
 			<div class="col-md-12 col-sm-12 col-xs-12 sub " > 
 				<div class="col-md-4 col-sm-6 col-xs-12 sub pull-left tab_line">
 					<div class="col-md-12 col-sm-12 col-xs-12 info_status_header" > 
-							<span class="info_status"> Tổng Thành viên<span></span> <span class="label label-success">{user_info}</span></span>
+							<span class="info_status"> <a target="_blank" class="btn btn-info" href="<?php echo base_url('reseller/staff.html');?>"><i class="fa fa-info-circle"> </i></a> Tổng Thành viên<span></span> <span class="label label-success">{user_info}</span></span>
 					</div>
 					<?php 
 					if(!empty($api_group)){
@@ -29,7 +95,7 @@
 							<span class="info_status"> API Active Admin Level <span><?php echo $api_group_result['_id']; ?>  </span> <span class="label label-success"><?php echo number_format($api_group_result['count'],0,'.','.'); ?> </span></span>
 							<?php } ?>
 							<?php if($api_group_result['_id']=='1'){?>
-							<span class="info_status"> API No Active Level <span><?php echo $api_group_result['_id']; ?>  </span>   <span class="label bg-black"><?php echo number_format($api_group_result['count'],0,'.','.'); ?> </span></span>
+							<span class="info_status"> <a target="_blank" class="btn btn-info" href="<?php echo base_url('reseller/developer.html');?>"> <i class="fa fa-info-circle"> </i> </a> API No Active Level <span><?php echo $api_group_result['_id']; ?>  </span>   <span class="label bg-black"><?php echo number_format($api_group_result['count'],0,'.','.'); ?> </span>  </span>
 							<?php } ?>
 							<?php if($api_group_result['_id']=='3'){?>
 							<span class="info_status">API Active Reseller Level <span><?php echo $api_group_result['_id']; ?>  </span> <span class="label bg-yellow"><?php echo number_format($api_group_result['count'],0,'.','.'); ?> </span></span>
@@ -43,7 +109,7 @@
 				</div>
 				<div class="col-md-4 col-sm-6 col-xs-12 sub  pull-left tab_line">
 				<div class="col-md-12 col-sm-12 col-xs-12 info_status_header" > 
-						<span class="info_status"> Tổng Giao Dịch Đổi Thẻ <span></span> <span class="label label-success">{card_change}</span></span>
+						<span class="info_status"> <a target="_blank" class="btn btn-info" href="<?php echo base_url('reseller/card.html');?>"><i class="fa fa-info-circle"> </i></a> Tổng Giao Dịch Đổi Thẻ  <span></span> <span class="label label-success">{card_change}</span> </span>
 				</div>
 					<?php 
 				if(!empty($card_change_sum)){
@@ -99,7 +165,7 @@
 				
 				<div class="col-md-4 col-sm-6 col-xs-12 sub  pull-left tab_line">
 				<div class="col-md-12 col-sm-12 col-xs-12 info_status_header" > 
-						<span class="info_status"> Tổng withdrawal <span></span> <span class="label label-success">{withdrawal}</span></span>
+						<span class="info_status"> <a target="_blank" class="btn btn-info" href="<?php echo base_url('reseller/withdrawal.html');?>"><i class="fa fa-info-circle"> </i></a> Tổng withdrawal <span></span> <span class="label label-success">{withdrawal}</span></span>
 				</div>
 					<?php 
 				if(!empty($withdrawal_group)){
@@ -154,7 +220,7 @@
 				
 				<div class="col-md-4 col-sm-6 col-xs-12 sub pull-left  tab_line">
 				<div class="col-md-12 col-sm-12 col-xs-12 info_status_header" > 
-						<span class="info_status"> Tổng Transfer <span></span> <span class="label label-success">{transfer_log}</span></span>
+						<span class="info_status"> <a target="_blank" class="btn btn-info" href="<?php echo base_url('reseller/transfer.html');?>"><i class="fa fa-info-circle"> </i></a> Tổng Transfer <span></span> <span class="label label-success">{transfer_log}</span></span>
 				</div>
 					<?php 
 				if(!empty($transfer_log_group)){
@@ -185,11 +251,11 @@
 					if(!empty($transfer_transaction['result'])){
 					if(is_array($transfer_transaction['result'])){
 					$transfer_total = array(); ?>
-					<div class="col-md-12 col-sm-12 col-xs-12 info_status_header" > 
+					
 						<?php foreach($transfer_transaction['result'] as $transfer_transaction_result){ 
 						$transfer_total[] = $transfer_transaction_result['count'];
 						?>
-							
+							<div class="col-md-12 col-sm-12 col-xs-12 info_status_header" > 
 							<?php if($transfer_transaction_result['_id']=='hold'){?>
 							<span class=" pull-left info_status">Giao Dịch Transfer <span> <?php echo $transfer_transaction_result['_id']; ?>  </span> <span class="label label-success"><?php echo number_format($transfer_transaction_result['count'],0,'.','.'); ?> vnđ</span></span>
 							<?php } ?>
@@ -201,18 +267,18 @@
 							<?php if($transfer_transaction_result['_id']=='done'){?>
 							<span class=" pull-left info_status">Giao Dịch Transfer<span> <?php echo $transfer_transaction_result['_id']; ?>  </span> <span class="label bg-yellow"><?php echo number_format($transfer_transaction_result['count'],0,'.','.'); ?> vnđ</span></span>
 							<?php } ?>
-							
+								</div>
 					<?php } ?>
-						</div>
+				
 						
 					<div class="col-md-12 col-sm-12 col-xs-12 info_status_header" > 
 							<span class=" pull-left info_status"> Tổng Giao Dịch Transfer <span></span> <span class="label label-success"><?php if(!empty($transfer_total)){ echo number_format(array_sum($transfer_total),0,'.','.'); } ?> vnđ</span></span>
-						</div>
+					</div>
 					<?php }}}}?>
 				</div>
 				<div class="col-md-4 col-sm-6 col-xs-12 sub  pull-left tab_line">
 				<div class="col-md-12 col-sm-12 col-xs-12 info_status_header" > 
-						<span class="info_status"> Tổng Giao Dịch Nạp Tài khoản<span></span> <span class="label label-success">{history_payments}</span></span>
+						<span class="info_status"> <a target="_blank" class="btn btn-info" href="<?php echo base_url('reseller/payments.html');?>"><i class="fa fa-info-circle"> </i></a> Tổng Giao Dịch Nạp Tài khoản<span></span> <span class="label label-success">{history_payments}</span></span>
 				</div>
 					<?php 
 				if(!empty($history_payments_transaction)){
@@ -237,6 +303,7 @@
 				</div>
 			</div>
 		</div>
+		
 	</div>
 </div>
 </div>

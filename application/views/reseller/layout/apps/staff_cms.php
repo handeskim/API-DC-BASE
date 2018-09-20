@@ -64,9 +64,11 @@
 							<th><?php echo  lang('status'); ?></th>
 							<th></th>
 							<th></th>
+							<th></th>
 					</thead>
 					<tbody> 
 						<tr> 
+							<td>No</td>
 							<td>No</td>
 							<td>No</td>
 							<td>No</td>
@@ -100,6 +102,7 @@
 							<th><?php echo  lang('balancer'); ?></th>
 							<th><?php echo  lang('role'); ?></th>
 							<th><?php echo  lang('status'); ?></th>
+							<th> </th>
 							<th> </th>
 							<th> </th>
 					</tfoot>

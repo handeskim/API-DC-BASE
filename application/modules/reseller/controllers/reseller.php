@@ -39,7 +39,6 @@ class Reseller extends MY_Controller{
 			$this->data['withdrawal'] = $info->withdrawal;
 			$this->data['transfer_log'] = $info->transfer_log;
 			$this->data['history_payments'] = $info->history_payments;
-			
 			$this->data['card_change_sum'] = convert_object($info->card_change_hod);
 			$this->data['api_group'] = convert_object($info->api_group);
 			$this->data['withdrawal_group'] = convert_object($info->withdrawal_group);
@@ -50,6 +49,8 @@ class Reseller extends MY_Controller{
 			$this->data['card_transaction'] = convert_object($info->card_transaction);
 			$this->data['user_info'] = $info->user;
 			$this->data['side_bar'] = 0;
+			$task_work = $this->GlobalMD->pquery_result('apps/site/realtime_task',$this->obj);
+			$this->data['task_work'] = convert_obj($task_work->result);
 			$this->parser->parse('reseller/header',$this->data);
 			$this->parser->parse('reseller/sidebar',$this->data);
 			$this->parser->parse('reseller/main',$this->data);

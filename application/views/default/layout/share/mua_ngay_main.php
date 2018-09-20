@@ -2,7 +2,7 @@
 <?php 
 $info_card = $this->GlobalMD->pquery_result('apps/site/load_bycard',array());
 if(!empty($info_card->result)){ ?>
-<div class="col-md-6 col-sm-6 col-xs-6 change_card_main">
+<div class="col-md-6 col-sm-6 col-xs-12 change_card_main">
 <form method="post" action="<?php echo base_url('mua-the.html')?>">
 <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px;margin: 0px;">
 	<h1 style="font-size:14px;padding: 10px;border-bottom: 1px solid #1ea6ec;color: #1ea6ec;font-weight: 700;"> MUA MÃ THẺ ĐIỆN THOẠI</h1>
@@ -44,7 +44,7 @@ if(!empty($info_card->result)){ ?>
 <?php 
 $info_cards = $this->GlobalMD->pquery_result('apps/site/load_bycard_topup',array());
 if(!empty($info_cards->result)){ ?>
-<div class="col-md-6 col-sm-6 col-xs-6 change_card_main">
+<div class="col-md-6 col-sm-6 col-xs-12 change_card_main">
 <form method="post" action="<?php echo base_url('mua-the.html')?>">
 <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px;margin: 0px;">
 	<h1 style="font-size:14px;padding: 10px;border-bottom: 1px solid #1ea6ec;color: #1ea6ec;font-weight: 700;"> NẠP ĐIỆN THOẠI</h1>
