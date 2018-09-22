@@ -31,9 +31,9 @@ $config['sess_match_ip']		= FALSE;
 $config['sess_match_useragent']	= FALSE;
 $config['sess_time_to_update']	= 86400;
 $config['cookie_prefix']	= "hk_";
-$config['cookie_domain']	= ".demo2308.handesk.xyz";
+$config['cookie_domain']	= "";
 $config['cookie_path']		= "/";
-$config['cookie_secure']	= TRUE;
+$config['cookie_secure']	= FALSE;
 $config['global_xss_filtering'] = TRUE;
 $config['csrf_protection'] = TRUE;
 $config['csrf_token_name'] = 'csrf_hk_token';
@@ -47,11 +47,12 @@ $config['proxy_ips'] = '';
 $config['restore_key'] = 'hk@123';
 
 
+//////////chỉnh sửa///////
 $config['provide_service'] = 'http://45.77.12.144/';
-$config['api_name'] = 'API-DOICARD-V1';
 $config['secret_key'] = 'f1e0f5eb388c511e834e09b26b68f7c2';
+$config['api_name'] = 'API-DOICARD-V1';
 $config['username'] = 'Administrator';
-$config['password'] = '123456';
+$config['password'] = 'admin@pay';
 $config['auth'] = '123123fF';
 $config['app_id'] = '5b82cf1058e693ca4d8b4573';
 $config['priv_key'] = '+Amgkh89z3IM4lBSQHfmlatNxGE2yftwvRjgEDSfzps8aWsRKM2G0LsMxUTxZtvOiByjcgorCZo7hXK5Y4lpIA==';

@@ -44,8 +44,8 @@ class Card_buy_config extends MY_Controller{
 		if($this->_role == 1 || $this->_role == 2 ){
 			$this->obj['token'] = $this->_token ;
 			$this->obj['client_id'] = $this->client_id ;
-			$this->data['title'] = "cấu hình thẻ điện thoại mua";
-			$this->data['title_main'] = "cấu hình thẻ điện thoại mua";
+			$this->data['title'] = "Cấu hình thẻ điện thoại mua,Game, Topup, Pincode";
+			$this->data['title_main'] = "Cấu hình thẻ điện thoại mua, Game, Topup, Pincode";
 			$this->data['side_bar'] = 1;
 			$this->parser->parse('reseller/header',$this->data);
 			$this->parser->parse('reseller/sidebar',$this->data);

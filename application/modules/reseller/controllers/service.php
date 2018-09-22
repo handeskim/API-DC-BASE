@@ -430,7 +430,20 @@ public function payments_cms_agree_post(){
 			$this->obj['client_id'] = $this->client_id;
 			$this->obj['keys'] = $_POST['e'];
 			$this->obj['status'] = $_POST['x'];
+			$this->obj['deduct'] = $_POST['d'];
 			$developer = $this->GlobalMD->query_result('apps/site/card_change_edit',$this->obj);
+			$this->r = array('status'=>true,'data'=> $developer);
+		}
+		$this->response($this->r);
+	}	
+	public function card_buy_cms_edit_post(){
+		if(!empty($_POST['e'])){
+			$this->obj['token'] = $this->_token;
+			$this->obj['client_id'] = $this->client_id;
+			$this->obj['keys'] = $_POST['e'];
+			$this->obj['status'] = $_POST['x'];
+			$this->obj['deduct'] = $_POST['d'];
+			$developer = $this->GlobalMD->query_result('apps/site/card_buy_cms_edit',$this->obj);
 			$this->r = array('status'=>true,'data'=> $developer);
 		}
 		$this->response($this->r);

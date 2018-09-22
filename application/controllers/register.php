@@ -52,17 +52,12 @@ class Register extends MY_Controller{
 					if(!empty($p['password'])){
 					if(!empty($p['password_duplicate'])){
 					if($p['password'] === $p['password_duplicate']){
-					if(!empty($p['auth'])){
-					if(!empty($p['auth_duplicate'])){
-					if($p['auth'] === $p['auth_duplicate']){
 					if(!empty($p['full_name'])){
 					if(!empty($p['phone'])){
+						$p['auth'] = random_pas();
 						$this->Prosesser($p);
 					}else{ echo $this->confirm('vui lòng điền số điện thoại thiếu'); }
 					}else{ echo $this->confirm('vui lòng điền họ và tên thiếu'); }
-					}else{ echo $this->confirm('Mật khẩu cấp 2 không giống nhau'); }
-					}else{ echo $this->confirm('xác nhận mật khẩu cấp 2 thiếu'); }
-					}else{ echo $this->confirm('điền mật khẩu cấp 2 thiếu' ); }
 					}else{ echo $this->confirm('mật khẩu không giống nhau'); }
 					}else{ echo $this->confirm('xác nhận mật khẩu thiếu'); }
 					}else{ echo $this->confirm('mật khẩu thiếu'); }
@@ -86,16 +81,52 @@ class Register extends MY_Controller{
 			'phone'=> (string)$p['phone'],
 		);
 		if(!empty($p['publisher'])){ $this->param['partner'] = $p['publisher']; } 
-		$this->obj = $this->GlobalMD->query_global('api/user/create',$this->param);
+		$this->obj = $this->GlobalMD->query_result('api/user/create',$this->param);
 		if(!empty($this->obj)){
+			if($this->obj->status == '1000'){
+				$this->obj = $this->GlobalMD->_result($this->obj);
 				$obj = json_decode($this->obj);
 				if(!empty($obj[0])){
 					$client_id = getObjectId($obj[0]);
 					if(!empty($client_id)){
+						$this->sendemailPassAuth($p);
 						$this->load_session($client_id);
 					}else{ echo $this->confirm('đăng ký thất bại vui lòng thử lại'); } 
 				}else{ echo $this->confirm('đăng ký thất bại vui lòng thử lại'); } 
+			}else{
+				echo $this->confirm($this->obj->msg);
+			}
 		}else{ echo $this->confirm('đăng ký thất bại vui lòng thử lại'); } 
+	}
+	public function sendemailPassAuth($info_clients){
+		
+		$body = '<p> Bạn đã đăng ký thành công tài khoản trên hệ thống: </p></br>';
+		$body .= '<p> Mật khẩu cấp 2 của bạn là: '. $info_clients['auth'] .'</p></br>';
+		$body .= '<p> Mật khẩu cấp 2 để bạn thực hiện giao dịch chuyển tiền. lưu ý không tiết lộ mật khẩu cấp 2 nhằm đảm bảo an toàn cho tài khoản của bạn</p>';
+		$subject = 'Đăng ký thành công tài khoản trên hệ thống '.base_url();
+		$this->load->library('email');
+		$config['protocol']    = 'smtp';
+		$config['smtp_host']    =  $this->data['smtp_host'];
+		$config['smtp_port']    =  $this->data['smtp_port'];
+		$config['smtp_crypto'] = 	$this->data['smtp_crypto'];
+		$config['smtp_timeout'] = '7';
+		$config['smtp_user']    =  $this->data['smtp_user'];
+		$config['smtp_pass']    = $this->data['smtp_password']; 
+		$config['charset']    = 'utf-8';
+		$config['newline']    = "\r\n";
+		$config['mailtype'] = 'html';
+		$config['validation'] = TRUE; 
+		$this->email->initialize($config);
+		$this->email->from($this->session->userdata('email_brand'));
+		$this->email->to($info_clients['email']);
+		$this->email->subject($subject);
+		$this->email->message($body);
+		if($this->email->send()==true){
+			return true;
+		}else{
+			return false;
+		}
+			
 	}
 	public function load_session($client_id){
 		$this->param = array( 'client_id'=>$client_id, );

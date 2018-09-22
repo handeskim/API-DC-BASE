@@ -17,6 +17,10 @@
 						
 						</select>
 					</div>
+					<div class="input-group">
+					 <span class="input-group-addon"><?php echo lang('deduct'); ?>  </span>
+						<input type="text" name="deduct" id="deduct_edit" value="" class="form-control" placeholder="<?php echo lang('deduct'); ?>"> 
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" onclick="ClosesaveEdit()" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -130,9 +134,11 @@
 							<td>Loại </td>
 							<td>Sản phẩm </td>
 							<th width="24px"></th>
+							<th width="24px"></th>
 					</thead>
 					<tbody> 
 						<tr> 
+							<td>no </td>
 							<td>no </td>
 							<td>no </td>
 							<td>no </td>
@@ -156,6 +162,7 @@
 							<td><?php echo 	lang('status'); ?></td>
 							<td>Loại </td>
 							<td>Sản phẩm </td>
+							<th width="24px"></th>
 							<th width="24px"></th>
 					</tfoot>
 				</table>

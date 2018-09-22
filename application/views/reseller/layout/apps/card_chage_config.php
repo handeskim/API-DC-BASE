@@ -10,12 +10,15 @@
 				<div class="modal-body main-status-active">
 					<input id="keys_edit" value="" type="hidden">
 					<div class="input-group">
-						 <span class="input-group-addon"><?php echo lang('status'); ?>  </span>
+					 <span class="input-group-addon"><?php echo lang('status'); ?>  </span>
 						<select id="status_edit" class="form-control" required>
 							<option value="disable"> disable</option>
 							<option value="active"> active</option>
-						
 						</select>
+					</div>
+					<div class="input-group">
+					 <span class="input-group-addon"><?php echo lang('deduct'); ?>  </span>
+						<input type="text" name="deduct" id="deduct_edit" value="" class="form-control" placeholder="<?php echo lang('deduct'); ?>"> 
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -36,7 +39,7 @@
 		
 				<form id="AddCardChange" class="form-horizontal" method="post" action="<?php echo base_url();?>reseller/card_chage_config/add" style="display:none">
 						<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-							<div class="input-group">
+							<div class="input-group" style="display:none">
                 <span class="input-group-addon"><?php echo lang('rose'); ?>  (%)</span>
                 <input type="text" name="rose" value="0" class="form-control" placeholder="<?php echo lang('rose'); ?>" required>
               </div>
@@ -110,9 +113,11 @@
 							<td><?php echo 	lang('title'); ?></td>
 							<td><?php echo 	lang('status'); ?></td>
 							<th width="24px"></th>
+							<th width="24px"></th>
 					</thead>
 					<tbody> 
 						<tr> 
+							<td>không có dữ liệu </td>
 							<td>không có dữ liệu </td>
 							<td>không có dữ liệu </td>
 							<td>không có dữ liệu </td>
@@ -132,6 +137,7 @@
 							<td><?php echo 	lang('type_id'); ?></td>
 							<td><?php echo 	lang('title'); ?></td>
 							<td><?php echo 	lang('status'); ?></td>
+							<th width="24px"></th>
 							<th width="24px"></th>
 					</tfoot>
 				</table>

@@ -11,10 +11,13 @@
 		<div class="col-md-12 col-sm-12 col-xs-12 sub form_body">
 			<form method="POST" action="<?php echo base_url('register/signup');?>">
 			<div class="col-md-12 col-sm-12 col-xs-12 sub">
+				
 				<div class="input-group ">
 					<span class="input-group-addon">Email Đăng ký</span>
 					<input type="email" class="form-control" name="email" placeholder="your emai@gmail.com" required="">
 				</div>
+				<small> Mật khẩu cấp 2 sẽ được gửi vào email của bạn, vui lòng điền chính xác email của bạn ở trên</small>
+				
 				<div class="input-group">
 					<span class="input-group-addon">Tên đăng nhập</span>
 					<input type="text" class="form-control" name="username" placeholder="username0123" required="">
@@ -26,14 +29,6 @@
 				<div class="input-group">
 					<span class="input-group-addon">Nhập lại mật khẩu</span>
 					<input type="password" class="form-control" name="password_duplicate" placeholder="Nhập lại mật khẩu" required="">
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon">Mật khẩu cấp 2 (Mã bảo mật)</span>
-					<input type="password" class="form-control" name="auth" placeholder="Mật khẩu cấp 2" required="">
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon">Nhập lại mật khẩu cấp 2 (Mã bảo mật)</span>
-					<input type="password" class="form-control" name="auth_duplicate" placeholder="Nhập lại mật khẩu cấp 2" required="">
 				</div>
 				<div class="input-group">
 					<span class="input-group-addon">Họ và Tên</span>
@@ -49,6 +44,7 @@
 					<div class="checkbox"><label><input type="checkbox" name="is_register"> Tôi đã đọc và đồng ý với các <a href="{policy_url}">điều khoản dịch vụ</a> </label></div>
 				</div>
 			</div>
+			
 			<?php if(isset($pub)){ if(!empty($pub)){ ?>
 				<input type="hidden" value="{pub}" name="publisher" >
 			<?php } } ?>

@@ -185,6 +185,8 @@ class Payments extends MY_Controller{
 								elseif ($payment_method == "CREDIT_CARD_PREPAID") {
 								$nl_result = $nlcheckout->PrepaidVisaCheckout($order_code, $total_amount, $payment_type, $order_description, $tax_amount, $fee_shipping, $discount_amount, $return_url, $cancel_url, $buyer_fullname, $buyer_email, $buyer_mobile, $buyer_address, $array_items, $bank_code);
 								}
+								// var_dump($nl_result);
+								// die;
 								if ($nl_result->error_code =='00'){
 									$this->obj = array(
 										'order_code' => $order_code,

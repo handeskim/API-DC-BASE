@@ -18,6 +18,7 @@
 										<div class="col-md-12 col-sm-12 col-xs-12 sub" >
 											<h4> Thông tin chi tiết giao dịch</h4>
 											<table class="table">
+												<tr><td> <?php echo lang('beneficiary_email'); ?></td> <td>  <?php echo $confim_transfer['beneficiary_email']; ?> </td></tr>
 												<tr><td> <?php echo lang('beneficiary_id'); ?></td> <td>  <?php echo $confim_transfer['beneficiary_id']; ?> </td></tr>
 												<tr><td> <?php echo lang('beneficiary'); ?></td> <td>  <?php echo $confim_transfer['beneficiary']; ?> </td></tr>
 												<tr><td> <?php echo lang('money_transfer'); ?></td> <td>  <?php echo number_format($confim_transfer['money_transfer'],0,'.','.'); ?> vnđ</td></tr>

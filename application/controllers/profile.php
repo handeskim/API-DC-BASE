@@ -33,7 +33,7 @@ class Profile extends MY_Controller{
 	
 	public function update_info(){
 			if(isset($_POST['is_checked'])){ if($_POST['is_checked'] == 'on'){
-					if(!empty($_POST['email'])){ $this->obj['email'] = $_POST['email']; }
+					if(!empty($_POST['email'])){ $this->obj['email'] = ''; }
 					if(!empty($_POST['full_name'])){ $this->obj['full_name'] = $_POST['full_name'];	}
 					if(!empty($_POST['phone'])){ $this->obj['phone'] = $_POST['phone'];	}
 					if(!empty($_POST['address'])){ $this->obj['address'] = $_POST['address'];	}
@@ -409,7 +409,6 @@ class Profile extends MY_Controller{
 						if(!empty($transfer)){
 						if($transfer->status == 1000){
 								$p = convert_obj($transfer);
-							
 								if(isset($p)){
 								if($p["status"]==1000){
 									$this->data['confim_transfer'] = $p;

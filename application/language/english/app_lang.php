@@ -29,6 +29,7 @@ $lang['password_new'] = "Mật khẩu Mới";
 $lang['password_duplicate'] = "Nhập lại mật khẩu";
 $lang['beneficiary'] = "Người nhận";
 $lang['beneficiary_id'] = "ID Tài khoản người nhận";
+$lang['beneficiary_email'] = "Email Tài khoản người nhận";
 $lang['money_transfer'] = "Số tiền chuyển";
 $lang['fee'] = "Phí Giao dịch";
 $lang['total_transfer'] = "Tổng Giao dịch";

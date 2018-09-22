@@ -13,9 +13,9 @@ $doicard = new Lib();
 
 $method = 'card';
 $array = array(
-	'card_seri' => '22221111222222',
+	'card_seri' => '2221111222222',
 	'card_code' => '111222333445721',
-	'card_type' => 1,  // Giá Trị Telco 1: Viettel, 2:zing
+	'card_type' => 4,  // Giá Trị Telco 1: Viettel, 2:zing
 	'card_amount' => '20000',
 	'token' => 'UmQ4NkJYRGlkSmw2NWIrY0k5d3hrNXBGRlhObUtOUURsT1lJSk4ybTRuUlFKcTE5SlRjTVBHZEI5U2VGcTRvd2NtVTNHYkRvdGwzRTc2MlBFcDFFTWRNUU9nQXNFdUxJQkM1VnFZZnBQNXBWODk5RzhFbUpBZWg5YzVLQU1mYnlvNWZHaEw2UXQ1bjZkUEtXQ2oyVklIa3ZjQnYyY2FMVUdIL2VqbnF4U1lRPQ%3D%3D',
 );	

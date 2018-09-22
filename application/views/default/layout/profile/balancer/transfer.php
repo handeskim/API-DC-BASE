@@ -13,7 +13,7 @@
 							<input type="password" name="auth" class="form-control" placeholder="" value="" required>
 						</div>
 						<div class="input-group">
-							<span class="input-group-addon"><?php echo lang('beneficiary_id');?></span>
+							<span class="input-group-addon"><?php echo lang('beneficiary_email');?></span>
 							<input type="text" name="beneficiary_id" class="form-control" placeholder="" value="" required>
 							
 						</div>

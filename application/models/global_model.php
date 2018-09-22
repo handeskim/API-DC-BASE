@@ -79,6 +79,10 @@ class Global_model extends CI_Model{
 		$this->result = $this->pquery_result('apps/site/site_load_bycard',$this->obj);
 		return $this->result;
 	}
+	public  function _site_load_bycardgame_default(){
+		$this->result = $this->pquery_result('apps/site/site_load_bycardmage',$this->obj);
+		return $this->result;
+	}
 	public  function _site_load_site_news_box(){
 		$this->result = $this->pquery_result('apps/site/news_box',$this->obj);
 		return $this->result;

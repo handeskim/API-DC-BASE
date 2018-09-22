@@ -40,8 +40,9 @@ function edit_ask(e){
 function saveEdit(){
 	var e = $("#keys_edit").val();
 	var x = $("#status_edit").val();
+	var d = $("#deduct_edit").val();
 	var f = "reseller/service/cardchage_cms_edit";
-	var p = {csrf_hk_token:token_csrf,e:e,x:x};
+	var p = {csrf_hk_token:token_csrf,e:e,x:x,d:d};
 	var q = confirm('bạn có muốn thay đổi không');
 	if(q==true){
 		var r = PFactory_Providers(f,p);
@@ -54,8 +55,9 @@ function saveEdit(){
 function TempResolver(e){
 	var p = [];
 	$.each(e, function(k, v) {
+		var edit_ask = '<a 	title="Trash " class="btn btn-small btn-warning" onclick="edit_ask(\'' + v.id + '\')"><i class="fa fa-edit"></i></a>';
 		var action_remove = '<a 	title="Trash " class="btn btn-small btn-danger" onclick="Delete_transaction(\'' + v.id + '\')"><i class="fa fa-trash"></i></a>';
-		var statusx = '<a 	title="Status" class="btn btn-small btn-danger" onclick="edit_ask(\'' + v.id + '\')"><span>'+v.status+'</span></a>';
+		var statusx = '<a 	title="Status" class="btn btn-small btn-danger"><span>'+v.status+'</span></a>';
 		var no = k;	
 		var px = { 
 			'no':no,
@@ -66,6 +68,7 @@ function TempResolver(e){
 			'type_id':v.type_id,
 			'title':v.title,
 			'status':statusx,
+			'edit_ask':edit_ask,
 			'action_remove':action_remove,
 		};
 		p.push(px);
@@ -95,13 +98,14 @@ function TableResolver(e){
 		"data": e,
 		"columns": [
 			// {"data": 'no',"visible": false},
-			{"data": 'rose'},
+			{"data": 'rose',"visible": false},
 			{"data": 'deduct'},
 			{"data": 'card_type'},
 			{"data": 'name'},
 			{"data": 'type_id',"render":cardtype},
 			{"data": 'title'},
 			{"data": 'status'},
+			{"data": 'edit_ask'},
 			{"data": 'action_remove'}
 			],
 			"fnRowCallback": function (nRow, aData, iDisplayIndex) {

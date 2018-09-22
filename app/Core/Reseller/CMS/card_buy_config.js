@@ -40,11 +40,13 @@ function edit_ask(e){
 function saveEdit(){
 	var e = $("#keys_edit").val();
 	var x = $("#status_edit").val();
+		var d = $("#deduct_edit").val();
 	var f = "reseller/service/card_buy_cms_edit";
-	var p = {csrf_hk_token:token_csrf,e:e,x:x};
-	var q = confirm('bạn có muốn xóa không');
+	var p = {csrf_hk_token:token_csrf,e:e,x:x,d:d};
+	var q = confirm('bạn có muốn thay đổi không');
 	if(q==true){
 		var r = PFactory_Providers(f,p);
+		// console.log(r);
 		if(r.status==true){
 			alert(r.data.msg);
 			window.location.reload();
@@ -54,8 +56,9 @@ function saveEdit(){
 function TempResolver(e){
 	var p = [];
 	$.each(e, function(k, v) {
+		var edit_ask = '<a 	title="Edit " class="btn btn-small btn-warning" onclick="edit_ask(\'' + v.id + '\')"><i class="fa fa-edit"></i></a>';
 		var action_remove = '<a 	title="Trash " class="btn btn-small btn-danger" onclick="Delete_transaction(\'' + v.id + '\')"><i class="fa fa-trash"></i></a>';
-		var statusx = '<a 	title="Status" class="btn btn-small btn-danger" onclick="edit_ask(\'' + v.id + '\')"><span>'+v.status+'</span></a>';
+		var statusx = '<a 	title="Status" class="btn btn-small btn-danger" ><span>'+v.status+'</span></a>';
 		var no = k;	
 		var px = { 
 			'no':no,
@@ -68,6 +71,7 @@ function TempResolver(e){
 			'type':v.type,
 			'types':v.types,
 			'status':statusx,
+			'edit_ask':edit_ask,
 			'action_remove':action_remove,
 		};
 		p.push(px);
@@ -93,11 +97,11 @@ function TableResolver(e){
 			],
 		"destroy": true,
 		"async": true,
-		"order": [[ 1, "desc" ]],
+		"order": [[ 4, "asc" ]],
 		"data": e,
 		"columns": [
 			// {"data": 'no',"visible": false},
-			{"data": 'rose'},
+			{"data": 'rose',"visible": false},
 			{"data": 'deduct'},
 			{"data": 'telco'},
 			{"data": 'name'},
@@ -106,6 +110,7 @@ function TableResolver(e){
 			{"data": 'status'},
 			{"data": 'type'},
 			{"data": 'types'},
+			{"data": 'edit_ask'},
 			{"data": 'action_remove'}
 			],
 			"fnRowCallback": function (nRow, aData, iDisplayIndex) {

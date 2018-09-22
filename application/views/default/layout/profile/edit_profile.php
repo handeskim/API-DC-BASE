@@ -7,10 +7,7 @@
 				<h3 class="title col-md-12 col-sm-12 col-xs-12 sub"><span class="title_head"> CHỈNH SỬA THÔNG TIN CÁ NHÂN <span> </h3>
 				<div class="col-md-12 col-sm-12 col-xs-12 sub">
 					<form class="from-edit-profile" method="post" action="<?php echo base_url();?>profile/update_info">
-						<div class="input-group">
-							<span class="input-group-addon"><?php echo lang('email');?></span>
-								<input type="email" name="email" class="form-control" placeholder="" value="<?php if(!empty($profile['email'])){ echo $profile['email'];}  ?>" required>
-						</div>
+						
 						<div class="input-group">
 							<span class="input-group-addon"><?php echo lang('full_name');?></span>
 								<input type="text" name="full_name" class="form-control" placeholder="" value="<?php if(!empty($profile['full_name'])){ echo $profile['full_name'];} ?>" required>
@@ -37,7 +34,7 @@
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon"><?php echo lang('auth');?></span>
-								<input type="text" name="auth" class="form-control" placeholder="" value="" required>
+								<input type="password" name="auth" class="form-control" placeholder="" value="" required>
 								<input type="hidden" name="<?php echo core_csrf_name(); ?>" value="<?php echo core_token_csrf(); ?>">
 						</div>
 						<div class="checkbox">

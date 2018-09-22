@@ -16,8 +16,7 @@
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-user"> </i> </span><span class="cate_profile edit_profile"> Chỉnh sửa thông tin</span> </h5></div>
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-bank"> </i> </span><span class="cate_profile edit_profile_bank"> Tài khoản ngân hàng</span> </h5></div>
 			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-unlock"> </i> </span><span class="cate_profile unlock_password"> Đổi mật khẩu cấp 1</span> </h5></div>
-			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-unlock"> </i> </span><span class="cate_profile unlock_auth"> Thay mật khẩu cấp 2</span> </h5></div>
-			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-question-circle"> </i> </span><span class="cate_profile forgot_auth"> Quên mật khẩu cấp 2</span> </h5></div>
+			<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-question-circle"> </i> </span><span class="cate_profile forgot_auth">Thay đổi mật khẩu cấp 2</span> </h5></div>
 		</div>
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub cate catex"> <h5> <span> <i class="fa fa-shopping-cart"> </i> </span><span class="cate_cart"> Giao dịch Thẻ <i class="fa fa-plus-square pull-right ppx ppx_cart"> </i></span> </h5> </div>
 		<div class="profile_left col-md-12 col-sm-12 col-xs-12 sub sub_profile_cart sub_cate_profile">

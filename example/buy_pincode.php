@@ -15,7 +15,7 @@ $method = 'card/buy';
 $array = array(
 	'keys' => '5b96e28172cfc835908e379d',  // Giá Trị theo Shop XML trả về
 	'quantity' => '1', // Max 10 Min 1
-	'cardprice' => '20000',
+	'cardprice' => '10000',
 	'token' => 'UmQ4NkJYRGlkSmw2NWIrY0k5d3hrNXBGRlhObUtOUURsT1lJSk4ybTRuUlFKcTE5SlRjTVBHZEI5U2VGcTRvd2NtVTNHYkRvdGwzRTc2MlBFcDFFTWRNUU9nQXNFdUxJQkM1VnFZZnBQNXBWODk5RzhFbUpBZWg5YzVLQU1mYnlvNWZHaEw2UXQ1bjZkUEtXQ2oyVklIa3ZjQnYyY2FMVUdIL2VqbnF4U1lRPQ%3D%3D',
 );	
 $param = $doicard->encrypt(json_encode($array)); // mã hóa dữ liệu

@@ -21,7 +21,7 @@
 				<ul class="dropdown-menu">
 					<li><a href="<?php echo base_url();?>doi-the-cao.html">ĐỔI THẺ CÀO</a></li>
 					<li><a href="<?php echo base_url('mua-the-dien-thoai.html');?>">NẠP ĐIỆN THOẠI</a></li>
-					<li><a href="#">NẠP TIỀN GAME</a></li>
+					<li><a href="<?php echo base_url('mua-the-game.html');?>">MUA MÃ THẺ GAME</a></li>
 					<li><a href="<?php echo base_url('mua-the-dien-thoai.html');?>">MUA MÃ THẺ</a></li>
 				</ul>
 			</li>
@@ -38,7 +38,7 @@
 			<li><a href="<?php echo base_url('nap-tai-khoan.html');?>">Nạp Ngay</a></li>
 		<?php } ?>
 			<li><a href="<?php echo base_url('mua-the-dien-thoai.html');?>">Mua Thẻ Cào</a></li>
-			<li><a href="#">Mua Game</a></li>
+			<li><a href="<?php echo base_url('mua-the-game.html');?>">Mua Game</a></li>
 			<li><a href="<?php echo base_url('doi-the-cao.html');?>">Đổi Thẻ</a></li>
 		</ul>
 	</div><!--/.nav-collapse -->

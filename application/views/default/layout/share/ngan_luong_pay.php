@@ -55,7 +55,7 @@
 				<div class="boxContent">
 					<p><span style="color:#ff5a00;font-weight:bold;text-decoration:underline;">Lưu ý</span>:Visa hoặc MasterCard.</p>
 					<ul class="cardList clearfix ">
-						<li class="bank-online-methods "><label for="vcb_ck_on">Thẻ Visa:<input type="radio" value="VISA"  name="bankcode" ></label></li>
+						<li class="bank-online-methods "><label for="vcb_ck_on">Thẻ Visa:<input type="radio" value="VISA"  name="bankcode" checked="checked"></label></li>
 						<li class="bank-online-methods "><label for="vnbc_ck_on">Thẻ Master:<input type="radio" value="MASTER"  name="bankcode" ></label></li>
 					</ul>	
 				</div>

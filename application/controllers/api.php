@@ -7,6 +7,7 @@ class Api extends REST_Controller {
 		$this->obj_core = array();
 		$this->load->model('global_model', 'GlobalMD');	
 		$this->load->library('rest');
+		$this->msg_result = null;
 		$this->msg = null;
 		$this->obj = array();
 		$this->param = array();

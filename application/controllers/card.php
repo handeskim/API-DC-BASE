@@ -4,7 +4,9 @@ class Card extends MY_Controller{
 		parent::__construct();
 		$this->load->model('global_model', 'GlobalMD');	
 		$this->msg = null;
+		$this->msg_result = null;
 		$this->obj = array();
+		$this->objects = array();
 		$this->param = array();
 		$this->result = array();
 		$this->profile = array();
@@ -29,6 +31,9 @@ class Card extends MY_Controller{
 				}
 			}
 		}
+	}
+	public function card_inservice_post(){
+		
 	}
 	public function card_post(){
 		if(!empty($_POST)){
@@ -72,6 +77,33 @@ class Card extends MY_Controller{
 		$this->data['info_card'] = convert_object($this->obj->result);
 		$this->data['title'] = 'Đổi thẻ cào sang tiền mặt nhanh chóng';
 		$this->data['title_main'] = 'ĐỔI THẺ CÀO';
+		if(!empty($_POST)){
+			$p = $_POST;
+			if(!empty($p['card_seri']) || !empty($p['card_code']) || !empty($p['card_amount']) || !empty($p['card_type'])){
+				$this->objects['card_seri'] = $p['card_seri'];
+				$this->objects['card_code'] = $p['card_code'];
+				$this->objects['card_type'] = $p['card_type'];
+				$this->objects['card_amount'] = $p['card_amount'];
+				$this->objects['token'] = $this->_token;
+				if(!empty($p['share_client'])){
+					$this->objects['client_id'] = handesk_decode($p['share_client']);
+				}
+				if(!empty($p['share_resller'])){
+					$this->objects['reseller'] = handesk_decode($p['share_resller']);
+				}
+				if(!empty($p['share_publisher'])){
+					$this->objects['publisher'] = handesk_decode($p['share_publisher']);
+				}
+				$this->result = $this->GlobalMD->query_global('card',$this->objects);
+				if(isset($this->result->result)){
+					if(isset($this->result->result->status)){
+						if(!empty($this->result->result->msg)){
+							$this->msg_result = $this->result->result->msg;
+						}else{$this->msg_result = 'lỗi nạp thẻ, thử lại';}
+					}else{$this->msg_result = 'lỗi nạp thẻ, thử lại';}
+				}else{$this->msg_result = 'lỗi nạp thẻ, thử lại';}
+			}else{$this->msg_result = 'lỗi nạp thẻ, thử lại';}
+		}
 		if(!empty($this->client_id)){
 			$this->data['clients_id'] = $this->client_id;
 			if(isset($this->profile['full_name'])){
@@ -86,6 +118,7 @@ class Card extends MY_Controller{
 		if(isset($this->profile['reseller'])){
 			$this->data['resller_id'] = $this->profile['reseller'];
 		}
+		$this->data['msg_result'] = $this->msg_result;
 		$this->parser->parse('default/header',$this->data);
 		$this->parser->parse('default/header-top',$this->data);
 		$this->parser->parse('default/adson/header_top',$this->data);
@@ -97,7 +130,7 @@ class Card extends MY_Controller{
 		$this->parser->parse('default/adson/new_box',$this->data);
 		$this->parser->parse('default/col/col-end',$this->data);
 		$this->parser->parse('default/col/col-9-start',$this->data);
-		$this->parser->parse('default/layout/share/doi_ngay_main',$this->data);
+		$this->parser->parse('default/layout/share/doi_ngay_main_site',$this->data);
 		$this->parser->parse('default/layout/deduct',$this->data);
 		$this->parser->parse('default/col/col-end',$this->data);
 		

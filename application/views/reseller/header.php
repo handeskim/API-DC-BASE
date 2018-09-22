@@ -40,7 +40,7 @@
 <script>  var csrf_name = '<?php echo core_csrf_name(); ?>'; var token_csrf = '<?php echo core_token_csrf(); ?>'; </script>
 
 </head>
-<body  class="hold-transition skin-blue sidebar-mini sidebar-collapse">
+<body  class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 <?php  $user_data = $this->session->userdata('data_user'); $authorities = $user_data['role']; ?>
   <header   class="main-header">

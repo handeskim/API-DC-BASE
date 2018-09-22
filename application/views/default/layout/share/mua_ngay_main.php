@@ -53,7 +53,7 @@ if(!empty($info_cards->result)){ ?>
 
 <div class="form-group">
 <label> CHỌN NHÀ CUNG CẤP </label> 
-<select name="keys" id="telco" class="form-control txt" required>
+<select name="keys" id="telco_topup" class="form-control txt" required>
 <?php foreach($info_cards->result as $v_card){?>
 <option value="<?php echo getObjectid($v_card->_id); ?>"> <?php echo $v_card->type; ?> <?php echo $v_card->name  .'  ('.$v_card->deduct .'%)' ; ?></option>
 <?php } ?>
@@ -62,7 +62,7 @@ if(!empty($info_cards->result)){ ?>
 </div>
 <div class="form-group">
 <label>Số lượng thẻ</label> 
-<select name="CardQuantity" id="quantity" class="form-control txt" required>
+<select name="CardQuantity" id="quantity_topup" class="form-control txt" required>
 	<?php for($i=1; $i<10; $i++){?>
 	<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
 	<?php } ?>
@@ -70,7 +70,7 @@ if(!empty($info_cards->result)){ ?>
 </div> 
 <div class="form-group"> 
 <label>Mệnh giá</label> 
-<select name="CardPrice" id="CardPrice" class="form-control txt" required>
+<select name="CardPrice" id="CardPrice_topup" class="form-control txt" required>
 	<option value="20000"> 20.000</option>
 	<option value="50000"> 50.000</option>
 	<option value="100000"> 100.000</option>
